@@ -1,0 +1,44 @@
+/* Global CSS */
+body {
+	font-family: sans-serif;
+	font-size: large;
+}
+
+/* This literally just lets us change the opacity of the background image */
+body::before {
+	background-image: url("./assets/images/03intonacorovinato2.jpg");
+	content: ' ';
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0.6;
+	background-position: 50% 0;
+	z-index: -1;
+}
+
+.content-container {
+	padding: 15px;
+}
+
+.brand-logo {
+	height: 100%;
+}
+
+.brand-logo > img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.landing {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.landing > img {
+	width: 45dvh;
+}
