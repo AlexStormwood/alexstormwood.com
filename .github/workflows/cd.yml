@@ -14,7 +14,7 @@ jobs:
       - name: Set up NodeJS
         uses: actions/setup-node@v3
         with:
-          node-version: 'lts'
+          node-version: 'lts/-n'
       - name: Build the site
         run: |
           npm run build
