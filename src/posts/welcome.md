@@ -1,7 +1,4 @@
----
-layout: blogpost.njk
-title: Welcome to Alex's Journal
----
+
 
 # What is this?
 

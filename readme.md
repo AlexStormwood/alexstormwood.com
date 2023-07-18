@@ -1,8 +1,8 @@
 # Alex's Journal
 
-- [Deployed at https://alexholderdeveloper.github.io/](https://alexholderdeveloper.github.io/)
+- [Deployed at https://alexstormwood.github.io/](https://alexstormwood.github.io/)
 
-- [Repository](https://github.com/AlexHolderDeveloper/alexholderdeveloper.github.io)
+- [Repository](https://github.com/alexstormwood/alexstormwood.github.io)
 
 
 ## TODO
