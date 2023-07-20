@@ -1,8 +1,8 @@
 {
-  "name": "eleventy-high-performance-blog",
+  "name": "alexander-stormwood-journal",
   "version": "5.0.2",
   "license": "MIT",
-  "description": "A starter repository for a blog web site using the Eleventy static site generator.",
+  "description": "Online journal of Alexander Stormwood, based on a high-performance 11ty blog template.",
   "scripts": {
     "build-ci": "npm run js-build && eleventy && npm run test",
     "build": "npm run clean && npm run build-ci",
@@ -21,12 +21,12 @@
   "pre-commit": [],
   "repository": {
     "type": "git",
-    "url": "git://github.com/11ty/eleventy-base-blog.git"
+    "url": "git://github.com/AlexStormwood/alexstormwood.github.io.git"
   },
   "bugs": {
-    "url": "https://github.com/11ty/eleventy-base-blog/issues"
+    "url": "https://github.com/AlexStormwood/alexstormwood.github.io/issues"
   },
-  "homepage": "https://github.com/11ty/eleventy-base-blog#readme",
+  "homepage": "https://github.com/AlexStormwood/alexstormwood.github.io#readme",
   "devDependencies": {
     "@11ty/eleventy": "^1.0.0",
     "@11ty/eleventy-navigation": "^0.1.3",
