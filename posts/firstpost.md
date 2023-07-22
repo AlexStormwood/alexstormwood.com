@@ -5,6 +5,7 @@ date: 2018-05-01
 scheduled: 2018-05-01
 tags:
   - another-tag
+  - some-tag
 layout: layouts/post.njk
 image: https://cdn.pixabay.com/photo/2020/08/30/20/54/rice-field-5530707_1280.jpg
 ---
@@ -19,7 +20,7 @@ Bring to the table win-win survival strategies to ensure proactive domination. A
 
 Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.
 
-``` text/2-3
+```js/2-3
 // this is a command
 function myCommand() {
 	let counter = 0;

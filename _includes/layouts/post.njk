@@ -8,9 +8,15 @@ templateClass: tmpl-post
 {% block extraArticleHeader %}
    {% set wc = content | striptags | wordcount %}
    {% set wPerMinute = (wc / 240) + 1 %}
-   <aside>
-     {{ wPerMinute | round }} min read.
-   </aside>
+   {% if page.url and page.url.indexOf("/posts/") > -1 %}
+		<p>Published <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></p>
+	{% endif %}
+	<aside>
+		{{ wPerMinute | round }} min read.
+	</aside>
+	<aside>
+		Tags: 
+	</aside>
 {% endblock %}
 
 {% set shareUrl = metadata.url + page.url %}
@@ -31,6 +37,19 @@ templateClass: tmpl-post
   </button>
 </share-widget>
 
+<h3>Related posts:</h3>
+{%- set relatedPosts = collections.all | filterByTags(tags) | excludeFromCollection(page.url) -%}
+{% if relatedPosts.length %}
+<aside>
+  <ul>
+    {%- for post in relatedPosts -%}
+    <li><a href="{{ post.url }}" data-tags="{{ post.data.tags | join(',') }}">{{ post.data.title }}</a></li>
+    {%- endfor -%}
+  </ul>
+</aside>
+{% endif %}
+
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -44,7 +63,7 @@ templateClass: tmpl-post
     "name": "{{ metadata.publisher.name }}",
     "logo": {
       "@type": "ImageObject",
-      "url": "{{ '/img/favicon/favicon-192x192.png' | addHash }}"
+      "url": "{{ '/img/favicon/favicon-32x32.png' | addHash }}"
     }
   },
   "url": "{{ metadata.url }}{{ canonicalUrl or page.url }}",

@@ -1,21 +1,28 @@
 ---
 pagination:
-  data: collections.all
+  data: collections.posts
   size: 20
   alias: entries
 layout: layouts/home.njk
-permalink: /page-list/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber }}/{% endif %}
+title: Post List
+eleventyNavigation:
+  key: Post List
+  order: 3
+permalink: /archive/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber }}/{% endif %}
 ---
+
 <table>
   <thead>
     <th>URL</th>
     <th>Page Title</th>
+    <th>Tags</th>
   </thead>
   <tbody>
 {%- for entry in entries %}
   <tr>
     <td><a href="{{ entry.url }}"><code>{{ entry.url }}</code></a></td>
     <td>{{ entry.data.title }}</td>
+    <td>{{ entry.data.tags }}</td>
   </tr>
 {%- endfor %}
   </tbody>

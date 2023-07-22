@@ -88,9 +88,9 @@
           {{ content | safe }}
         {% endblock %}
 
-        {% if page.url and page.url.indexOf("/posts/") > -1 %}
+        {# {% if page.url and page.url.indexOf("/posts/") > -1 %}
           <p>Published <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></p>
-        {% endif %}
+        {% endif %} #}
       </article>
     </main>
 
@@ -99,5 +99,7 @@
     </footer>
 
     <!-- Current page: {{ page.url | url }} -->
+    {% mermaid_js %}
+
   </body>
 </html>
