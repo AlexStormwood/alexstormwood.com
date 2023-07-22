@@ -16,3 +16,5 @@ For the majority of game developers and their games: no.
 # Long Answer
 
 There's a few questions to ask before committing to add blockchain-based functionality to your game.
+
+Question 1: Can pigs fly?
