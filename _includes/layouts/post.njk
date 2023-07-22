@@ -8,20 +8,28 @@ templateClass: tmpl-post
 {% block extraArticleHeader %}
    {% set wc = content | striptags | wordcount %}
    {% set wPerMinute = (wc / 240) + 1 %}
-   {% if page.url and page.url.indexOf("/posts/") > -1 %}
-		<p>Published <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></p>
-	{% endif %}
+
 	<aside>
 		{{ wPerMinute | round }} min read.
 	</aside>
-	<aside>
-		Tags: 
-	</aside>
+  <aside>
+    Tags: 
+    {% for tag in tags -%}
+      {% if tag !== 'posts' %}
+          <a class="tag" href="/tags/{{ tag }}">{{ tag }}</a><span>,</span>
+      {% endif %}
+    {%- endfor %}
+  </aside>
 {% endblock %}
 
 {% set shareUrl = metadata.url + page.url %}
 
 {% block article %}
+   {% if page.url and page.url.indexOf("/posts/") > -1 %}
+		<p>Published <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></p>
+    <hr />
+	{% endif %}
+
 {{ content | safe }}
 
 <h1>🙏🙏🙏</h1>
