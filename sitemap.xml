@@ -11,7 +11,7 @@
   
   <url>
     <loc>https://alexstormwood.github.io/posts/firstpost/</loc>
-    <lastmod>2023-07-20T23:34:22.000Z</lastmod>
+    <lastmod>2023-07-22T11:26:20.000Z</lastmod>
   </url>
   
   
@@ -23,34 +23,8 @@
     
   
   <url>
-    <loc>https://alexstormwood.github.io/posts/secondpost/</loc>
-    <lastmod>2023-07-20T23:34:22.000Z</lastmod>
-  </url>
-  
-  
-  
-  
-  
-  
-  
-    
-  
-  <url>
-    <loc>https://alexstormwood.github.io/posts/thirdpost/</loc>
-    <lastmod>2023-07-20T23:34:22.000Z</lastmod>
-  </url>
-  
-  
-  
-  
-  
-  
-  
-    
-  
-  <url>
-    <loc>https://alexstormwood.github.io/posts/fourthpost/</loc>
-    <lastmod>2023-07-20T23:34:22.000Z</lastmod>
+    <loc>https://alexstormwood.github.io/posts/DoesYourVideogameNeedABlockchain/</loc>
+    <lastmod>2023-07-22T11:26:20.000Z</lastmod>
   </url>
   
   
@@ -63,20 +37,7 @@
   
   <url>
     <loc>https://alexstormwood.github.io/about/</loc>
-    <lastmod>2023-07-20T23:35:28.979Z</lastmod>
-  </url>
-  
-  
-  
-  
-  
-  
-    
-  
-  
-  <url>
-    <loc>https://alexstormwood.github.io/posts/</loc>
-    <lastmod>2023-07-20T23:35:28.979Z</lastmod>
+    <lastmod>2023-07-22T11:26:35.426Z</lastmod>
   </url>
   
   
@@ -89,7 +50,7 @@
   
   <url>
     <loc>https://alexstormwood.github.io/</loc>
-    <lastmod>2023-07-20T23:35:28.999Z</lastmod>
+    <lastmod>2023-07-22T11:26:35.450Z</lastmod>
   </url>
   
   
@@ -101,8 +62,8 @@
   
   
   <url>
-    <loc>https://alexstormwood.github.io/page-list/</loc>
-    <lastmod>2023-07-20T23:35:29.003Z</lastmod>
+    <loc>https://alexstormwood.github.io/archive/</loc>
+    <lastmod>2023-07-22T11:26:35.454Z</lastmod>
   </url>
   
   
@@ -115,7 +76,7 @@
   
   <url>
     <loc>https://alexstormwood.github.io/readme/</loc>
-    <lastmod>2023-07-20T23:35:29.003Z</lastmod>
+    <lastmod>2023-07-22T11:26:35.454Z</lastmod>
   </url>
   
   
@@ -128,7 +89,7 @@
   
   <url>
     <loc>https://alexstormwood.github.io/tags/</loc>
-    <lastmod>2023-07-20T23:35:29.003Z</lastmod>
+    <lastmod>2023-07-22T11:26:35.454Z</lastmod>
   </url>
   
   
@@ -141,7 +102,7 @@
   
   <url>
     <loc>https://alexstormwood.github.io/tags/another-tag/</loc>
-    <lastmod>2023-07-20T23:35:29.003Z</lastmod>
+    <lastmod>2023-07-22T11:26:35.454Z</lastmod>
   </url>
   
   
@@ -153,21 +114,8 @@
   
   
   <url>
-    <loc>https://alexstormwood.github.io/tags/second-tag/</loc>
-    <lastmod>2023-07-20T23:35:29.003Z</lastmod>
-  </url>
-  
-  
-  
-  
-  
-  
-    
-  
-  
-  <url>
-    <loc>https://alexstormwood.github.io/tags/number-2/</loc>
-    <lastmod>2023-07-20T23:35:29.003Z</lastmod>
+    <loc>https://alexstormwood.github.io/tags/some-tag/</loc>
+    <lastmod>2023-07-22T11:26:35.454Z</lastmod>
   </url>
   
   
@@ -180,7 +128,7 @@
   
   <url>
     <loc>https://alexstormwood.github.io/third_party/eleventy-plugin-local-images/CONTRIBUTING/</loc>
-    <lastmod>2023-07-20T23:35:29.003Z</lastmod>
+    <lastmod>2023-07-22T11:26:35.454Z</lastmod>
   </url>
   
   
@@ -193,6 +141,6 @@
   
   <url>
     <loc>https://alexstormwood.github.io/third_party/eleventy-plugin-local-images/README/</loc>
-    <lastmod>2023-07-20T23:35:29.003Z</lastmod>
+    <lastmod>2023-07-22T11:26:35.454Z</lastmod>
   </url>
 </urlset>
