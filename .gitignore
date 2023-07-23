@@ -8,3 +8,5 @@ js/min.js.map
 .vscode/
 .netlify/
 export
+
+*:Zone.Identifier

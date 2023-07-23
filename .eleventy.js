@@ -19,10 +19,22 @@ const localImages = require("./third_party/eleventy-plugin-local-images/.elevent
 const CleanCSS = require("clean-css");
 const GA_ID = require("./_data/metadata.json").googleAnalyticsId;
 
+let options = {
+  // whatever options you have set for the library here
+};
+const mdfigcaption  = require('markdown-it-image-figures');
+let figoptions = {
+  figcaption: true
+};
+
+
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(pluginNavigation);
+
+
 
   eleventyConfig.addPlugin(localImages, {
     distPath: "_site",
@@ -175,8 +187,10 @@ module.exports = function (eleventyConfig) {
     permalink: true,
     permalinkClass: "direct-link",
     permalinkSymbol: "#",
+    mdfigcaption, figoptions
   });
   eleventyConfig.setLibrary("md", markdownLibrary);
+
 
   // Browsersync Overrides
   eleventyConfig.setBrowserSyncConfig({
