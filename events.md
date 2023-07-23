@@ -19,9 +19,7 @@ Seen me at one of these? Awesome! Looking forward to reconnect 😀
 
 * Coder Academy Support Hub (Support For All Cohorts) - August 2022 to present
 
-* Coder Academy Standard May 2023 Intake - May 2023 to March 2024
-
-* Coder Academy Standard February 2023 Intake - February 2023 to December 2023
+<!-- * Coder Academy Standard February 2023 Intake - February 2023 to December 2023 -->
 
 * Coder Academy Standard October 2022 Intake - October 2022 to August 2023
 
