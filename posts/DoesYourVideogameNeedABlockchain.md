@@ -9,19 +9,19 @@ tags:
 layout: layouts/post.njk
 ---
 
-# Short Answer
+## Short Answer
 
 For the majority of game developers and their games: 
 
 no.
 
-# Long Answer
+## Long Answer
 
 There are several questions to ask before committing to add blockchain-based functionality to your game.
 
 The questions below are ordered in terms of dependencies; meaning that if you cannot proceed past one question, then all further questions are irrelevant and you have gained your answer already.
 
-## Does the game need to store any state or save any data at all?
+### Does the game need to store any state or save any data at all?
 
 If you answered "no" to this question, then you don't need a blockchain. You can stop here.
 
@@ -31,7 +31,7 @@ And even then, the more-popular arcade games often stored at least a leaderboard
 
 Most developers should answer "yes" to this question, and move on to the next question.
 
-## Are there multiple writers?
+### Are there multiple writers?
 
 A "writer" is a source of save data, or an editor of save data.
 
@@ -41,7 +41,7 @@ It's a bit of an abstract concept, so here are some examples:
 
 - One game client (eg. a Nintendo Switch game console) that creates save data for a specific game and stores that save data on that same game client, and the data is shared to other game clients via a system "cloud save data" feature. Even if the same player or human is responsible for all game clients in this system, there are now multiple clients in this system. Which game client is the source of truth? What happens when a game client makes save data modifications while offline and unable to sync with the other game clients? There are multiple writers in this example.
 
-- One game server runs a game that game clients can connect to. The game server is authoritative, but allows the game clients to send human inputs to the server to control characters and interact with the world. Even if the game server has incredible logic to maintain authority over the save data, maintaining the legitimacy of game client inputs is a case of "whack-a-mole" -- there could be hackers, there could be glitches, or any other unforeseen thing that allows game clients to temporarily game authority over some save data. There are multiple writers in this system.
+- One game server runs a game that game clients can connect to. The game server is authoritative, but allows the game clients to send human inputs to the server to control characters and interact with the world. Even if the game server has incredible logic to maintain authority over the save data, maintaining the legitimacy of game client inputs is a case of "whack-a-mole" -- there could be hackers, there could be glitches, or any other unforeseen thing that allows game clients to temporarily gain authority over some save data. There are multiple writers in this system.
 
 A single writer or editor of data is the sole source of truth for that data. 
 
@@ -55,7 +55,7 @@ If you answered "no" to this question, then you don't need a blockchain. You can
 
 If you answered "yes" to this question, you can move on to the next question.
 
-## Can you use an always-online trusted third-party to verify any data?
+### Can you use an always-online trusted third-party to verify any data?
 
 A trusted third-party is an owner or verifier of data that exists outside of the game. This means that they must also be online, and always available.
 
@@ -93,7 +93,7 @@ If you answered "yes" to this question, then you don't need a blockchain. You ca
 
 
 
-## Are all writers known?
+### Are all writers known?
 
 This one can be hard to think of, depending on your game.
 
@@ -115,7 +115,7 @@ If you answered "no" to this question, then you don't need a blockchain. You can
 
 If you answered "yes" to this question, you can move on to the next question.
 
-## Are all writers trusted?
+### Are all writers trusted?
 
 So, let's think in the context of the previous questions here:
 
@@ -143,7 +143,7 @@ If you answered "no" to this question, you can move on to the next question.
 If you answered "yes" to this question, then you don't need a blockchain. You can stop here.
 
 
-## Is your game going to be distributed or published through any of these platforms?
+### Is your game going to be distributed or published through any of these platforms?
 
 - Steam
 - Microsoft Store / Xbox Store / Xbox consoles
@@ -170,7 +170,7 @@ If your game is going on any of these platforms, then you don't need a blockchai
 
 If your game is distributed through your own systems or platforms, and paid for through your own financial institutions or through blockchain-friendly institituions, or if your game is entirely free-to-play (and distributed yourself, since platforms sometimes have strict rules about F2P game distribution!), you can continue to the next question.
 
-## Are you using any of these platforms or providers for account functionality?
+### Are you using any of these platforms or providers for account functionality?
 
 - Steam
 - Microsoft / Azure / Entra / Xbox / Xbox Live
@@ -227,7 +227,7 @@ If a blockchain adds functionality like that, well... that's just a cloud system
 
 If you're confident that your authentication system does not need cloud architecture and is handled safely & completely through a public blockchain, alright... Move on to the next question.
 
-## Does your game rely on networked, real-time gameplay?
+### Does your game rely on networked, real-time gameplay?
 
 Basically: is your online multiplayer game turn-based? If so, continue to the next question.
 
@@ -237,7 +237,7 @@ Blockchains are slow to run. Yes, they may get faster over time as improvements 
 
 It's not suitable for all types of game data, and not suitable for all genres of games.
 
-## Is public verifiability required?
+### Is public verifiability required?
 
 Public verifiability is a way of saying that all transactions, changes or commands within a system of data can be proven by any and all users regardless of their roles or authorization.
 
