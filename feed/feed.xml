@@ -5,7 +5,7 @@
 	
 	<link href="https://alexstormwood.github.io/feed/feed.xml" rel="self"/>
 	<link href="https://alexstormwood.github.io"/>
-	<updated>2018-05-02T00:00:00+00:00</updated>
+	<updated>2023-07-24T00:00:00+00:00</updated>
 	<id>https://alexstormwood.github.io</id>
 	<author>
 		<name>Alexander Stormwood</name>
@@ -13,33 +13,182 @@
 	</author>
 	
 	<entry>
-		<title>This is my first post.</title>
-		<link href="https://alexstormwood.github.io/posts/firstpost/"/>
-		<updated>2018-05-01T00:00:00+00:00</updated>
-		<id>https://alexstormwood.github.io/posts/firstpost/</id>
-		<content type="html">
-		  &lt;p&gt;Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.&lt;/p&gt;
-&lt;p&gt;Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://cdn.pixabay.com/photo/2020/08/30/20/54/rice-field-5530707_1280.jpg&quot; alt=&quot;An image&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;section-header&quot;&gt;Section Header &lt;a class=&quot;direct-link&quot; href=&quot;#section-header&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.&lt;/p&gt;
-&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;highlight-line&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// this is a command&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;myCommand&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;mark class=&quot;highlight-line highlight-line-active&quot;&gt;	&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; counter &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/mark&gt;&lt;br&gt;&lt;mark class=&quot;highlight-line highlight-line-active&quot;&gt;	counter&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/mark&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// Test with a line break above this line.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;highlight-line&quot;&gt;console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;Test&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-
-			
-		</content>
-	</entry>
-	
-	<entry>
 		<title>Does your videogame need a blockchain?</title>
 		<link href="https://alexstormwood.github.io/posts/DoesYourVideogameNeedABlockchain/"/>
-		<updated>2018-05-02T00:00:00+00:00</updated>
+		<updated>2023-07-24T00:00:00+00:00</updated>
 		<id>https://alexstormwood.github.io/posts/DoesYourVideogameNeedABlockchain/</id>
 		<content type="html">
 		  &lt;h1 id=&quot;short-answer&quot;&gt;Short Answer &lt;a class=&quot;direct-link&quot; href=&quot;#short-answer&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;For the majority of game developers and their games: no.&lt;/p&gt;
+&lt;p&gt;For the majority of game developers and their games:&lt;/p&gt;
+&lt;p&gt;no.&lt;/p&gt;
 &lt;h1 id=&quot;long-answer&quot;&gt;Long Answer &lt;a class=&quot;direct-link&quot; href=&quot;#long-answer&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;There&#39;s a few questions to ask before committing to add blockchain-based functionality to your game.&lt;/p&gt;
-&lt;p&gt;Question 1: Can pigs fly?&lt;/p&gt;
+&lt;p&gt;There are several questions to ask before committing to add blockchain-based functionality to your game.&lt;/p&gt;
+&lt;p&gt;The questions below are ordered in terms of dependencies; meaning that if you cannot proceed past one question, then all further questions are irrelevant and you have gained your answer already.&lt;/p&gt;
+&lt;h2 id=&quot;does-the-game-need-to-store-any-state-or-save-any-data-at-all%3F&quot;&gt;Does the game need to store any state or save any data at all? &lt;a class=&quot;direct-link&quot; href=&quot;#does-the-game-need-to-store-any-state-or-save-any-data-at-all%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;If you answered &amp;quot;no&amp;quot; to this question, then you don&#39;t need a blockchain. You can stop here.&lt;/p&gt;
+&lt;p&gt;It&#39;s very rare for games to exist without the need to save data these days - this is more applicable to arcade games, especially the type where you could enter a code to resume your progress instead of selecting saved data from a user interface.&lt;/p&gt;
+&lt;p&gt;And even then, the more-popular arcade games often stored at least a leaderboard of high scores as their save data.&lt;/p&gt;
+&lt;p&gt;Most developers should answer &amp;quot;yes&amp;quot; to this question, and move on to the next question.&lt;/p&gt;
+&lt;h2 id=&quot;are-there-multiple-writers%3F&quot;&gt;Are there multiple writers? &lt;a class=&quot;direct-link&quot; href=&quot;#are-there-multiple-writers%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;A &amp;quot;writer&amp;quot; is a source of save data, or an editor of save data.&lt;/p&gt;
+&lt;p&gt;It&#39;s a bit of an abstract concept, so here are some examples:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;One game client (eg. a Nintendo Switch game console) that creates save data for a specific game and stores that save data on that same game client, and the data is never shared to other game clients. There is only one writer in this example.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;One game client (eg. a Nintendo Switch game console) that creates save data for a specific game and stores that save data on that same game client, and the data is shared to other game clients via a system &amp;quot;cloud save data&amp;quot; feature. Even if the same player or human is responsible for all game clients in this system, there are now multiple clients in this system. Which game client is the source of truth? What happens when a game client makes save data modifications while offline and unable to sync with the other game clients? There are multiple writers in this example.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;One game server runs a game that game clients can connect to. The game server is authoritative, but allows the game clients to send human inputs to the server to control characters and interact with the world. Even if the game server has incredible logic to maintain authority over the save data, maintaining the legitimacy of game client inputs is a case of &amp;quot;whack-a-mole&amp;quot; -- there could be hackers, there could be glitches, or any other unforeseen thing that allows game clients to temporarily game authority over some save data. There are multiple writers in this system.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A single writer or editor of data is the sole source of truth for that data.&lt;/p&gt;
+&lt;p&gt;Multiple writers introduce the issue of trust. A system without multiple writers has no trust issue.&lt;/p&gt;
+&lt;p&gt;Blockchains &lt;em&gt;can&lt;/em&gt; address trust issues.&lt;/p&gt;
+&lt;p&gt;Compare your game to the examples above.&lt;/p&gt;
+&lt;p&gt;If you answered &amp;quot;no&amp;quot; to this question, then you don&#39;t need a blockchain. You can stop here.&lt;/p&gt;
+&lt;p&gt;If you answered &amp;quot;yes&amp;quot; to this question, you can move on to the next question.&lt;/p&gt;
+&lt;h2 id=&quot;can-you-use-an-always-online-trusted-third-party-to-verify-any-data%3F&quot;&gt;Can you use an always-online trusted third-party to verify any data? &lt;a class=&quot;direct-link&quot; href=&quot;#can-you-use-an-always-online-trusted-third-party-to-verify-any-data%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;A trusted third-party is an owner or verifier of data that exists outside of the game. This means that they must also be online, and always available.&lt;/p&gt;
+&lt;p&gt;If the game client is offline, save data cannot be verified.&lt;/p&gt;
+&lt;p&gt;This question is best-viewed as &amp;quot;Do you use (insert platform here) cloud save functionality?&amp;quot;&lt;/p&gt;
+&lt;p&gt;For example:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One game client (eg. a Nintendo Switch game console) that creates save data for a specific game and stores that save data on that same game client, and the data is shared to other game clients via a system &amp;quot;cloud save data&amp;quot; feature.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Yes, this was an example from the &amp;quot;are there multiple writers?&amp;quot; question - if you have your save data managed by a cloud service, it may be beneficial to lock out players from playing the game if they&#39;re offline.&lt;/p&gt;
+&lt;p&gt;This is common on smartphone games, where a device is almost-always used when online. Systems like Google Play Games manage save data, and are always online.&lt;/p&gt;
+&lt;p&gt;Additionally, you can be the trusted third party to the game. Meaning:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If you&#39;re running your own identity system, you are the trusted third party for your player data.&lt;/li&gt;
+&lt;li&gt;If you&#39;re running your own game networking system, are you building your own dedicated servers? If so, you are the trusted third party for player data.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you have to continuously run and maintain a service for the game to run or for the game data to be verified, then you are the trusted third party.&lt;/p&gt;
+&lt;p&gt;Blockchain is meant to let the clients or end-users be in charge, figuring out their own trust based on the rules of the system. Blockchains exist to make sure everyone can verify all other writers in the system. It assumes that no one can be trusted, therefore everyone must be validated by each other.&lt;/p&gt;
+&lt;p&gt;If you have a trusted third party (TTP), then whatever that TTP says is &amp;quot;the law&amp;quot; - the TTP is in charge.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Hey! Careful here - the usual &amp;quot;yes, move on&amp;quot; does not apply!
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If you answered &amp;quot;no&amp;quot; to this question, you can move on to the next question.&lt;/p&gt;
+&lt;p&gt;If you answered &amp;quot;yes&amp;quot; to this question, then you don&#39;t need a blockchain. You can stop here.&lt;/p&gt;
+&lt;h2 id=&quot;are-all-writers-known%3F&quot;&gt;Are all writers known? &lt;a class=&quot;direct-link&quot; href=&quot;#are-all-writers-known%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;This one can be hard to think of, depending on your game.&lt;/p&gt;
+&lt;p&gt;Videogames are front-end applications, fundamentally.&lt;br&gt;
+If you don&#39;t know who is running your front-end, then you are opening yourself to responsibilities of any negative actions that malicious users perform.&lt;br&gt;
+You should know who is interacting with your backend or online systems, so you should be able to identify each front-end client that would be performing those interactions.&lt;br&gt;
+Videogames have numerous personally-identifying pieces of data in them, as well as the ability to use the software and hardware on the game-executing device to create personally-identifying pieces of data.&lt;/p&gt;
+&lt;p&gt;For example, even if you don&#39;t run an account system that lets humans set up usernames - consoles like the Nintendo Switch provide a device identifier that you can access and use in your game.&lt;/p&gt;
+&lt;p&gt;Slightly related to this issue of known writers is the rise of dedicated servers.&lt;/p&gt;
+&lt;p&gt;Peer-to-peer network communication is the most common way that writers would not be known. You only know about peers when they&#39;re already actively doing things to the save data or interacting with your game client, and you may not be able to identify those peers if they disconnect and reconnect later (but as above, your game client can do things about that!). There&#39;s no pre-check or verification system in place there - peers/writers just write data and communicate those changes to the other peers.&lt;/p&gt;
+&lt;p&gt;But if your online game uses a dedicated server? Well, a dedicated server is a trusted third party to all connected players.&lt;br&gt;
+If your game uses dedicated servers, it doesn&#39;t matter if you don&#39;t know all writers - your players have a trusted third party in charge.&lt;/p&gt;
+&lt;p&gt;If you answered &amp;quot;no&amp;quot; to this question, then you don&#39;t need a blockchain. You can stop here.&lt;/p&gt;
+&lt;p&gt;If you answered &amp;quot;yes&amp;quot; to this question, you can move on to the next question.&lt;/p&gt;
+&lt;h2 id=&quot;are-all-writers-trusted%3F&quot;&gt;Are all writers trusted? &lt;a class=&quot;direct-link&quot; href=&quot;#are-all-writers-trusted%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;So, let&#39;s think in the context of the previous questions here:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;you&#39;re building a multiplayer game with online connectivity&lt;/li&gt;
+&lt;li&gt;players must &lt;strong&gt;always&lt;/strong&gt; be connected to the internet while running the game, even in menus&lt;/li&gt;
+&lt;li&gt;players can drop in and out, and resume their gameplay with the same game data that they had in previous sessions&lt;/li&gt;
+&lt;li&gt;you aren&#39;t using a platform-provided identity system&lt;/li&gt;
+&lt;li&gt;you aren&#39;t using a platform-provided networking system&lt;/li&gt;
+&lt;li&gt;you aren&#39;t using any cloud-hosted identity system such as Google IAM or Unity Authentication&lt;/li&gt;
+&lt;li&gt;you aren&#39;t using any dedicated servers in the online gameplay&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The type of game that you&#39;re making must be very specific! We&#39;ll explore that more shortly.&lt;/p&gt;
+&lt;p&gt;Almost all developers won&#39;t reach this point in the questionnaire.&lt;/p&gt;
+&lt;p&gt;With so many ways to identify players and associate them to accounts in a system, and with so many platforms fulfilling the role of a trusted third party - blockchains become redundant in most games.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Hey! Careful here - the usual &amp;quot;yes, move on&amp;quot; does not apply!
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If you answered &amp;quot;no&amp;quot; to this question, you can move on to the next question.&lt;/p&gt;
+&lt;p&gt;If you answered &amp;quot;yes&amp;quot; to this question, then you don&#39;t need a blockchain. You can stop here.&lt;/p&gt;
+&lt;h2 id=&quot;is-your-game-going-to-be-distributed-or-published-through-any-of-these-platforms%3F&quot;&gt;Is your game going to be distributed or published through any of these platforms? &lt;a class=&quot;direct-link&quot; href=&quot;#is-your-game-going-to-be-distributed-or-published-through-any-of-these-platforms%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Steam&lt;/li&gt;
+&lt;li&gt;Microsoft Store / Xbox Store / Xbox consoles&lt;/li&gt;
+&lt;li&gt;Google Play&lt;/li&gt;
+&lt;li&gt;Apple App Store&lt;/li&gt;
+&lt;li&gt;Samsung Store&lt;/li&gt;
+&lt;li&gt;Nintendo eShop / Nintendo consoles&lt;/li&gt;
+&lt;li&gt;Playstation / Playstation Store&lt;/li&gt;
+&lt;li&gt;Epic Games Launcher&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://itch.io/&quot;&gt;itch.io&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Gamejolt&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(Did I miss a platform? Email me!)&lt;/p&gt;
+&lt;p&gt;These platforms all provide ways for your game to use them as a trusted third party.&lt;/p&gt;
+&lt;p&gt;Each of those platforms or distributors have user identification built into their system. Purchases of your game in those systems are tied to a specific person - therefore, those platforms or distributors are trusted third parties. Especially if they&#39;re taking a cut of any transactions or purchases.&lt;/p&gt;
+&lt;p&gt;Some platforms also ban anything related to blockchains.&lt;/p&gt;
+&lt;p&gt;Some platforms require microtransactions to be handled through platform-specific tools, and are strict about what types of purchases or which financial institutions are allowed to be involved in a transaction. This may be less of an issue over time, but it&#39;s safest to just... not... use blockchains or involve any blockchain-specific data in any microtransactions or in-app purchases.&lt;/p&gt;
+&lt;p&gt;If your game is going on any of these platforms, then you don&#39;t need a blockchain. You can stop here.&lt;/p&gt;
+&lt;p&gt;If your game is distributed through your own systems or platforms, and paid for through your own financial institutions or through blockchain-friendly institituions, or if your game is entirely free-to-play (and distributed yourself, since platforms sometimes have strict rules about F2P game distribution!), you can continue to the next question.&lt;/p&gt;
+&lt;h2 id=&quot;are-you-using-any-of-these-platforms-or-providers-for-account-functionality%3F&quot;&gt;Are you using any of these platforms or providers for account functionality? &lt;a class=&quot;direct-link&quot; href=&quot;#are-you-using-any-of-these-platforms-or-providers-for-account-functionality%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Steam&lt;/li&gt;
+&lt;li&gt;Microsoft / Azure / Entra / Xbox / Xbox Live&lt;/li&gt;
+&lt;li&gt;Google / Google Play / Google Firebase / Google Identity&lt;/li&gt;
+&lt;li&gt;Apple&lt;/li&gt;
+&lt;li&gt;Playstation / Playstation Network&lt;/li&gt;
+&lt;li&gt;Nintendo / Nintendo Switch Online&lt;/li&gt;
+&lt;li&gt;Epic Games / Epic Online Services&lt;/li&gt;
+&lt;li&gt;Unity / Unity Authentication&lt;/li&gt;
+&lt;li&gt;Twitch&lt;/li&gt;
+&lt;li&gt;Discord&lt;/li&gt;
+&lt;li&gt;GitHub&lt;/li&gt;
+&lt;li&gt;Account integration to a social media platform&lt;/li&gt;
+&lt;li&gt;Custom accounts through your own backend and auth systems&lt;/li&gt;
+&lt;li&gt;Other (there&#39;s always more account providers than we can list!)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If your game uses any of those platforms or providers for account functionality, then you have trusted third parties in your game. If you can&#39;t trust data coming from them, then you can&#39;t trust any account data or money from anyone. This means that you don&#39;t need a blockchain. You can stop here.&lt;/p&gt;
+&lt;p&gt;If you aren&#39;t using any options above - even your own account/auth system - then your authentication systems rely on hashes to protect a user&#39;s data. That&#39;s fine... in some cases, and only for now.&lt;/p&gt;
+&lt;p&gt;Hashes are an awesome piece of computer cryptography, and there&#39;s plenty of reading about it - I&#39;ll include some of the highlights of my favourite article:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://supertokens.com/blog/password-hashing-salting&quot;&gt;https://supertokens.com/blog/password-hashing-salting&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So, let&#39;s say that a user has a password of &amp;quot;12345&amp;quot;.&lt;br&gt;
+The hash for that password is &amp;quot;5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5&amp;quot;.&lt;/p&gt;
+&lt;p&gt;If you don&#39;t use a cloud-based authentication system, then that hash is stored in an entry on a blockchain. In public. For everyone to see.&lt;/p&gt;
+&lt;p&gt;What happens if two users both have &amp;quot;12345&amp;quot; as their password?&lt;/p&gt;
+&lt;p&gt;There&#39;ll be two entries in the blockchain with a password value of &amp;quot;5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5&amp;quot;.&lt;/p&gt;
+&lt;p&gt;If one person gets their password hacked and figured out, then both users have been hacked.&lt;/p&gt;
+&lt;p&gt;This means that as more users use your game, the data becomes less secure.&lt;/p&gt;
+&lt;p&gt;This becomes especially problematic, as people are likely to reuse passwords across their various apps, accounts, systems, devices, and so on. If they used &amp;quot;12345&amp;quot; as the password for your game, what else did they use that password for?&lt;/p&gt;
+&lt;p&gt;&amp;quot;Rainbow tables&amp;quot; are a public set of precomputed password hashes. Common passwords and their equivalent hashes. If you see a rise in &amp;quot;Did you try to log in? Here&#39;s a 2FA code&amp;quot; alerts on your social media accounts, it usually means your password recently got added to a rainbow table for hackers to use.&lt;/p&gt;
+&lt;p&gt;Now, &amp;quot;salt&amp;quot; can be added to a hash to solve this problem. But salts are brief, and the functions that create hashes and salts are designed to be quick to run. A hacker could run their own hash &amp;amp; salt functions to see what results they get, and eventually see the same results as your own system.&lt;/p&gt;
+&lt;p&gt;This means that even a salted, hashed password could get figured out and hacked. It takes a while, which means any data related to this password should be minimized (eg. don&#39;t store hashed emails and hashed usernames in a blockchain entry, just the game product-specific user ID and hashed password).&lt;/p&gt;
+&lt;p&gt;There&#39;s a whole big thing about how quantum computing threatens this, but that&#39;s not really a focus here.&lt;/p&gt;
+&lt;p&gt;Cloud systems / trusted third-parties run the same way, but the &lt;em&gt;architecture&lt;/em&gt; of those systems is what keeps their data secure. Meaning, any data on a blockchain must be public forever - that&#39;s an open invitation for hackers to try and try again until they break what they want to break.&lt;/p&gt;
+&lt;p&gt;Cloud systems can impose limits and rules on the usage of those cloud systems. Maybe databases can only be accessed X times per second, or can only be accessed by approved cloud systems, or can only be accessed by game clients with valid token for some other cloud system, or so on and so on.&lt;/p&gt;
+&lt;p&gt;If a blockchain adds functionality like that, well... that&#39;s just a cloud system wrapped around a blockchain. What&#39;s the point of the blockchain there?&lt;/p&gt;
+&lt;p&gt;If you&#39;re confident that your authentication system does not need cloud architecture and is handled safely &amp;amp; completely through a public blockchain, alright... Move on to the next question.&lt;/p&gt;
+&lt;h2 id=&quot;does-your-game-rely-on-networked%2C-real-time-gameplay%3F&quot;&gt;Does your game rely on networked, real-time gameplay? &lt;a class=&quot;direct-link&quot; href=&quot;#does-your-game-rely-on-networked%2C-real-time-gameplay%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Basically: is your online multiplayer game turn-based? If so, continue to the next question.&lt;/p&gt;
+&lt;p&gt;If not, stop here. You don&#39;t need a blockchain.&lt;/p&gt;
+&lt;p&gt;Blockchains are slow to run. Yes, they may get faster over time as improvements are made or new blockchains are developed - but the act of verifying data across a blockchain is slow.&lt;/p&gt;
+&lt;p&gt;It&#39;s not suitable for all types of game data, and not suitable for all genres of games.&lt;/p&gt;
+&lt;h2 id=&quot;is-public-verifiability-required%3F&quot;&gt;Is public verifiability required? &lt;a class=&quot;direct-link&quot; href=&quot;#is-public-verifiability-required%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Public verifiability is a way of saying that all transactions, changes or commands within a system of data can be proven by any and all users regardless of their roles or authorization.&lt;/p&gt;
+&lt;p&gt;Any user can see and confirm the data of any other user.&lt;/p&gt;
+&lt;p&gt;It&#39;s not always relevant to games, but it&#39;s useful for things like tracking ownership history of a commodity within a game&#39;s economy. Maybe someone uncovered an epic legendary item, and your system tracks every player that ever held it in their inventory? That&#39;s relevant to this question.&lt;/p&gt;
+&lt;p&gt;Private permissioned blockchains exist, meaning that data can exist in a blockchain without being completely public. But as mentioned in a previous question: the more features or mechanics added to a blockchain to help manage the data, the better you&#39;d be with a typical cloud architecture system instead.&lt;/p&gt;
+&lt;p&gt;If you reached this point in the questionnaire, then your game is extremely specific and not at all like the majority of games out in the world.&lt;/p&gt;
+&lt;p&gt;You could need a blockchain.&lt;/p&gt;
+&lt;h1 id=&quot;end%3F!&quot;&gt;End?! &lt;a class=&quot;direct-link&quot; href=&quot;#end%3F!&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;This is a very opinionated questionnaire. I know.&lt;/p&gt;
+&lt;p&gt;I teach IT - I help people learn about cloud services, databases, and so on.&lt;/p&gt;
+&lt;p&gt;Blockchains - to me - seem like a poor wannabe database with extra steps, and a heap of extra vulnerabilities.&lt;/p&gt;
+&lt;p&gt;Even if your browser-based, turn-based, indie game uses a blockchain - you need to understand that it really only has decent appropriateness for some mechanics and some situations.&lt;/p&gt;
+&lt;p&gt;Maybe you&#39;re aiming to make chain-based commerce between your game&#39;s chain and some other chain? Sounds cool, but that&#39;s specifically a huge attack vector to the tune of $2B in losses from 2022 (source below).&lt;/p&gt;
+&lt;p&gt;It&#39;s hard to find &amp;quot;we&#39;re so glad this game was built on a blockchain&amp;quot;-type stories where the game mechanic couldn&#39;t just be done via a database (eg. every blockchain-based pet game = use a database!), but there&#39;s plenty of &amp;quot;this game was hacked and disastrous consequences occured based on the hacking avenue provided by this blockchain-based technology&amp;quot;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.animocabrands.com/animoca-brands-update-on-hacking-of-discord-server-of-phantom-galaxies-will-cover-users-losses&quot;&gt;24 November 2021 - Animoca Brands update on hacking of Discord server of Phantom Galaxies, will cover users&#39; losses&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://arstechnica.com/gaming/2022/03/how-did-a-hacker-steal-over-600-million-from-a-crypto-gaming-blockchain/&quot;&gt;30 March 2022 - How did a hacker steal over $600 million from a crypto gaming blockchain?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://cointelegraph.com/news/2b-in-crypto-stolen-from-cross-chain-bridges-this-year-chainalysis&quot;&gt;04 August 2022 - $2B in crypto stolen from cross-chain bridges this year&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.investopedia.com/news/largest-cryptocurrency-hacks-so-far-year/&quot;&gt;17 November 2022 - The Largest Cryptocurrency Hacks So Far&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Please, just use existing technologies instead of this Web3 junk.&lt;/p&gt;
+&lt;p&gt;There are plenty of legislations, SDKs, tutorials, support resources, and so on for standard cloud backend + database-based services. Just do those.&lt;/p&gt;
+&lt;p&gt;Keep your customers safe, and make products that let your business grow safely.&lt;/p&gt;
 
 			
 		</content>
