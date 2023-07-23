@@ -18,18 +18,18 @@
 		<updated>2023-07-24T00:00:00+00:00</updated>
 		<id>https://alexstormwood.github.io/posts/DoesYourVideogameNeedABlockchain/</id>
 		<content type="html">
-		  &lt;h1 id=&quot;short-answer&quot;&gt;Short Answer &lt;a class=&quot;direct-link&quot; href=&quot;#short-answer&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+		  &lt;h2 id=&quot;short-answer&quot;&gt;Short Answer &lt;a class=&quot;direct-link&quot; href=&quot;#short-answer&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;For the majority of game developers and their games:&lt;/p&gt;
 &lt;p&gt;no.&lt;/p&gt;
-&lt;h1 id=&quot;long-answer&quot;&gt;Long Answer &lt;a class=&quot;direct-link&quot; href=&quot;#long-answer&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id=&quot;long-answer&quot;&gt;Long Answer &lt;a class=&quot;direct-link&quot; href=&quot;#long-answer&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;There are several questions to ask before committing to add blockchain-based functionality to your game.&lt;/p&gt;
 &lt;p&gt;The questions below are ordered in terms of dependencies; meaning that if you cannot proceed past one question, then all further questions are irrelevant and you have gained your answer already.&lt;/p&gt;
-&lt;h2 id=&quot;does-the-game-need-to-store-any-state-or-save-any-data-at-all%3F&quot;&gt;Does the game need to store any state or save any data at all? &lt;a class=&quot;direct-link&quot; href=&quot;#does-the-game-need-to-store-any-state-or-save-any-data-at-all%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;does-the-game-need-to-store-any-state-or-save-any-data-at-all%3F&quot;&gt;Does the game need to store any state or save any data at all? &lt;a class=&quot;direct-link&quot; href=&quot;#does-the-game-need-to-store-any-state-or-save-any-data-at-all%3F&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;If you answered &amp;quot;no&amp;quot; to this question, then you don&#39;t need a blockchain. You can stop here.&lt;/p&gt;
 &lt;p&gt;It&#39;s very rare for games to exist without the need to save data these days - this is more applicable to arcade games, especially the type where you could enter a code to resume your progress instead of selecting saved data from a user interface.&lt;/p&gt;
 &lt;p&gt;And even then, the more-popular arcade games often stored at least a leaderboard of high scores as their save data.&lt;/p&gt;
 &lt;p&gt;Most developers should answer &amp;quot;yes&amp;quot; to this question, and move on to the next question.&lt;/p&gt;
-&lt;h2 id=&quot;are-there-multiple-writers%3F&quot;&gt;Are there multiple writers? &lt;a class=&quot;direct-link&quot; href=&quot;#are-there-multiple-writers%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;are-there-multiple-writers%3F&quot;&gt;Are there multiple writers? &lt;a class=&quot;direct-link&quot; href=&quot;#are-there-multiple-writers%3F&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;A &amp;quot;writer&amp;quot; is a source of save data, or an editor of save data.&lt;/p&gt;
 &lt;p&gt;It&#39;s a bit of an abstract concept, so here are some examples:&lt;/p&gt;
 &lt;ul&gt;
@@ -40,7 +40,7 @@
 &lt;p&gt;One game client (eg. a Nintendo Switch game console) that creates save data for a specific game and stores that save data on that same game client, and the data is shared to other game clients via a system &amp;quot;cloud save data&amp;quot; feature. Even if the same player or human is responsible for all game clients in this system, there are now multiple clients in this system. Which game client is the source of truth? What happens when a game client makes save data modifications while offline and unable to sync with the other game clients? There are multiple writers in this example.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;One game server runs a game that game clients can connect to. The game server is authoritative, but allows the game clients to send human inputs to the server to control characters and interact with the world. Even if the game server has incredible logic to maintain authority over the save data, maintaining the legitimacy of game client inputs is a case of &amp;quot;whack-a-mole&amp;quot; -- there could be hackers, there could be glitches, or any other unforeseen thing that allows game clients to temporarily game authority over some save data. There are multiple writers in this system.&lt;/p&gt;
+&lt;p&gt;One game server runs a game that game clients can connect to. The game server is authoritative, but allows the game clients to send human inputs to the server to control characters and interact with the world. Even if the game server has incredible logic to maintain authority over the save data, maintaining the legitimacy of game client inputs is a case of &amp;quot;whack-a-mole&amp;quot; -- there could be hackers, there could be glitches, or any other unforeseen thing that allows game clients to temporarily gain authority over some save data. There are multiple writers in this system.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;A single writer or editor of data is the sole source of truth for that data.&lt;/p&gt;
@@ -49,7 +49,7 @@
 &lt;p&gt;Compare your game to the examples above.&lt;/p&gt;
 &lt;p&gt;If you answered &amp;quot;no&amp;quot; to this question, then you don&#39;t need a blockchain. You can stop here.&lt;/p&gt;
 &lt;p&gt;If you answered &amp;quot;yes&amp;quot; to this question, you can move on to the next question.&lt;/p&gt;
-&lt;h2 id=&quot;can-you-use-an-always-online-trusted-third-party-to-verify-any-data%3F&quot;&gt;Can you use an always-online trusted third-party to verify any data? &lt;a class=&quot;direct-link&quot; href=&quot;#can-you-use-an-always-online-trusted-third-party-to-verify-any-data%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;can-you-use-an-always-online-trusted-third-party-to-verify-any-data%3F&quot;&gt;Can you use an always-online trusted third-party to verify any data? &lt;a class=&quot;direct-link&quot; href=&quot;#can-you-use-an-always-online-trusted-third-party-to-verify-any-data%3F&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;A trusted third-party is an owner or verifier of data that exists outside of the game. This means that they must also be online, and always available.&lt;/p&gt;
 &lt;p&gt;If the game client is offline, save data cannot be verified.&lt;/p&gt;
 &lt;p&gt;This question is best-viewed as &amp;quot;Do you use (insert platform here) cloud save functionality?&amp;quot;&lt;/p&gt;
@@ -71,7 +71,7 @@
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;If you answered &amp;quot;no&amp;quot; to this question, you can move on to the next question.&lt;/p&gt;
 &lt;p&gt;If you answered &amp;quot;yes&amp;quot; to this question, then you don&#39;t need a blockchain. You can stop here.&lt;/p&gt;
-&lt;h2 id=&quot;are-all-writers-known%3F&quot;&gt;Are all writers known? &lt;a class=&quot;direct-link&quot; href=&quot;#are-all-writers-known%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;are-all-writers-known%3F&quot;&gt;Are all writers known? &lt;a class=&quot;direct-link&quot; href=&quot;#are-all-writers-known%3F&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;This one can be hard to think of, depending on your game.&lt;/p&gt;
 &lt;p&gt;Videogames are front-end applications, fundamentally.&lt;br&gt;
 If you don&#39;t know who is running your front-end, then you are opening yourself to responsibilities of any negative actions that malicious users perform.&lt;br&gt;
@@ -84,7 +84,7 @@ Videogames have numerous personally-identifying pieces of data in them, as well 
 If your game uses dedicated servers, it doesn&#39;t matter if you don&#39;t know all writers - your players have a trusted third party in charge.&lt;/p&gt;
 &lt;p&gt;If you answered &amp;quot;no&amp;quot; to this question, then you don&#39;t need a blockchain. You can stop here.&lt;/p&gt;
 &lt;p&gt;If you answered &amp;quot;yes&amp;quot; to this question, you can move on to the next question.&lt;/p&gt;
-&lt;h2 id=&quot;are-all-writers-trusted%3F&quot;&gt;Are all writers trusted? &lt;a class=&quot;direct-link&quot; href=&quot;#are-all-writers-trusted%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;are-all-writers-trusted%3F&quot;&gt;Are all writers trusted? &lt;a class=&quot;direct-link&quot; href=&quot;#are-all-writers-trusted%3F&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;So, let&#39;s think in the context of the previous questions here:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;you&#39;re building a multiplayer game with online connectivity&lt;/li&gt;
@@ -102,7 +102,7 @@ If your game uses dedicated servers, it doesn&#39;t matter if you don&#39;t know
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;If you answered &amp;quot;no&amp;quot; to this question, you can move on to the next question.&lt;/p&gt;
 &lt;p&gt;If you answered &amp;quot;yes&amp;quot; to this question, then you don&#39;t need a blockchain. You can stop here.&lt;/p&gt;
-&lt;h2 id=&quot;is-your-game-going-to-be-distributed-or-published-through-any-of-these-platforms%3F&quot;&gt;Is your game going to be distributed or published through any of these platforms? &lt;a class=&quot;direct-link&quot; href=&quot;#is-your-game-going-to-be-distributed-or-published-through-any-of-these-platforms%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;is-your-game-going-to-be-distributed-or-published-through-any-of-these-platforms%3F&quot;&gt;Is your game going to be distributed or published through any of these platforms? &lt;a class=&quot;direct-link&quot; href=&quot;#is-your-game-going-to-be-distributed-or-published-through-any-of-these-platforms%3F&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Steam&lt;/li&gt;
 &lt;li&gt;Microsoft Store / Xbox Store / Xbox consoles&lt;/li&gt;
@@ -122,7 +122,7 @@ If your game uses dedicated servers, it doesn&#39;t matter if you don&#39;t know
 &lt;p&gt;Some platforms require microtransactions to be handled through platform-specific tools, and are strict about what types of purchases or which financial institutions are allowed to be involved in a transaction. This may be less of an issue over time, but it&#39;s safest to just... not... use blockchains or involve any blockchain-specific data in any microtransactions or in-app purchases.&lt;/p&gt;
 &lt;p&gt;If your game is going on any of these platforms, then you don&#39;t need a blockchain. You can stop here.&lt;/p&gt;
 &lt;p&gt;If your game is distributed through your own systems or platforms, and paid for through your own financial institutions or through blockchain-friendly institituions, or if your game is entirely free-to-play (and distributed yourself, since platforms sometimes have strict rules about F2P game distribution!), you can continue to the next question.&lt;/p&gt;
-&lt;h2 id=&quot;are-you-using-any-of-these-platforms-or-providers-for-account-functionality%3F&quot;&gt;Are you using any of these platforms or providers for account functionality? &lt;a class=&quot;direct-link&quot; href=&quot;#are-you-using-any-of-these-platforms-or-providers-for-account-functionality%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;are-you-using-any-of-these-platforms-or-providers-for-account-functionality%3F&quot;&gt;Are you using any of these platforms or providers for account functionality? &lt;a class=&quot;direct-link&quot; href=&quot;#are-you-using-any-of-these-platforms-or-providers-for-account-functionality%3F&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Steam&lt;/li&gt;
 &lt;li&gt;Microsoft / Azure / Entra / Xbox / Xbox Live&lt;/li&gt;
@@ -161,12 +161,12 @@ The hash for that password is &amp;quot;5994471abb01112afcc18159f6cc74b4f511b998
 &lt;p&gt;Cloud systems can impose limits and rules on the usage of those cloud systems. Maybe databases can only be accessed X times per second, or can only be accessed by approved cloud systems, or can only be accessed by game clients with valid token for some other cloud system, or so on and so on.&lt;/p&gt;
 &lt;p&gt;If a blockchain adds functionality like that, well... that&#39;s just a cloud system wrapped around a blockchain. What&#39;s the point of the blockchain there?&lt;/p&gt;
 &lt;p&gt;If you&#39;re confident that your authentication system does not need cloud architecture and is handled safely &amp;amp; completely through a public blockchain, alright... Move on to the next question.&lt;/p&gt;
-&lt;h2 id=&quot;does-your-game-rely-on-networked%2C-real-time-gameplay%3F&quot;&gt;Does your game rely on networked, real-time gameplay? &lt;a class=&quot;direct-link&quot; href=&quot;#does-your-game-rely-on-networked%2C-real-time-gameplay%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;does-your-game-rely-on-networked%2C-real-time-gameplay%3F&quot;&gt;Does your game rely on networked, real-time gameplay? &lt;a class=&quot;direct-link&quot; href=&quot;#does-your-game-rely-on-networked%2C-real-time-gameplay%3F&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Basically: is your online multiplayer game turn-based? If so, continue to the next question.&lt;/p&gt;
 &lt;p&gt;If not, stop here. You don&#39;t need a blockchain.&lt;/p&gt;
 &lt;p&gt;Blockchains are slow to run. Yes, they may get faster over time as improvements are made or new blockchains are developed - but the act of verifying data across a blockchain is slow.&lt;/p&gt;
 &lt;p&gt;It&#39;s not suitable for all types of game data, and not suitable for all genres of games.&lt;/p&gt;
-&lt;h2 id=&quot;is-public-verifiability-required%3F&quot;&gt;Is public verifiability required? &lt;a class=&quot;direct-link&quot; href=&quot;#is-public-verifiability-required%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;is-public-verifiability-required%3F&quot;&gt;Is public verifiability required? &lt;a class=&quot;direct-link&quot; href=&quot;#is-public-verifiability-required%3F&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Public verifiability is a way of saying that all transactions, changes or commands within a system of data can be proven by any and all users regardless of their roles or authorization.&lt;/p&gt;
 &lt;p&gt;Any user can see and confirm the data of any other user.&lt;/p&gt;
 &lt;p&gt;It&#39;s not always relevant to games, but it&#39;s useful for things like tracking ownership history of a commodity within a game&#39;s economy. Maybe someone uncovered an epic legendary item, and your system tracks every player that ever held it in their inventory? That&#39;s relevant to this question.&lt;/p&gt;
