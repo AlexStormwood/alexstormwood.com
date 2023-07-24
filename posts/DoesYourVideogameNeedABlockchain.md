@@ -6,6 +6,7 @@ tags:
   - web3
   - gamedev
   - blockchain
+  - technology
 layout: layouts/post.njk
 ---
 
