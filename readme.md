@@ -11,3 +11,5 @@ Feel free to raise issues or whatever else for content on the website.
 This website is currently deployed at:
 
 - [alexstormwood.github.io](https://alexstormwood.github.io)
+- [https://alexanderstormwood.com/](https://alexanderstormwood.com/)
+- [https://alexstormwood.com/](https://alexstormwood.com/)
