@@ -8,6 +8,8 @@
   color: red;
 }
 
+
+
 /*
   Make image rasterization lazy. This means that e.g. the cost of the
   blurry placeholder is never paid if images load before entering
@@ -492,7 +494,40 @@ pre,
 ul {
   margin-bottom: 1.36rem;
 }
+
+aside .toc {
+  display: none;
+}
+
 @media (min-width: 600px) {
+
+  aside .toc {
+    display: block;
+  }
+
+  main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  main > aside {
+    max-width: 20dvw;
+    /* margin: 1dvw; */
+    padding: 1dvw;
+    position: fixed;
+    top: 3dvh;
+    background-color: #202020;
+  }
+  
+  main > article { 
+    max-width: 60dvw;
+    /* padding: 0%; */
+    /* margin: 0; */
+  }
+
+
+
   h1 {
     font-size: 4.3978rem;
     line-height: 4.4rem;
@@ -921,8 +956,8 @@ header nav label {
   text-align: right;
 }
 main {
-  max-width: 70rem;
-  margin: 0 auto;
+  /* max-width: 70rem; */
+  margin: 0;
   border-top: 0.5px solid #ccc;
 }
 footer {
@@ -944,7 +979,7 @@ footer p {
 article {
   max-width: 100%;
   padding: 1.5em;
-  width: 37.5em;
+  width: 75em;
   margin: 0 auto;
 }
 ol,
@@ -1124,3 +1159,5 @@ a {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary);
 }
+
+
