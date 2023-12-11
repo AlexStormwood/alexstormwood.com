@@ -83,7 +83,10 @@
     </header>
 
     <main>
-      <article>
+      <aside id="toc">
+        {{ content | toc | safe }}
+      </aside>
+      <article id="pageContents">
         {% block article %}
           {{ content | safe }}
         {% endblock %}
