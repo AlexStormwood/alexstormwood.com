@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-	<title>Alexander Stormwood</title>
+	<title>Alex Stormwood</title>
 	<subtitle>Alex Stormwood&#39;s online writing.</subtitle>
 	
 	<link href="https://alexstormwood.github.io/feed/feed.xml" rel="self"/>
@@ -8,7 +8,7 @@
 	<updated>2023-07-24T00:00:00+00:00</updated>
 	<id>https://alexstormwood.github.io</id>
 	<author>
-		<name>Alexander Stormwood</name>
+		<name>Alex Stormwood</name>
 		<email></email>
 	</author>
 	
