@@ -1,8 +1,8 @@
 {
-  "name": "alexander-stormwood-journal",
+  "name": "alex-stormwood-journal",
   "version": "5.0.2",
   "license": "MIT",
-  "description": "Online journal of Alexander Stormwood, based on a high-performance 11ty blog template.",
+  "description": "Online journal of Alex Stormwood, based on a high-performance 11ty blog template.",
   "scripts": {
     "build-ci": "npm run js-build && eleventy && npm run test",
     "build": "npm run clean && npm run build-ci",

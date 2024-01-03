@@ -1,5 +1,5 @@
 {
-  "title": "Alexander Stormwood",
+  "title": "Alex Stormwood",
   "url": "https://alexstormwood.github.io",
   "domain": "alexstormwood.github.io",
   "description": "Alex's writing on various tech-related topics and events.",
@@ -17,10 +17,10 @@
     "url": "https://alexstormwood.github.io/feed/feed.json"
   },
   "author": {
-    "name": "Alexander Stormwood",
+    "name": "Alex Stormwood",
     "twitterHandle": "AlexStormwood"
   },
   "publisher": {
-    "name": "Alexander Stormwood"
+    "name": "Alex Stormwood"
   }
 }

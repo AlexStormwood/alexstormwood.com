@@ -46,7 +46,7 @@ module.exports = function (eleventyConfig) {
     verbose: false,
   });
 
-  eleventyConfig.addPlugin(require("./_11ty/img-dim.js"));
+  //eleventyConfig.addPlugin(require("./_11ty/img-dim.js"));
   eleventyConfig.addPlugin(require("./_11ty/json-ld.js"));
   eleventyConfig.addPlugin(require("./_11ty/optimize-html.js"));
   eleventyConfig.addPlugin(require("./_11ty/apply-csp.js"));
