@@ -1,0 +1,11 @@
+
+
+nav {
+	background: linear-gradient(var(--theme-500), var(--theme-900));
+	color: var(--theme-0);
+	min-height: 50px;
+	
+	* {
+		padding: 5px;
+	}
+}
