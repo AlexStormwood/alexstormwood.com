@@ -29,3 +29,9 @@ nav {
 	}
 }
 
+.navbar-icon {
+	a {
+		text-decoration: none;
+		color: white;
+	}
+}

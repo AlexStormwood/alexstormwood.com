@@ -20,7 +20,8 @@
     "react-router-dom": "^6.23.1",
     "react-scroll-percentage-hook": "^1.2.2",
     "react-scroll-progress-read": "^0.0.13",
-    "react-syntax-highlighter": "^15.5.0"
+    "react-syntax-highlighter": "^15.5.0",
+    "reading-time-estimator": "^1.11.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

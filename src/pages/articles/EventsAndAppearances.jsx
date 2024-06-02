@@ -5,10 +5,6 @@ export default function EventsAndAppearances() {
 	return (
 		<div id="appearancePage">
 			<div>
-				<SubheadingAnchor headingLevel="h1">
-					Events and Appearances
-				</SubheadingAnchor>
-				<div>
 					<p>
 						Lists of workshops, projects, etc, that I&apos;ve worked on.
 					</p>
@@ -17,7 +13,6 @@ export default function EventsAndAppearances() {
 						😀
 					</p>
 				</div>
-			</div>
 
 			<div>
 				<SubheadingAnchor headingLevel="h2">
