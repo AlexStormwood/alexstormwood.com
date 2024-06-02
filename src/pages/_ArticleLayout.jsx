@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { Outlet, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import useScrollPercentage from "react-scroll-percentage-hook";
 import { readingTime } from "reading-time-estimator";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../styles/ArticleLayout.css";
-import ArticleMeta from "../articleMeta.js";
+import ArticleMeta from "../articleMeta.jsx";
+import RelatedPosts from "../components/RelatedPosts.jsx";
 
 function ArticleLayout() {
 	const { ref, percentage } = useScrollPercentage();
@@ -17,16 +18,21 @@ function ArticleLayout() {
 		day: "numeric",
 		year: "numeric"
 	}
+
+
 	useEffect(() => {
-		setEstimatedReadingTime(readingTime(document.getElementById("positionHelper").textContent));
 
 		setArticleRouteName(location.pathname.substring(location.pathname.lastIndexOf("/") + 1));
+		
 		
 	}, [location])
 
 	useEffect(() => {
 		if (articleRouteName){
 			document.title = ArticleMeta[articleRouteName].title + " | Alex Stormwood";
+			// console.log(ArticleMeta[articleRouteName]);
+			setEstimatedReadingTime(readingTime(document.getElementById("positionHelper").textContent));
+
 		}
 	}, [articleRouteName]);
 
@@ -53,8 +59,9 @@ function ArticleLayout() {
 						<p>Published: {new Date(ArticleMeta[articleRouteName]?.createdAt).toLocaleDateString("en-AU", dateFormatOptions)}</p>
 						<p>Last updated: {new Date(ArticleMeta[articleRouteName]?.lastUpdated).toLocaleDateString("en-AU", dateFormatOptions)}</p>
 					</div>
-					<Outlet />
+					{articleRouteName ? ArticleMeta[articleRouteName].component : null}
 				</main>
+				{ArticleMeta[articleRouteName] ? <RelatedPosts tagsList={ArticleMeta[articleRouteName]?.tags} /> : null}
 				<Footer />
 			</div>
 		</div>

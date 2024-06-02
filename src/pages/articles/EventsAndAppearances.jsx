@@ -1,9 +1,9 @@
 import SubheadingAnchor from "../../components/SubheadingAnchor";
-import "../../styles/AppearancesPage.css";
+import "../../styles/ArticleContent.css";
 
-export default function EventsAndAppearances() {
+function EventsAndAppearances() {
 	return (
-		<div id="appearancePage">
+		<div className="articleContent" id="appearancePage">
 			<div>
 					<p>
 						Lists of workshops, projects, etc, that I&apos;ve worked on.
@@ -122,7 +122,6 @@ export default function EventsAndAppearances() {
 
 					<li>AIT School Holiday Workshop: Games - 8th October 2019
 					</li>
-					<li></li>
 					<li>IGS DI High Unity & VR rollercoasters workshop - 30th August 2019
 					</li>
 					<li>Coder Academy School Holiday Game Development Workshop - 15th April to 18th April 2019
@@ -400,3 +399,6 @@ export default function EventsAndAppearances() {
 		</div>
 	);
 }
+
+
+export default EventsAndAppearances;
