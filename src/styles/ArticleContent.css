@@ -1,0 +1,71 @@
+.articleContent {
+	
+
+	padding: 5%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	div {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+		margin-bottom: 5%;
+		width: 50%;
+		ul {
+			width: 100%;
+
+			li {
+				padding: 2%;
+			}
+		}
+	}
+}
+
+#appearancePage {
+
+	div {
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+#videogamesblockchainneedsquiz {
+	align-items: center;
+	justify-content: center;
+
+	div {
+		width: 50%;
+		
+
+		ul {
+			width: 100%;
+
+			li {
+				padding: 2%;
+			}
+		}
+
+		* {
+			padding: 1%;
+		}
+	}
+}
+
+
+@media only screen and (max-width: 600px){
+	.articleContent {
+
+		div {
+			width: 100%;
+		}
+	}
+
+	#videogamesblockchainneedsquiz {
+		div {
+			width: 100%;
+		}
+	}
+}
