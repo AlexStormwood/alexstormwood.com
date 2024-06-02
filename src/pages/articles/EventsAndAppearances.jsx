@@ -3,7 +3,7 @@ import "../../styles/AppearancesPage.css";
 
 export default function EventsAndAppearances() {
 	return (
-		<main>
+		<div id="appearancePage">
 			<div>
 				<SubheadingAnchor headingLevel="h1">
 					Events and Appearances
@@ -402,6 +402,6 @@ export default function EventsAndAppearances() {
 
 
 
-		</main>
+		</div>
 	);
 }

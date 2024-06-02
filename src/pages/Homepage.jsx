@@ -1,8 +1,12 @@
-
+import "../styles/Homepage.css";
 
 export default function Homepage(){
 
-	return(<main>
-		<h1>Hello!</h1>
-	</main>)
+	return(
+		<div id="homepage">
+
+			<h1>Hello!</h1>
+
+		</div>
+	)
 }

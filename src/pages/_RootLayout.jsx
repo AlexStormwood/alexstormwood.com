@@ -7,11 +7,17 @@ export default function RootLayout(){
 	
 	return(
 		<>
-			<div id="positionHelper">
+			<div id="root-container">
 				<Navbar />
-				<Outlet />
+				<div id="positionHelper">
+					
+					<main>
+						<Outlet />
+					</main>
+					<Footer />
+				</div>
 			</div>
-			<Footer />
+			
 		</>
 	)
 }

@@ -1,7 +1,7 @@
 footer {
 	background: linear-gradient(var(--theme-500), var(--theme-900));
 	color: var(--theme-0);
-	min-height: 50px;
+	max-height: 50px;
 
 	display: flex;
 	place-content: center;

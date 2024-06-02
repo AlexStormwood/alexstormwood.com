@@ -3,9 +3,29 @@
 nav {
 	background: linear-gradient(var(--theme-500), var(--theme-900));
 	color: var(--theme-0);
-	min-height: 50px;
 	
-	* {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	
+	
+
+	div#navbar-content {
 		padding: 5px;
+		height: 100%;
+
+		display: flex;
+		justify-content: space-between;
+
+		* {
+			display: flex;
+			gap: 5px;
+			align-items: center;
+
+		}
+
+		
+		
 	}
 }
+

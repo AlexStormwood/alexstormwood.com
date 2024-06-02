@@ -47,6 +47,12 @@ This is a rebuild of what was a functioning blog. Just wanna add more-complex fu
 - Maybe prevent AI/bot scrapers?
 	- NPM packages:
 		- https://www.npmjs.com/package/@noscrape/noscrape
+- Post title should appear in browser tab
+- Navbar should float/stick to top of page
+- Post pages should detect headings and build a floating ToC (mentioned above already)
+	- Could be combined with scroll progress?
+		- NPM packages:
+			- https://www.npmjs.com/package/scroll-pilot
 
 ## Page planning 
 
