@@ -16,6 +16,7 @@ export default function Navbar(){
 				<div className="navbar-links">
 					<NavLink className={"navButton"} to={"/"}>Home</NavLink>
 					<NavLink className={"navButton"} to={"/articles"}>Articles List</NavLink>
+					<NavLink className={"navButton"} to={"/articles/projects"}>Projects</NavLink>
 					<NavLink className={"navButton"} to={"/articles/appearances"}>Events & Appearances</NavLink>
 				</div>
 			</div>

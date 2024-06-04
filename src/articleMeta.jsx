@@ -10,6 +10,7 @@
 */
 
 import EventsAndAppearances from "./pages/articles/EventsAndAppearances";
+import Projects from "./pages/articles/Projects";
 import VideogamesDontNeedBlockchain from "./pages/articles/VideogamesDontNeedBlockchain";
 
 export default {
@@ -18,7 +19,14 @@ export default {
 		lastUpdated: Date.now(),
 		createdAt: Date.now(),
 		component: <EventsAndAppearances />,
-		tags: ["appearances"]
+		tags: ["appearances", "projects"]
+	},
+	projects: {
+		title:"Projects",
+		lastUpdated: Date.now(),
+		createdAt: Date.now(),
+		component: <Projects />,
+		tags: ["appearances", "projects"]
 	},
 	doesyourvideogameneedablockchain: {
 		title: "Does your videogame need a blockchain?",

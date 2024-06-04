@@ -5,14 +5,16 @@ function EventsAndAppearances() {
 	return (
 		<div className="articleContent" id="appearancePage">
 			<div>
-					<p>
-						Lists of workshops, projects, etc, that I&apos;ve worked on.
-					</p>
-					<p>
-						Seen me at one of these? Awesome! Looking forward to reconnect
-						😀
-					</p>
-				</div>
+				<p>
+					Lists of workshops, projects, etc, that I&apos;ve worked on.
+				</p>
+				<p>
+					Seen me at one of these? Awesome! Looking forward to reconnect
+					😀
+				</p>
+			</div>
+
+			
 
 			<div>
 				<SubheadingAnchor headingLevel="h2">
@@ -24,9 +26,18 @@ function EventsAndAppearances() {
 						Coder Academy Support Hub (Support For All Cohorts) - August
 						2022 to present
 					</li>
-					<li>Coder Academy Standard October 2022 Intake - October 2022 to
-						August 2023</li>
-
+					<li>
+						Coder Academy Standard February 2024 Intake - February 2024 to March 2024, August 2024 to December 2024
+					</li>
+					<li>
+						Coder Academy Standard October 2023 Intake - March 2024 to August 2024
+					</li>
+					<li>
+						Coder Academy Standard February 2023 Intake - August 2023 to December 2023
+					</li>
+					<li>
+						Coder Academy Standard October 2022 Intake - October 2022 to August 2023
+					</li>
 					<li>
 						Coder Academy FlexTrack May 2022 Intake - May 2022 to April
 						2023

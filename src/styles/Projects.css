@@ -1,0 +1,25 @@
+div#projectsPage {
+	width: 90%;
+	
+
+	> div {
+		width: 80%;
+	}
+
+	section {
+		width: 100%;
+		margin-bottom: 2%;
+	}
+
+	.projectCardContainer {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 2%;
+
+		.projectCard {
+			width: 27%;
+		}
+	}
+}
