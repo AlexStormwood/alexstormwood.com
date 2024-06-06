@@ -98,6 +98,7 @@ export default {
 		builtFor: "Open-source NodeJS project.",
 		lastUpdated: new Date(2024, 4, 30).getTime(),
 		createdAt: new Date(2024, 4, 12).getTime(),
+		imageUrl: "/projects/SuperCamo.png",
 		projectUrls: [
 			{
 				websiteName: "GitHub",
@@ -116,6 +117,7 @@ export default {
 		builtFor: "Open-source NodeJS project.",
 		lastUpdated: new Date(2024, 4, 2).getTime(),
 		createdAt: new Date(2024, 3, 30).getTime(),
+		imageUrl: "/projects/NPMComplianceHelper.png",
 		projectUrls: [
 			{
 				websiteName: "GitHub",
@@ -134,7 +136,7 @@ export default {
 		builtFor: "Open-source NodeJS project.",
 		lastUpdated: new Date(2024, 2, 27).getTime(),
 		createdAt: new Date(2023, 5, 15).getTime(),
-		imageUrl: "/projects/Sourcepool-SocialBanner.png",
+		imageUrl: "/projects/Sourcepool.png",
 		projectUrls: [
 			{
 				websiteName: "GitHub",
@@ -157,6 +159,7 @@ export default {
 		builtFor: "Open-source NodeJS project.",
 		lastUpdated: new Date(2024, 4, 28).getTime(),
 		createdAt: new Date(2020, 9, 2).getTime(),
+		imageUrl: "/projects/UnityAutomatedSemver.png",
 		projectUrls: [
 			{
 				websiteName: "GitHub",
@@ -169,8 +172,9 @@ export default {
 		title: "Unity UPM Semver",
 		description: "Github Action to handle automated semver modification for Unity UPM packages.",
 		builtFor: "Open-source NodeJS project.",
-		lastUpdated: new Date(2024, 9, 5).getTime(),
+		lastUpdated: new Date(2020, 9, 5).getTime(),
 		createdAt: new Date(2020, 9, 5).getTime(),
+		imageUrl: "/projects/UnityUPMSemver.png",
 		projectUrls: [
 			{
 				websiteName: "GitHub",
@@ -185,6 +189,7 @@ export default {
 		builtFor: "Open-source NodeJS project.",
 		lastUpdated: new Date(2024, 3, 11).getTime(),
 		createdAt: new Date(2020, 9, 6).getTime(),
+		imageUrl: "/projects/CommitsWithinTime.png",
 		projectUrls: [
 			{
 				websiteName: "GitHub",

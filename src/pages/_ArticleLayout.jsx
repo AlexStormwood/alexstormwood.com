@@ -31,6 +31,8 @@ function ArticleLayout() {
 
 	useEffect(() => {
 		setArticleRouteName(location.pathname.substring(location.pathname.lastIndexOf("/") + 1));
+
+		document.getElementById("positionHelper").scrollTo({top: 0, left: 0, behavior: "smooth"});
 	}, [location]);
 
 	useEffect(() => {

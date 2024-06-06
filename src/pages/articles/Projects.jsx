@@ -33,10 +33,11 @@ function Projects() {
 				<div className="projectCardContainer">
 				<ProjectCard projectObj={projectMeta["sourcepool"]} />
 				<ProjectCard projectObj={projectMeta["supercamo"]} />
-				<ProjectCard projectObj={projectMeta["unityautomatedsemver"]} />
-				<ProjectCard projectObj={projectMeta["unityupmsemver"]} />
 				<ProjectCard projectObj={projectMeta["npmcompliancehelper"]} />
 				<ProjectCard projectObj={projectMeta["commitswithintime"]} />
+				<ProjectCard projectObj={projectMeta["unityautomatedsemver"]} />
+				<ProjectCard projectObj={projectMeta["unityupmsemver"]} />
+				
 				</div>
 
 			</section>

@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import ArticleMeta from "../articleMeta.jsx";
 import PropTypes from "prop-types";
 import { Link, useLocation } from "react-router-dom";
+import "../styles/RelatedPosts.css";
+
+
 let appEnvironment = import.meta.env.MODE;
 let dateFormatOptions = {
 	month: "long",
@@ -19,7 +22,7 @@ function RelatedPosts({tagsList}){
 	useEffect(() => {
 
 		setArticleRouteName(location.pathname.substring(location.pathname.lastIndexOf("/") + 1));
-		
+		// console.log("RelatedPosts widget reading route")
 	}, [location])
 	
 	useEffect(() => {
@@ -46,28 +49,33 @@ function RelatedPosts({tagsList}){
 			if (isPostRelated){
 				if (appEnvironment == "production") {
 					if (!(metaObj.lastUpdated > Date.now())) {
-						return <Link key={metaObj.path} to={`/articles/${metaObj.path}`} ><li>
+						return <Link className="relatedPostItem" key={metaObj.path} to={`/articles/${metaObj.path}`} >
+							
 							{new Date(metaObj.lastUpdated).toLocaleDateString("en-AU", dateFormatOptions)} - {metaObj.title}
-	
-						</li></Link>
+							</Link>
 					}
 				} else {
-					return <Link key={metaObj.path} to={`/articles/${metaObj.path}`} ><li>
+					return <Link className="relatedPostItem" key={metaObj.path} to={`/articles/${metaObj.path}`} >
 						{new Date(metaObj.lastUpdated).toLocaleDateString("en-AU", dateFormatOptions)} - {metaObj.title}
-	
-					</li></Link>
+						</Link>
 				}
 			}
 		});
+
+		tempLinksArray = tempLinksArray.filter(item => item);
 
 		setRelatedPostLinks(tempLinksArray);
 		
 	}, [articleRouteName, tagsList]);
 
+	useEffect(() => {
+		// console.log(relatedPostLinks);
+	}, [relatedPostLinks]);
+
 	if (relatedPostLinks[0]){
 		return(<div id="relatedPostContainer">
 		<h1>Related Posts</h1>
-		<ul>{relatedPostLinks}</ul>
+		{relatedPostLinks}
 	</div>)
 	} else {
 		return null;

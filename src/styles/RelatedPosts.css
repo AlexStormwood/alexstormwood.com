@@ -1,0 +1,43 @@
+div#relatedPostContainer {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 2%;
+}
+
+.relatedPostItem {
+  background-color: var(--theme-950);
+  width: 25%;
+  text-align: center;
+  text-decoration: none;
+  color: var(--theme-0);
+  border-radius: 15px;
+  border: 2px solid var(--theme-950);
+  padding: 5px;
+  margin: 0.5%;
+}
+
+.relatedPostItem:hover{
+  background-color: var(--theme-600);
+  border: 2px solid var(--theme-0);
+}
+
+@media only screen and (max-width: 600px){
+	div#relatedPostContainer {
+		.projectCardContainer {
+			flex-direction: column;
+			align-items: center;
+
+			.projectCard {
+				width: 95%;
+			}
+		}
+	}
+
+	.relatedPostItem {
+		margin: 2%;
+		width: 90%;
+	}
+}

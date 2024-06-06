@@ -15,6 +15,8 @@ function ArticleTocProvider({children}){
 		if (location.pathname !== previousPath){
 			setPreviousPath(location.pathname);
 			setArticleToc([]);
+
+
 		}
 	}, [location, previousPath]);
 

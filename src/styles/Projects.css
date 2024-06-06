@@ -23,3 +23,17 @@ div#projectsPage {
 		}
 	}
 }
+
+
+@media only screen and (max-width: 600px){
+	div#projectsPage {
+		.projectCardContainer {
+			flex-direction: column;
+			align-items: center;
+
+			.projectCard {
+				width: 95%;
+			}
+		}
+	}
+}
