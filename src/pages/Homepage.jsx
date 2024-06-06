@@ -121,12 +121,17 @@ const homepageGallery = [
 		originalWidth: 512,
 		description: "Travel - Pokemon Design Lab in Shibuya, Japan, January 2024."
 	},
-
 	{
 		original: "/homepagegallery/PPVRRTX2018.png",
 		originalHeight: 512,
 		originalWidth: 512,
 		description: "Exhibiting my own games at local gaming events. This was at RTX Sydney in 2018."
+	},
+	{
+		original: "/homepagegallery/IsleOfPines2018.jpg",
+		originalHeight: 512,
+		originalWidth: 512,
+		description: "Travel - Isle of Pines, New Caledonia, December 2018."
 	},
 ]
 
