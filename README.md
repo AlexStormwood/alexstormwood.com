@@ -1,4 +1,4 @@
-# Alexander Stormwood's Online Journal
+# Alex Stormwood's Online Journal
 
 This repository contains the website systems and content for my online journal.
 
