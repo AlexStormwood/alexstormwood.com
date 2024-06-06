@@ -1,3 +1,5 @@
+
+
 #homepage {
 	height: 100%;
 	width: 100%;
@@ -8,5 +10,13 @@
 
 	hr {
 		width: 90%;
+	}
+
+	div.image-gallery {
+		border-radius: 25px;
+
+		.image-gallery-image {
+			border-radius: 25px;
+		}
 	}
 }
