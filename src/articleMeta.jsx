@@ -17,15 +17,15 @@ import ZeroDepNodeJsLogging from "./pages/articles/ZeroDepNodeJsLogging";
 export default {
 	appearances: {
 		title:"Events & Appearances",
-		lastUpdated: Date.now(),
-		createdAt: Date.now(),
+		lastUpdated: new Date(2024, 4, 30).getTime(),
+		createdAt: new Date(2024, 4, 30).getTime(),
 		component: <EventsAndAppearances />,
 		tags: ["appearances", "projects"]
 	},
 	projects: {
 		title:"Projects",
-		lastUpdated: Date.now(),
-		createdAt: Date.now(),
+		lastUpdated: new Date(2024, 4, 30).getTime(),
+		createdAt: new Date(2024, 4, 30).getTime(),
 		component: <Projects />,
 		tags: ["appearances", "projects"]
 	},
