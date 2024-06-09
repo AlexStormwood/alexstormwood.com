@@ -156,7 +156,7 @@ someLogger("Tada! Works just like console.log()!");`
 					}
 				</SyntaxHighlighter>
 				<p>Now, there's a catch. If we want to see that logger do its logging, we need to run our code with a specific value set to an environment variable.</p>
-				<p>We have to set <code>NODE_DEBUG</code> to be <code>debugtrigger</code>, since that is that the <code>util.debuglog()</code> function was given as its trigger value.</p>
+				<p>We have to set <code>NODE_DEBUG</code> to be <code>debugtrigger</code>, since that is what the <code>util.debuglog()</code> function was given as its trigger value.</p>
 				<p>If that value isn't set, the logger won't log. That's not a bad thing entirely, but if we want to see the cool thing happen then we need to run our code with:</p>
 				<SyntaxHighlighter className="syntaxHighlighterComponent" language="bash" style={SyntaxHighlighterThemes.a11yDark} >
 					{`NODE_DEBUG=debugtrigger node src/index.js`}
