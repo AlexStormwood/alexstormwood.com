@@ -1,7 +1,8 @@
 
 
 nav {
-	background: linear-gradient(var(--theme-500), var(--theme-900));
+	/* background: linear-gradient(var(--theme-500), var(--theme-900)); */
+	backdrop-filter: blur(10px);
 	color: var(--theme-0);
 	
 	display: flex;
@@ -30,10 +31,15 @@ nav {
 }
 
 .navbar-icon {
+	margin-left: 5%;
 	a {
 		text-decoration: none;
 		color: white;
 	}
+}
+
+.navbar-links {
+	margin-right: 5%;
 }
 
 @media only screen and (max-width: 600px){
@@ -45,4 +51,9 @@ nav {
 			align-items: center;
 		}
 	}
+
+	.navbar-links {
+		margin-right: 0%;
+	}
+	
 }
