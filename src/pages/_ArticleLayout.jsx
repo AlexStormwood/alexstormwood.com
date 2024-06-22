@@ -73,6 +73,8 @@ function ArticleLayout() {
 			<meta property="og:url" content="https://alexstormwood.com" />
 			<meta property="og:description" content={ArticleMeta[articleRouteName].description} />
 			<meta property="og:image" content="/opengraph/website-ogimage-default.png" />
+			<meta name="twitter:image" content="/opengraph/website-ogimage-default.png" />
+			<meta name="twitter:image:alt" content="Banner image depicting Alex. He writes about gamedev, webdev, and more." />
 			<meta property="article:author" content="Alex Stormwood" />
 			<meta property="article:published_time" content={new Date(ArticleMeta[articleRouteName].createdAt).toISOString()}/>
 			<meta property="article:modified_time" content={new Date(ArticleMeta[articleRouteName].lastUpdated).toISOString()} />
