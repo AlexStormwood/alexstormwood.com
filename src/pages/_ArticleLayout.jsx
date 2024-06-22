@@ -9,6 +9,7 @@ import RelatedPosts from "../components/RelatedPosts.jsx";
 import { ScrollPilot } from 'scroll-pilot';
 import TocIcon from "/toc_GoogleFonts.svg";
 import { useArticleToc } from "../contexts/ArticleTocContextSetup.js";
+import { Helmet } from "react-helmet";
 
 
 
@@ -62,6 +63,29 @@ function ArticleLayout() {
 	return (<>
 
 		<div id="root-container">
+
+			{ArticleMeta[articleRouteName] ? 
+			<Helmet>
+			<meta name="twitter:title" content={ArticleMeta[articleRouteName].title} />
+			<meta property="og:title" content={ArticleMeta[articleRouteName].title} />
+			<meta property="og:type" content="article" />
+			<meta property="og:type" />
+			<meta property="og:url" content="https://alexstormwood.com" />
+			<meta property="og:description" content={ArticleMeta[articleRouteName].description} />
+			<meta property="og:image" content="/opengraph/website-ogimage-default.png" />
+			<meta property="article:author" content="Alex Stormwood" />
+			<meta property="article:published_time" content={new Date(ArticleMeta[articleRouteName].createdAt).toISOString()}/>
+			<meta property="article:modified_time" content={new Date(ArticleMeta[articleRouteName].lastUpdated).toISOString()} />
+			<meta property="article:section" content={ArticleMeta[articleRouteName].section} />
+			{ArticleMeta[articleRouteName].tags.map(tag => {
+				// eslint-disable-next-line react/jsx-key
+				return <meta property="article:tag" content={tag} />
+			})}
+
+			</Helmet>
+			:
+			null
+			}
 			<div id="tocHelper">
 				<ScrollPilot className="scrollPilotManualStyles" config={scrollPilotConfig} />
 			</div>
