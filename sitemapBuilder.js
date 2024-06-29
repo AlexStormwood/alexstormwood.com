@@ -16,8 +16,7 @@ async function generateSitemap() {
     "/"
   ]
 
-  const sitemapString = `
-<?xml version="1.0" encoding="UTF-8"?>
+  const sitemapString = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmln="http://www.sitemaps.org/schemas/sitemap/0.9">
   ${routePaths.map(routePath => `<url><loc>https://alexstormwood.com${routePath}</loc></url>`).join("")}
 </urlset>`;
