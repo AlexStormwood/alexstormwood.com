@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet";
 
-export function EmploymentHistory(){ 
+export function WorkHistory(){ 
 
 	return (
 		<div id="employmenthistory-page">
