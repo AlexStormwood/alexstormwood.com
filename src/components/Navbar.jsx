@@ -39,7 +39,7 @@ export default function Navbar(){
 				</div>
 				<div className="navbar-links">
 					<NavLink className={"navButton"} to={"/"}>Home</NavLink>
-					<NavLink className={"navButton"} to={"/about"}>About Me</NavLink>
+					<NavLink className={"navButton"} to={"/aboutme"}>About Me</NavLink>
 					<NavLink className={"navButton"} to={"/skills"}>Skills</NavLink>
 					<NavLink className={"navButton"} to={"/workhistory"}>Employment History</NavLink>
 					<NavLink className={"navButton"} to={"/articles"}>Articles List</NavLink>
