@@ -2,7 +2,7 @@
 import RecentPosts from "../components/RecentPosts.jsx";
 import "../styles/ArticlesListPage.css";
 
-export function ArticlesList(){ 
+export function Articles(){ 
 
 	return (
 		<div id="articles-list">
