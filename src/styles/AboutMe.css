@@ -1,0 +1,29 @@
+#aboutPageContent {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+#aboutPageMainContent {
+	display: flex;
+	flex-direction: column;
+	align-items: left;
+	width: 60%;
+
+	p {
+		padding: 1%;
+	}
+}
+
+
+@media only screen and (max-width: 600px){
+	#aboutPageMainContent {
+		display: flex;
+		flex-direction: column;
+		align-items: left;
+		width: 90%;
+	
+		p {
+			padding: 1%;
+		}
+	}
+}
