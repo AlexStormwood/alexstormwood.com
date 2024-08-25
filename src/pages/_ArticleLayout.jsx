@@ -66,22 +66,22 @@ function ArticleLayout() {
 
 			{ArticleMeta[articleRouteName] ? 
 			<Helmet>
-			<meta name="twitter:title" content={ArticleMeta[articleRouteName].title} />
-			<meta property="og:title" content={ArticleMeta[articleRouteName].title} />
-			<meta property="og:type" content="article" />
-			<meta property="og:type" />
-			<meta property="og:url" content="https://alexstormwood.com" />
-			<meta property="og:description" content={ArticleMeta[articleRouteName].description} />
-			<meta property="og:image" content="/opengraph/website-ogimage-default.png" />
-			<meta name="twitter:image" content="/opengraph/website-ogimage-default.png" />
-			<meta name="twitter:image:alt" content="Banner image depicting Alex. He writes about gamedev, webdev, and more." />
-			<meta property="article:author" content="Alex Stormwood" />
-			<meta property="article:published_time" content={new Date(ArticleMeta[articleRouteName].createdAt).toISOString()}/>
-			<meta property="article:modified_time" content={new Date(ArticleMeta[articleRouteName].lastUpdated).toISOString()} />
-			<meta property="article:section" content={ArticleMeta[articleRouteName].section} />
-			{ArticleMeta[articleRouteName].tags.map(tag => {
+			<meta key="twitter:title" name="twitter:title" content={ArticleMeta[articleRouteName].title} />
+			<meta key="og:title" property="og:title" content={ArticleMeta[articleRouteName].title} />
+			<meta key="og:type"property="og:type" content="article" />
+			<meta key="og:type" property="og:type" />
+			<meta key="og:url" property="og:url" content="https://alexstormwood.com" />
+			<meta key="og:description" property="og:description" content={ArticleMeta[articleRouteName].description} />
+			<meta key="og:image" property="og:image" content="/opengraph/website-ogimage-default.png" />
+			<meta key="twitter:image"name="twitter:image" content="/opengraph/website-ogimage-default.png" />
+			<meta key="twitter:image:alt" name="twitter:image:alt" content="Banner image depicting Alex. He writes about gamedev, webdev, and more." />
+			<meta key="article:author"property="article:author" content="Alex Stormwood" />
+			<meta key="article:published_time"property="article:published_time" content={new Date(ArticleMeta[articleRouteName].createdAt).toISOString()}/>
+			<meta key="article:modified_time" property="article:modified_time" content={new Date(ArticleMeta[articleRouteName].lastUpdated).toISOString()} />
+			<meta key="article:section"property="article:section" content={ArticleMeta[articleRouteName].section} />
+			{ArticleMeta[articleRouteName].tags.map((tag, elemIndex) => {
 				// eslint-disable-next-line react/jsx-key
-				return <meta property="article:tag" content={tag} />
+				return <meta key={"article:tag-" + elemIndex} property="article:tag" content={tag} />
 			})}
 
 			</Helmet>
