@@ -5,6 +5,7 @@ import ImageZoom from "react-image-zooom";
 
 export function AboutMe() {
 
+
 	return (
 		<div id="aboutme-page">
 			<Helmet>
