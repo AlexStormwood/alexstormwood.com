@@ -40,6 +40,8 @@ nav {
 
 .navbar-links {
 	margin-right: 5%;
+	display:flex;
+	
 }
 
 @media only screen and (max-width: 600px){
@@ -49,6 +51,12 @@ nav {
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
+
+			.navbar-links {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+			}
 		}
 	}
 
