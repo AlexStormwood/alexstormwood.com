@@ -1,0 +1,163 @@
+#skills-page {
+
+	display: flex;
+	flex-direction: column;
+
+	margin: 0 5% 0;
+}
+
+#skillPageMainContent {
+	display: flex;
+	flex-direction: column;
+	gap: 5%;
+
+	/* #skillStories, #skillChart {
+		margin: 0 5% 0;
+	} */
+}
+
+#skillCardsContainer {
+
+
+	.react-tabs__tab-panel--selected {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		min-height: 350px;
+		gap: 5%;
+
+		.skillCardsLocalContainer{
+			display: flex;
+			width: 100%;
+			height: 70%;
+			justify-content: center;
+			gap: 1%;
+			text-align: center;
+			flex-wrap: wrap;
+		}
+		.skillItemCard {
+			width: 10%;
+			height: 100%;
+			background-color: var(--theme-950);
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+
+			img {
+				padding: 5%;
+				border-radius: 15%;
+				max-width: 90%;
+				max-height: 70%;
+				aspect-ratio: 1/1;
+			}
+			h4 {
+				height: 30%;
+			}
+		}
+	}
+
+	
+}
+
+#skillsPanelHeadersContainer, #skillStoryHeaderTabs {
+	display: flex;
+	width: 100%;
+	gap: 0.5%;
+	justify-content: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	.react-tabs__tab {
+		list-style: none;
+		background-color: var(--theme-950);
+		padding: 0.5%;
+	}
+
+	.react-tabs__tab--selected {
+		list-style: none;
+		background-color: var(--theme-700);
+		padding: 0.5%;
+	}
+
+	
+}
+
+
+@media only screen and (max-width: 600px){
+	#skillPageMainContent {
+		display: flex;
+		flex-direction: column;
+		gap: 5%;
+		min-height: 100%;
+	}
+	
+	#skillCardsContainer {
+	
+	
+		.react-tabs__tab-panel--selected {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			min-height: 350px;
+			gap: 5%;
+	
+			.skillCardsLocalContainer{
+				display: flex;
+				width: 100%;
+				min-height: 70%;
+				justify-content: center;
+				gap: 1%;
+				text-align: center;
+				flex-wrap: wrap;
+			}
+			.skillItemCard {
+				width: 30%;
+				height: 100%;
+				background-color: var(--theme-950);
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+	
+				img {
+					padding: 5%;
+					border-radius: 15%;
+					max-width: 90%;
+					max-height: 70%;
+					aspect-ratio: 1/1;
+				}
+				h4 {
+					height: 30%;
+				}
+			}
+		}
+	
+		
+	}
+	
+	#skillsPanelHeadersContainer, #skillStoryHeaderTabs {
+		display: flex;
+		width: 100%;
+		gap: 0.5%;
+		justify-content:center;
+		justify-items: stretch;
+		flex-direction: row;
+		flex-wrap: wrap;
+		background-color: var(--theme-950);
+	
+		.react-tabs__tab {
+			list-style: none;
+			background-color: var(--theme-950);
+			padding: 0.5%;
+		}
+	
+		.react-tabs__tab--selected {
+			list-style: none;
+			background-color: var(--theme-700);
+			padding: 0.5%;
+		}
+	
+		
+	}
+}

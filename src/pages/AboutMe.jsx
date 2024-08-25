@@ -163,7 +163,7 @@ export function AboutMe() {
 								I had to turn AIE down, and focus on work with AIT.
 							</p>
 							<p>
-								Since I had achieved a post-graduate qualification, subjects and classes in bachelor&apos;s degrees and diplomas were something I could now teach!
+								Since I had achieved a post-graduate qualification through AIE, subjects and classes in bachelor&apos;s degrees and diplomas were something I could now teach!
 							</p>
 							</div>
 							<ImageZoom className="sideImage zoomableBodyImage" src="/aboutme/SupanovaSydney2018.jpg" alt="A compilation of attendees trying out Planet Protector VR at Supanova Sydney in 2018." zoom={250} />
