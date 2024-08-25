@@ -196,7 +196,17 @@ export function AboutMe() {
 						</p>
 					</div>
 
-					
+					<div id="aboutEducation">
+						<h2>Qualifications</h2>
+						<p>As of August 2024, my qualifications include:</p>
+						<ul>
+							<li>Graduate Diploma of Management (Learning), AQF Level 8, from the Academy of Interactive Entertainment</li>
+							<li>Bachelor of Interactive Media (Games), AQF Level 7, from the Academy of Interactive Technology</li>
+						</ul>
+						<br />
+						<p>I also maintain a Working With Children Check as needed for my work as an educator at NextEd (AIT, Coder Academy).</p>
+						<p>I also previously held a Unity Certified Developer certification, from September 2018 to September 2020.</p>
+					</div>
 
 				</div>
 			</div>
