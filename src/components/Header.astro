@@ -9,8 +9,13 @@ import SocialLinks from './SocialLinks.astro';
 		<h2><a href="/">{SITE_TITLE}</a></h2>
 		<div class="internal-links">
 			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/articles">Articles</HeaderLink>
 			<HeaderLink href="/about">About</HeaderLink>
+			<HeaderLink href="/projects">Projects</HeaderLink>
+			<HeaderLink href="/appearances">Appearances</HeaderLink>
+			<HeaderLink href="/skills">Skills</HeaderLink>
+			<HeaderLink href="/workhistory">Employment History</HeaderLink>
+
+			<HeaderLink href="/articles">Articles</HeaderLink>
 		</div>
 		<SocialLinks />
 	</nav>
@@ -21,6 +26,9 @@ import SocialLinks from './SocialLinks.astro';
 		padding: 0 1em;
 		background: light-dark(white, var(--theme-950));
 		box-shadow: 0 2px 8px rgba(var(--black), 5%);
+		position: sticky;
+		z-index: 1;
+		top: 0;
 	}
 	h2 {
 		margin: 0;
@@ -55,6 +63,20 @@ import SocialLinks from './SocialLinks.astro';
 			nav {
 				.social-links {
 					display: none;
+				}
+
+				width: 100%;
+				padding: 0;
+
+				h2 {
+					padding-top: 1em;
+					padding-bottom: 1em;
+				}
+
+				.internal-links {
+					a {
+						padding: 0.1em;
+					}
 				}
 			}
 			

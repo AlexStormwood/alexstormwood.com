@@ -1,0 +1,44 @@
+div.projectCard {
+	background: linear-gradient(var(--theme-500), var(--theme-800));
+	border: 2px solid var(--theme-800);
+	color: var(--theme-0);
+	border-radius: 20px;
+	/* width: 30%; */
+	display: flex;
+	flex-direction: column;
+	gap: 20%;
+	padding: 2%;
+
+	h3 {
+		width: 100%;
+		text-align: center;
+	}
+
+	.projectCardDatesContainer, .projectButtonsContainer {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	.builtFor {
+		width: 100%;
+		margin-top: 5%;
+		margin-bottom: 5%;
+	}
+
+	img {
+		width: 100%;
+		border-radius: 20px;
+	}
+
+	div {
+		display: flex;
+		flex-direction: row;
+	}
+}
+
+div.projectCard:hover {
+	background-color: var(--theme-600);
+ 	border: 2px solid var(--theme-0);
+}

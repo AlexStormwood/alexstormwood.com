@@ -10,5 +10,5 @@ import icon from 'astro-icon';
 // https://astro.build/config
 export default defineConfig({
     site: 'https://alexstormwood.com',
-    integrations: [mdx(), sitemap(), react(), icon()],
+    integrations: [mdx(), sitemap(), react({experimentalReactChildren: true}), icon()],
 });

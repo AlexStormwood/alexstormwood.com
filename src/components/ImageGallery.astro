@@ -1,0 +1,374 @@
+---
+const images: {
+	src: string;
+	height: number;
+	width: number;
+	alt: string;
+	format: string;
+}[] = [
+	{
+		src: "/homepagegallery/3DPrinting01.jpg",
+		height: 512,
+		width: 512,
+		alt: "Hobby - 3D printing with resin.",
+		format: "webp",
+	},
+	{
+		src: "/homepagegallery/3DPrinting02.jpg",
+		height: 512,
+		width: 512,
+		alt: "Hobby - 3D printing with resin.",
+		format: "webp",
+	},
+	{
+		src: "/homepagegallery/3DPrinting03.jpg",
+		height: 512,
+		width: 512,
+		alt: "Hobby - 3D printing with resin.",
+		format: "webp",
+	},
+	{
+		src: "/homepagegallery/APDGAwards2018.png",
+		height: 512,
+		width: 512,
+		alt: "Australia Production Design Guild Awards Night, 2018. Planet Protector VR was nominated for an award in this event.",
+		format: "webp",
+	},
+	{
+		src: "/homepagegallery/CorporateTrainingJuly2018.png",
+		height: 512,
+		width: 512,
+		alt: "Corporate training at a local branch of a multinational game development company. This session was about teaching Unity to the studio's art team.",
+		format: "webp",
+	},
+	{
+		src: "/homepagegallery/DeloitteDisruptorsInTechXRFeb2018.png",
+		height: 512,
+		width: 512,
+		alt: "A speaking engagement at Deloitte's Disruptors In Tech meetup in February 2018. This night was themed around XR (AR, VR, MR).",
+		format: "webp",
+	},
+	{
+		src: "/homepagegallery/Disney01.jpg",
+		height: 512,
+		width: 512,
+		alt: "Travel - Tokyo Disneyland, Japan, January 2024.",
+		format: "webp",
+	},
+	{
+		src: "/homepagegallery/Events01.jpg",
+		height: 512,
+		width: 512,
+		alt: "Array of event exhibitor and worker passes collected over years.",
+		format: "webp",
+	},
+	{
+		src: "/homepagegallery/Gardening01.jpg",
+		height: 512,
+		width: 512,
+		alt: "Hobby - Gardening. Big fan of food plants and endangered plants.",
+		format: "webp",
+	},
+	{
+		src: "/homepagegallery/Gundam01.jpg",
+		height: 512,
+		width: 512,
+		alt: "Travel - Gundam Factory Yokohama, Japan, January 2024.",
+		format: "webp",
+	},
+	{
+		src: "/homepagegallery/Gundam02.jpg",
+		height: 512,
+		width: 512,
+		alt: "Travel - Gundam Factory Yokohama, Japan, January 2024.",
+		format: "webp",
+	},
+	{
+		src: "/homepagegallery/LocationJapan01.jpg",
+		height: 512,
+		width: 512,
+		alt: "Travel - Tokyo city views, January 2024.",
+		format: "webp",
+	},
+	{
+		src: "/homepagegallery/LocationJapan02.jpg",
+		height: 512,
+		width: 512,
+		alt: "Travel - My favourite goshuin / shrine stamp collected in Japan, January 2024.",
+		format: "webp",
+	},
+	{
+		src: "/homepagegallery/LocationSydney01.jpg",
+		height: 512,
+		width: 512,
+		alt: "Currently, I live in Sydney. I've lived all over Australia!",
+		format: "webp",
+	},
+	{
+		src: "/homepagegallery/Nintendo01.jpg",
+		height: 512,
+		width: 512,
+		alt: "Travel - Nintendo Store Kyoto, Japan, January 2024.",
+		format: "webp",
+	},
+	{
+		src: "/homepagegallery/Nintendo02.jpg",
+		height: 512,
+		width: 512,
+		alt: "Travel - Nintendo Store Kyoto, Japan, January 2024.",
+		format: "webp",
+	},
+	{
+		src: "/homepagegallery/OnePiece01.jpg",
+		height: 512,
+		width: 512,
+		alt: "Travel - One Piece Store Ikebukuro, Japan, January 2024.",
+		format: "webp",
+	},
+	{
+		src: "/homepagegallery/Pokemon01.jpg",
+		height: 512,
+		width: 512,
+		alt: "Travel - Pokemon Cafe Tokyo, Japan, January 2024.",
+		format: "webp",
+	},
+	{
+		src: "/homepagegallery/Pokemon02.jpg",
+		height: 512,
+		width: 512,
+		alt: "Travel - Pokemon Design Lab in Shibuya, Japan, January 2024.",
+		format: "webp",
+	},
+	{
+		src: "/homepagegallery/PPVRRTX2018.png",
+		height: 512,
+		width: 512,
+		alt: "Exhibiting my own games at local gaming events. This was at RTX Sydney in 2018.",
+		format: "webp",
+	},
+	{
+		src: "/homepagegallery/IsleOfPines2018.jpg",
+		height: 512,
+		width: 512,
+		alt: "Travel - Isle of Pines, New Caledonia, December 2018.",
+		format: "webp",
+	},
+];
+
+images.forEach((img) => {
+	img.height = 300;
+	img.width = 300;
+});
+---
+
+<div class="galleryContainer">
+
+	<div class="row">
+		{
+			images.map((imgObj, index) => {
+				return (
+					<div class="mySlides">
+						<div class="numbertext">
+							{index + 1} / {images.length}
+						</div>
+						<div class="imgStretchContainer">
+							<img class="mainImage" src={imgObj.src} alt={imgObj.alt} />
+						</div>
+					</div>
+				);
+			})
+		}
+		<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+		<a class="next" onclick="plusSlides(1)">&#10095;</a>
+	</div>
+	
+	<div class="row">
+		<div class="caption-container">
+			<p id="caption"></p>
+		</div>
+	</div>
+
+	
+
+	<div class="row">
+		{
+			images.map((imgObj, index) => {
+				return (
+					<div class="column">
+						<img
+							class="demo cursor"
+							src={imgObj.src}
+							alt={imgObj.alt}
+							style="width:100%"
+							onclick={`currentSlide(${index + 1})`}
+						/>
+					</div>
+				);
+			})
+		}
+	</div>
+</div>
+
+<style>
+	/* Position the image container (needed to position the left and right arrows) */
+	.galleryContainer {
+		position: relative;
+		z-index: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+
+		.row {
+			
+			width: 100%;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		img.mainImage {
+			/* height: 30vh; */
+			width: 65%;
+		}
+	}
+
+	/* Hide the images by default */
+	.mySlides {
+		display: none;
+		width: 100%;
+		justify-content: center;
+		align-items: center;
+
+		.imgStretchContainer{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+
+	/* Add a pointer when hovering over the thumbnail images */
+	.cursor {
+		cursor: pointer;
+	}
+
+	/* Next & previous buttons */
+	.prev,
+	.next {
+		cursor: pointer;
+		position: absolute;
+		top: 40%;
+		width: auto;
+		padding: 16px;
+		margin-top: -50px;
+		color: white;
+		font-weight: bold;
+		font-size: 20px;
+		border-radius: 0 3px 3px 0;
+		user-select: none;
+		-webkit-user-select: none;
+	}
+
+	/* Position the "next button" to the right */
+	.next {
+		right: 0;
+		border-radius: 3px 0 0 3px;
+	}
+
+	/* On hover, add a black background color with a little bit see-through */
+	.prev:hover,
+	.next:hover {
+		background-color: rgba(0, 0, 0, 0.8);
+	}
+
+	/* Number text (1/3 etc) */
+	.numbertext {
+		color: #f2f2f2;
+		font-size: 12px;
+		padding: 8px 12px;
+		position: absolute;
+		top: 0;
+	}
+
+	/* Container for image text */
+	.caption-container {
+		text-align: center;
+		background-color: #222;
+		padding: 2px 16px;
+		color: white;
+	}
+
+	.row:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+
+	/* Six columns side by side */
+	.column {
+		float: left;
+		width: 16.66%;
+	}
+
+	/* Add a transparency effect for thumnbail images */
+	.demo {
+		opacity: 0.6;
+	}
+
+	.active,
+	.demo:hover {
+		opacity: 1;
+	}
+</style>
+
+<script is:inline>
+	let lastSlideChange = new Date(Date.now());
+
+	let slideIndex = 1;
+	showSlides(slideIndex);
+
+	// Next/previous controls
+	function plusSlides(n) {
+		showSlides((slideIndex += n));
+	}
+
+	// Thumbnail image controls
+	function currentSlide(n) {
+		showSlides((slideIndex = n));
+	}
+
+	function showSlides(n) {
+		lastSlideChange = new Date(Date.now());
+		let i;
+		let slides = document.getElementsByClassName("mySlides");
+		let dots = document.getElementsByClassName("demo");
+		let captionText = document.getElementById("caption");
+		if (n > slides.length) {
+			slideIndex = 1;
+		}
+		if (n < 1) {
+			slideIndex = slides.length;
+		}
+		for (i = 0; i < slides.length; i++) {
+			slides[i].style.display = "none";
+		}
+		for (i = 0; i < dots.length; i++) {
+			dots[i].className = dots[i].className.replace(" active", "");
+		}
+		slides[slideIndex - 1].style.display = "block";
+		dots[slideIndex - 1].className += " active";
+		captionText.innerHTML = dots[slideIndex - 1].alt;
+	}
+
+	function autoNextSlide(){
+		let nowDate = new Date(Date.now());
+
+		if (((nowDate - lastSlideChange) / 1000) > 5){
+			plusSlides(1);
+		}
+		
+	}
+
+	setInterval(autoNextSlide, 1000);
+</script>
