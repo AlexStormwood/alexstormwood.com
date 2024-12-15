@@ -1,0 +1,81 @@
+---
+import { Icon } from 'astro-icon/components'
+
+const {colourName} = Astro.props;
+---
+
+<div class="social-links">
+
+	<a href="https://www.linkedin.com/in/alexstormwood/" target="_blank">
+		<span class="sr-only">Connect with Alex on LinkedIn</span>
+		<Icon 
+			name="simple-icons:linkedin" 
+			title="Alex Stormwood on LinkedIn" 
+			desc="Alex Stormwood on LinkedIn"
+			aria-hidden="true" width="32" height="32"  
+		/>
+	</a>
+			
+	<a href="https://github.com/AlexStormwood" target="_blank">
+		<span class="sr-only">Follow Alex on GitHub</span>
+		<Icon 
+			name="simple-icons:github" 
+			title="Alex Stormwood on Github" 
+			desc="Alex Stormwood on Github"
+			aria-hidden="true" width="32" height="32"  
+		/>
+	</a>
+
+	<a href="https://bsky.app/profile/alexstormwood.com" target="_blank">
+		<span class="sr-only">Follow Alex on Bluesky</span>
+		<Icon 
+			name="simple-icons:bluesky" 
+			title="Alex Stormwood on Bluesky" 
+			desc="Alex Stormwood on Bluesky"
+			aria-hidden="true" width="32" height="32"  
+		/>
+	</a>
+
+	<a href="mailto:alex+blog@bigfootds.com" target="_blank">
+		<span class="sr-only">Email Alex!</span>
+		<Icon 
+			name="simple-icons:mailboxdotorg" 
+			title="Email Alex Stormwood" 
+			desc="Email Alex Stormwood"
+			aria-hidden="true" width="32" height="32"  
+		/>
+	</a>
+</div>
+
+<style>
+
+	
+
+	
+
+	.social-links {
+		display: flex;
+		justify-content: center;
+		gap: 1em;
+		margin-top: 1em;
+	}
+	.social-links a {
+		text-decoration: none;
+		color: rgb(var(--gray));
+	}
+	.social-links a:hover {
+		color: rgb(var(--gray-dark));
+	}
+
+	@media (max-width: 720px) {
+		header {
+			nav {
+				.social-links {
+					display: none;
+				}
+			}
+			
+		}
+		
+	}
+</style>

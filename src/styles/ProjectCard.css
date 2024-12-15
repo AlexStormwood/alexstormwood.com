@@ -1,4 +1,3 @@
-
 div.projectCard {
 	background: linear-gradient(var(--theme-500), var(--theme-800));
 	border: 2px solid var(--theme-800);
@@ -9,6 +8,11 @@ div.projectCard {
 	flex-direction: column;
 	gap: 20%;
 	padding: 2%;
+
+	h3 {
+		width: 100%;
+		text-align: center;
+	}
 
 	.projectCardDatesContainer, .projectButtonsContainer {
 		width: 100%;

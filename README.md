@@ -1,77 +1,68 @@
-# Alex Stormwood's Online Journal
+# Astro Starter Kit: Blog
 
-This repository contains the website systems and content for my online journal.
+```sh
+npm create astro@latest -- --template blog
+```
 
-Built with ReactJS using Vite's ReactJS template running on JavaScript + SWC.
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/blog)
+[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/blog)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/blog/devcontainer.json)
 
-Feel free to raise issues or whatever else for content on the website.
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-# URLs
+![blog](https://github.com/withastro/astro/assets/2244813/ff10799f-a816-4703-b967-c78997e8323d)
 
-This website is currently deployed at:
+Features:
 
-- [https://alexstormwood.com/](https://alexstormwood.com/)
+- ✅ Minimal styling (make it your own!)
+- ✅ 100/100 Lighthouse performance
+- ✅ SEO-friendly with canonical URLs and OpenGraph data
+- ✅ Sitemap support
+- ✅ RSS Feed support
+- ✅ Markdown & MDX support
 
+## 🚀 Project Structure
 
-# React Rebuild
+Inside of your Astro project, you'll see the following folders and files:
 
-This is a rebuild of what was a functioning blog. Just wanna add more-complex functionality to it and the original blog framework was hard to work with.
+```text
+├── public/
+├── src/
+│   ├── components/
+│   ├── content/
+│   ├── layouts/
+│   └── pages/
+├── astro.config.mjs
+├── README.md
+├── package.json
+└── tsconfig.json
+```
 
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-## Feature Planning
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-- Image Gallery Component
-	- shows multiple images at thumbnail size
-	- click one image to show it in the main gallery part of component
-	- main gallery image can be clicked on to zoom
-	- NPM packages:
-		- gallery: https://www.npmjs.com/package/react-image-gallery
-		- zoom: https://www.npmjs.com/package/react-image-zooom
-- Code snippets with syntax highlighting
-	- NPM packages: 
-		- https://www.npmjs.com/package/react-syntax-highlighter 
-- Page scroll progress bar
-	- NPM packages:
-		- https://www.npmjs.com/package/react-scroll-progress-bar
-- Post metadata in high-tree-level context provider
-	- post metadata should include url-usable ID, published date, array of tags, and component
-- Headings-based Table of Contents widget in post pages
-	- comb through post content for headings, build ToC out of that
-	- widget stays fixed on page view
-	- widget is hidden on mobile (RIP mobile users on longer posts)
-- Open Graph descriptors
-	- https://ogp.me/
-	- Twitter has similar meta tags too
-		- https://developer.x.com/en/docs/twitter-for-websites/cards/guides/getting-started
-- Maybe prevent AI/bot scrapers?
-	- NPM packages:
-		- https://www.npmjs.com/package/@noscrape/noscrape
-- Post title should appear in browser tab
-- Navbar should float/stick to top of page
-- Post pages should detect headings and build a floating ToC (mentioned above already)
-	- Could be combined with scroll progress?
-		- NPM packages:
-			- https://www.npmjs.com/package/scroll-pilot
+The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
 
-## Page planning 
+Any static assets, like images, can be placed in the `public/` directory.
 
-- Post display page
-	- React Router can use the post.id as a URL param and post.component as route element
-	- display links to posts with similar tags
-- Post List
-	- display a list of available posts from the post context provider
-	- sortable? default is by date, newest at top
-	- take a number as param for limit of how many posts to show 
-		- would make this reusable by Recent Posts page
-- Recent Posts
-	- sort a copy of the post metadata to get the 5 most-recent posts, display links to their pages
-- Tag list page
-	- map through the post context data to create an array of tags
-	- display the list of tags as links to the Post List By Tag page
-- Post List By Tag page
-	- tag provided as route param
-	- map through the post context data to create an array of posts, filtered by the tag
-- "Events and Appearances" page 
-	- static page, not a post
-	- just a list of data, nice and simple
-	- uses the headings-based ToC too
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+## 👀 Want to learn more?
+
+Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+## Credit
+
+This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).

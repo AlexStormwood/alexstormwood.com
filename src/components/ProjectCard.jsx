@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import "../styles/ProjectCard.css";
 
 let dateFormatOptions = {
@@ -22,9 +21,9 @@ function ProjectCard({projectObj}){
 			<img src={"/NoImageAvailable.png"} alt="No image found for this project." />
 
 		}
-		<h1>
+		<h3>
 			{projectObj.title}
-		</h1>
+		</h3>
 		<p>{projectObj.description}</p>
 		<p className="builtFor">{projectObj.builtFor}</p>
 		<div className="projectCardDatesContainer">
@@ -41,8 +40,5 @@ function ProjectCard({projectObj}){
 	</div>)
 }
 
-ProjectCard.propTypes = {
-	projectObj: PropTypes.object.isRequired
-}
 
 export default ProjectCard;
