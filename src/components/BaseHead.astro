@@ -2,6 +2,8 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
+import ProfileSd from './GoogleStructuredData/ProfileSd.astro';
+import FaqSd from './GoogleStructuredData/FaqSd.astro';
 
 interface Props {
 	title: string;
@@ -36,14 +38,14 @@ const { title, description, image = '/website-ogimage-default.png' } = Astro.pro
 <link rel="canonical" href={canonicalURL} />
 
 <!-- Primary Meta Tags -->
-<title>{title ? title + " | Alex Stormwood" : "Alex Stormwood"}</title>
-<meta name="title" content={title ? title + " | Alex Stormwood" : "Alex Stormwood"} />
+<title>{title ? title + " | Alex Stormwood" : "Alex Stormwood - Online Portfolio and Journal"}</title>
+<meta name="title" content={title ? title + " | Alex Stormwood" : "Alex Stormwood - Online Portfolio and Journal"} />
 <meta name="description" content={description} />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url} />
-<meta property="og:title" content={title ? title + " | Alex Stormwood" : "Alex Stormwood"} />
+<meta property="og:title" content={title ? title + " | Alex Stormwood" : "Alex Stormwood - Online Portfolio and Journal"} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image, Astro.url)} />
 
@@ -52,9 +54,12 @@ const { title, description, image = '/website-ogimage-default.png' } = Astro.pro
 <meta property="twitter:creator" content="@AlexStormwood" />
 <meta name="twitter:card" property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
-<meta name="twitter:title" property="twitter:title" content={title ? title + " | Alex Stormwood" : "Alex Stormwood"} />
+<meta name="twitter:title" property="twitter:title" content={title ? title + " | Alex Stormwood" : "Alex Stormwood - Online Portfolio and Journal"} />
 <meta property="twitter:description" content={description} />
 <meta name="twitter:image" property="twitter:image" content={new URL(image, Astro.url)} />
 <meta name="twitter:image:alt" content="Alex Stormwood. Gamedev, webdev, and more." />
+
+<ProfileSd heroImage={image} />
+<FaqSd />
 
 <link rel="sitemap" href="/sitemap-index.xml" />
