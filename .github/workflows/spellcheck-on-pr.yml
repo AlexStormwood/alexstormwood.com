@@ -1,0 +1,46 @@
+name: Spellchecker
+on: 
+  pull_request:
+    branches:
+      - 'main'
+    types: [opened, edited]
+
+jobs:
+
+  spelling:
+    name: Reviewdog Spelling
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Reviewdog's Spellcheck
+        uses: reviewdog/action-misspell@v1.26.1
+        with:
+          locale: "UK"
+          level: warning
+          reporter: github-pr-review
+          filter_mode: added
+          fail_level: warning
+          path: |
+            src/content/blog
+          pattern: |
+            *.md
+          
+
+  grammar:
+    name: Reviewdog Grammar
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Reviewdog's LanguageTool
+        uses: reviewdog/action-languagetool@v1.20.2
+        with:
+          reporter: github-pr-review
+          level: error
+          language: en-AU
+          patterns: "**/src/content/blog/*.md"
+
+
+
+
+
