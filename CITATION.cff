@@ -1,13 +1,23 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
 cff-version: 1.2.0
-message: "If you use this software, please cite it as below."
 title: Alex Stormwood's Website
+message: 'If you use this software, please cite it as below.'
+type: software
 authors:
+  - given-names: Alex
+    family-names: Stormwood
+    email: alex@bigfootds.com
+    affiliation: BigfootDS
+    orcid: 'https://orcid.org/0009-0008-2183-7041'
+repository-code: 'https://github.com/AlexStormwood/alexstormwood.com'
+url: 'https://alexstormwood.com/'
 abstract: Personal website of Alex Stormwood.
-repository-code: "https://github.com/AlexStormwood/alexstormwood.com"
-version: 1.0.0
-license-url: "https://spdx.org/licenses/MIT"
 keywords:
   - blog
   - website
   - portfolio
-date-released: 2025-01-27
+license: MIT
+version: 1.0.0
+date-released: '2025-01-27'
