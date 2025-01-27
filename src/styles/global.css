@@ -154,7 +154,7 @@ img {
 
 code {
 	padding: 2px 5px;
-	background-color: rgb(var(--gray-dark));
+	background-color: black;
 	color: rgb(var(--white));
 	border-radius: 2px;
 }
@@ -228,6 +228,10 @@ hr {
 		margin: 0 0 0.5rem 0;
 		color: var(--theme-1000);
 		line-height: 1.2;
+	}
+
+	code {
+		background-color: var(--theme-100);
 	}
 
 }
