@@ -1,6 +1,6 @@
 {
     "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
-    "type": "SoftwareSourceCode",
+    "type": "software",
     "author": [
         {
             "id": "https://orcid.org/0009-0008-2183-7041",
@@ -14,11 +14,13 @@
             "givenName": "Alex"
         }
     ],
-    "codeRepository": "git+https://github.com/AlexStormwood/alexstormwood.com.git",
+    "codeRepository": "https://github.com/AlexStormwood/alexstormwood.com",
+	"url":"https://alexstormwood.com/",
     "dateCreated": "2023-03-22",
     "dateModified": "2025-01-27",
     "datePublished": "2023-05-17",
     "description": "Personal website of Alex Stormwood.",
+    "abstract": "Personal website of Alex Stormwood.",
     "downloadUrl": "https://alexstormwood.com/",
     "keywords": [
         "blog",
