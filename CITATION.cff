@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: Alex Stormwood's Website
+authors:
+abstract: Personal website of Alex Stormwood.
+repository-code: "git+https://github.com/AlexStormwood/alexstormwood.com.git"
+version: 1.0.0
+license-url: "https://spdx.org/licenses/MIT"
+keywords:
+  - blog
+  - website
+  - portfolio
+date-released: 2025-01-27
