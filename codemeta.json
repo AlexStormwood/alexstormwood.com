@@ -1,0 +1,39 @@
+{
+    "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+    "type": "SoftwareSourceCode",
+    "author": [
+        {
+            "id": "https://orcid.org/0009-0008-2183-7041",
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "BigfootDS"
+            },
+            "email": "alex@bigfootds.com",
+            "familyName": "Stormwood",
+            "givenName": "Alex"
+        }
+    ],
+    "codeRepository": "git+https://github.com/AlexStormwood/alexstormwood.com.git",
+    "dateCreated": "2023-03-22",
+    "dateModified": "2025-01-27",
+    "datePublished": "2023-05-17",
+    "description": "Personal website of Alex Stormwood.",
+    "downloadUrl": "https://alexstormwood.com/",
+    "keywords": [
+        "blog",
+        "website",
+        "portfolio"
+    ],
+    "license": "https://spdx.org/licenses/MIT",
+    "name": "Alex Stormwood's Website",
+    "programmingLanguage": "JavaScript",
+    "runtimePlatform": "NodeJS",
+    "version": "1.0.0",
+    "contIntegration": "https://github.com/AlexStormwood/alexstormwood.com/actions",
+    "codemeta:continuousIntegration": {
+        "id": "https://github.com/AlexStormwood/alexstormwood.com/actions"
+    },
+    "developmentStatus": "active",
+    "issueTracker": "https://github.com/AlexStormwood/alexstormwood.com/issues"
+}
