@@ -3,7 +3,7 @@ message: "If you use this software, please cite it as below."
 title: Alex Stormwood's Website
 authors:
 abstract: Personal website of Alex Stormwood.
-repository-code: "git+https://github.com/AlexStormwood/alexstormwood.com.git"
+repository-code: "https://github.com/AlexStormwood/alexstormwood.com"
 version: 1.0.0
 license-url: "https://spdx.org/licenses/MIT"
 keywords:
