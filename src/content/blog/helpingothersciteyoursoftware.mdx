@@ -1,0 +1,178 @@
+---
+title: 'Helping Others Cite, Reference, or Attribute Your Software'
+description: 'Exploring some modern techniques and new industry standards to improve software attribution, referencing, and citations.'
+pubDate: 'Jan 31 2025'
+heroImage: '/articles/helpingothersciteyoursoftware/ArticleHeader.png'
+
+---
+
+
+This article can be used as an example for Coder Academy's assessment item, "Technical Blog Post and Prototype", for the ISK1002 Industry Skills 2 subject. I've kept this article focused on the rubric where I can, not necessarily the assessment brief - the rubric is what you'll be graded on, after all!
+
+
+<details style={{backgroundColor:"var(--theme-700)", padding:"1%"}}>
+	<summary  style={{backgroundColor:"var(--theme-900)"}}>For a walkthrough of how this article maps to the rubric, click this text.</summary>
+
+- At least two referenced external sources to support an explanation of an industry-relevant trend or opportunity
+	- Rise of "CI/CD/CC" movement
+	- Platforms like Github increasing the ease of citations/referencing/attribution with new features
+	- Explanation of the CodeMeta project metadata format and the Citation File Format
+- At least two referenced external sources to support an explanation of an industry-relevant ethical issue in detail 
+	- The importance of licensing/copyright/referencing/attribution
+	- Reiterate some of of the info CodeMeta explains for their data format
+- At least two referenced external sources to support an explanation of a problem or scenario and solution to the problem or scenario
+	- Problem: Lack of developer awareness about these tools, hurdles that stop developers implementing such "simple" things in their work
+	- Solution: Demonstrate how to implement CodeMeta and CFF files in software projects
+- Article should include a plan covering the steps required to address the problem or scenario
+	- Tutorial on how to implement CodeMeta and CFF files in software projects
+	- Brief example of how CodeMeta/CFF data can be used in projects (e.g. read in a version number, contributors array, etc, to display in appropriate UI of an app)
+- Identify the essential skills, knowledge, tools, etc, required to implement the solution to the problem or scenario, explain why those are needed, identify alternatives to those identified things, and explain why the chosen things are used in the solution instead of the alternatives.
+	- Comparison of metadata formats (e.g. using CodeMeta "crosswalks" to highlight gaps in some formats)
+	- Show how GitHub currently supports CFF and has plans to support future formats (link to GitHub issues/discussions where this popped up)
+- No formatting issues, and uses correct spelling & grammar throughout the article.
+	- This can be as "manual" as just spell-checking everything yourself, but I like automation. I've implemented a GitHub Action that runs two spelling & grammar tools: ReviewDog's "misspell" action and ReviewDog's "languagetool" action. They'll validate and suggest fixes for the articles I write into this blog repository.
+- Creates code with comments, comments are relevant to the project, comments are all easy to understand, and ideally stick to a specific commenting or documentation style.
+	- JSDoc comments to cover syntax-related commenting automatically, plus manually-written descriptions inserted into those JSDoc comments.
+
+Each top-level dot point in the list above matches one rubric item (or rubric row, however you want to call it) in the assessment. If you're working on this assessment yourself, you may benefit from planning things out in a similar list! Or at least, including a similar list into your work will help any assessment graders to see everything that you're intending to show.
+
+And no, this article does not get perfect marks for the rubric. It might meet a high distinction overall, almost definitely a distinction overall at least.
+
+</details>
+
+
+So! Let's begin.
+
+## Stumbling Into Licensing and Attribution
+
+In all areas of software development, we developers will encounter and use licenses whether it's purposefully and explicit or not. 
+
+Doing something like installing a package from NPM exposes us to the license of that package. 
+
+And doing something like activating an installation of a game engine such as Unity and Unreal exposes us to a license of that engine. 
+
+We see licenses more than we might think. But these licenses are typically more about protecting ownership of work and determining how a piece of code is used.
+
+Attribution is the way that we can know who we're working with through those external packages and tools. It's more about crediting a creator for their creations. 
+
+We can't really, completely, use licensing and attribution interchangeably. A lot of the data they may cover may be the same, but they branch apart and veer into different territories with different information added past their shared bits of data. 
+
+For example, an open-source project could be using the [MIT license](https://choosealicense.com/licenses/mit/). If your own project uses that open-source project as a dependency, your compiled or deployed project must still contain a copy of that open-source project's license and copyright notices. 
+
+So, the license determines a legal obligation about your usage of someone else's work. 
+
+Attribution, on the other hand, can be covered by that same obligation... _sometimes_.
+
+There's a variant of the MIT license out there known as [MIT No Attribution](https://choosealicense.com/licenses/mit-0/), where the only difference is that your own project does not need to include a copy of the license or copyright notices from whatever other project you're dependent on. 
+
+So, a license can still be in effect without attribution.
+
+And the flipped scenario: what if a project is using something like [The Unlicense](https://choosealicense.com/licenses/unlicense/)? There is no attribution data provided by that license, since it provides no copyright information or any other license information. 
+
+If you chose to still attribute a project like that (because you're a good cookie who wants to shine lights on the pillars that your work is built upon, appropriately crediting people who aided your work), you would need to figure out a heap of information about the developers of that work and create your own attribution statement for that project.
+
+Doing that, manually, for every project, will lead to chaos. The way you manually make attribution data may differ from how someone else makes attribution data. If people are out there making attribution statements that wildly differ to everybody else's attribution statements, how do you determine that you've covered things appropriately? 
+
+<div align="center">
+<img width="40%" src="/articles/helpingothersciteyoursoftware/standards001.png" alt="A screenshot of a character from Team Fortress 2, stating that professionals have standards." />
+</div>
+<div align="center">
+<caption>
+	<a href="https://www.youtube.com/watch?v=9NZDwZbyDus">Screenshot from "Meet the Sniper" by Valve, 2009.</a>[^1]
+</caption>
+</div>
+
+### Wait, what? 
+
+One day, when digging into some GitHub documentation to read up about customising some profile pages, I found this interesting page on `CITATION` files. [^2]
+
+A `CITATION` file allows a repository to conveniently provide a way for anyone to correctly attribute a repository. The convenient result is something like this: 
+
+<div align="center">
+<img width="30%" src="/articles/helpingothersciteyoursoftware/cff001.png" alt="A screenshot of a a GitHub repository with an emphasis on its 'Cite this repository' button." />
+</div>
+<div align="center">
+<caption>
+	<a href="https://github.com/BigfootDS/supercamo">Screenshot from of a citation section of a GitHub repository - one of my own!</a>[^3]
+</caption>
+</div>
+
+I'll dig into exactly how those citation files work later in this article, but I just wanted to show off the end-result for now. It's super convenient! It even supports repositories containing things other than software! [^4]
+
+
+### But, why? 
+
+Citations, referencing, attribution, and licensing all help others use your work. 
+
+And potentially more-importantly than that: they help others learn from your work.
+
+As a university educator for my day job, learning is a big deal to me. Any student, researcher, teacher, or other academically-involved person will typically need to cite and reference the works of others as part of their activities. As UNSW states with multiple nuggets of wisdom[^5]:
+
+> By citing the work of a particular scholar, you acknowledge and respect the intellectual property rights of that researcher.
+
+> Referencing is a way to provide evidence to support the assertions and claims in your own assignments.
+
+> By citing experts in your field, you are showing your marker that you are aware of the field in which you are operating.
+
+And my favourite, most-creative statement on that page: 
+
+> Your citations map the space of your discipline and allow you to navigate your way through your chosen field of study, in the same way that sailors steer by the stars.
+
+Even third-party or archival systems such as Zenodo[^6] create and integrate citation data into anything you put into their systems. They have multiple features involved in archiving and organising whatever works are uploaded to their platform, including the usage of any existing citation data and creation of "digital object identifiers". I would fully expect that they're adhering to the idea of "if it's not organised, then its preservation is useless as we have no way to identify or find it" - a thought I've had while managing my own data hoard in a home server.
+
+All of the above means well in an academic sense, of course, but for those more in an active industry setting, please consider: 
+
+Using references helps justify things.
+
+Going around saying "we need to upgrade this project because there's a bug that hackers are using" might scare some clueless folks into listening to you, but an a more-experienced workplace you might get a response of "says who?" or "what's the CVE?" or "has it been patched yet?" or "what's the hack and how does it work? Is it a realistic threat?"
+
+All of those questions are best handled by going: "Here's the notice from Blah Blah Cyber Security Group". That's a reference to an expert, external piece of information.
+
+Now, the above example puts all of that in a casually-framed verbal dialogue - but if you ever need to create a paper trail (either as emails, reports, or other documents), then you need a way to link or reference or cite what you're saying. So you're back to these same systems that academics and students are using. 
+
+
+## Project Metadata
+
+Importance of project metadata
+
+Project metadata informing attribution/referencing data
+
+
+## CI/CD/CC 
+
+Rise of CI/CD/CC movement to help automation of the above and other metadata things like SBOM
+
+
+## How "meta" are Developers Right Now?
+
+Surveys/research/etc about developer usage of CI/CD, CI/CD/CC, citation files and metadata files
+
+
+## How to Make Metadata For Your Projects
+
+Manually making CodeMeta JSON files 
+
+Manually making Citation CFF files
+
+
+## How to Automate Metadata For Your Projects
+
+GitHub Actions stuff
+
+
+## Summary
+
+
+
+## References 
+
+[^1]: Valve. (2009). Meet the Sniper. In YouTube. https://www.youtube.com/watch?v=9NZDwZbyDus
+[^2]: About CITATION files - GitHub Docs. (2017). GitHub Docs. https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files
+[^3]: BigfootDS. (2024, October 19). GitHub - BigfootDS/supercamo: Camo-inspired ODM for NeDB, built specifically for BigfootDS’ needs. GitHub. https://github.com/BigfootDS/supercamo
+[^4]: About CITATION files - GitHub Docs. (2017). GitHub Docs. https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files#citing-something-other-than-software
+[^5]: UNSW Sydney. (2019, October 28). Why Is Referencing Important? UNSW Sydney. https://www.student.unsw.edu.au/why-referencing-important
+[^6]: Zenodo - Research. Shared. (2018). Zenodo.org. https://zenodo.org/
+
+‌
+‌
+
