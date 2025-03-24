@@ -36,7 +36,9 @@ This article can be used as an example for Coder Academy's assessment item, "Tec
 
 Each top-level dot point in the list above matches one rubric item (or rubric row, however you want to call it) in the assessment. If you're working on this assessment yourself, you may benefit from planning things out in a similar list! Or at least, including a similar list into your work will help any assessment graders to see everything that you're intending to show.
 
-And no, this article does not get perfect marks for the rubric. It might meet a high distinction overall, almost definitely a distinction overall at least.
+And no, this article does not get perfect marks for the rubric. I've got other things to do with my time!
+
+This article might meet a high distinction overall, almost definitely a distinction overall at least.
 
 </details>
 
@@ -110,7 +112,11 @@ As a university educator for my day job, learning is a big deal to me. Any stude
 
 > By citing the work of a particular scholar, you acknowledge and respect the intellectual property rights of that researcher.
 
+And... 
+
 > Referencing is a way to provide evidence to support the assertions and claims in your own assignments.
+
+And...
 
 > By citing experts in your field, you are showing your marker that you are aware of the field in which you are operating.
 
@@ -120,7 +126,7 @@ And my favourite, most-creative statement on that page:
 
 Even third-party or archival systems such as Zenodo[^6] create and integrate citation data into anything you put into their systems. They have multiple features involved in archiving and organising whatever works are uploaded to their platform, including the usage of any existing citation data and creation of "digital object identifiers". I would fully expect that they're adhering to the idea of "if it's not organised, then its preservation is useless as we have no way to identify or find it" - a thought I've had while managing my own data hoard in a home server.
 
-All of the above means well in an academic sense, of course, but for those more in an active industry setting, please consider: 
+All of the above means well in an academic sense, of course, but for those more in an active industry setting (e.g. developers, programmers, managers, team leads), please consider: 
 
 Using references helps justify things.
 
@@ -133,35 +139,223 @@ Now, the above example puts all of that in a casually-framed verbal dialogue - b
 
 ## Project Metadata
 
-Importance of project metadata
+So, this brings us to project metadata. Our local dears at the Australiab Bureau of Statistics define metadata as[^7]:
 
-Project metadata informing attribution/referencing data
+> Metadata is the information that defines and describes data.
+> 
+> It is often referred to as data about data or information about data because it provides data users with information about the purpose, processes, and methods involved in the data collection.
+
+This means that metadata, in the context of software development, is information about your software project. This is important! It's important because metadata helps us easily figure out things about our project. 
+
+Specifically, we can use metadata to figure out any citation data about our projects.
+
+And even more amazingly: we can use metadata to _automatically generate and update_ any citation data about our projects.
+
+Think about what a citation needs. For example, if you were citing an article from a website (such as a news article or even this page that you're reading right now) in an APA7 citation format, you would need these pieces of information:
+
+- Author Name, first and last.
+- Date
+- Article Title
+- Website Name
+- Article URL
+
+Citing this webpage would look like:
+
+`Stormwood, A. (2025, March 25). Helping Others Cite, Reference, or Attribute Your Software. Alex Stormwood. https://alexstormwood.com/articles/helpingothersciteyoursoftware/`
+
+When we cite software, we need these pieces of information: 
+
+- Author Name, first and last.
+- Date
+- Project Title
+- Project Version
+- Project Type
+- Project URL
+
+Not all of that is commonly implemented in typical referencing generator websites. For example, this website you're viewing now - its GitHub repository would be cited like this: 
+
+`Alex Stormwood. (2023). GitHub - AlexStormwood/alexstormwood.com: Personal blog. GitHub. https://github.com/AlexStormwood/alexstormwood.com`
+
+...but that's according to [MyBib.com](https://mybib.com), a great website but they unfortunately do not have software citation implemented at the time of writing. It means that they will process the repository web page as if it's a standard website or article - so not everything is super descriptive or clear. Like, the project title? We don't need the GitHub repository identifier there, or the repository description. We can use a proper title. 
+
+We can customise this stuff. 
+
+We can set up more-descriptive, more-accurate, more-useful information to make citations. And that will all be metadata.
+
+We can use that metadata to make our own citation strings that specifically represent our work - so anyone citing our work will not need to use some half-implemented, inaccurate assumption about how our work should be cited. We can be specific!
+
+
+
+
+In the rest of this article, we'll look at how we can create useful metadata and automatically use that metadata to help people create practical, useful citation strings. 
+The result - the citation string that people will be using - will look like this: 
+
+`Stormwood, A. (2025). Alex Stormwood's Website (Version 1.0.0) [Computer software]. https://github.com/AlexStormwood/alexstormwood.com`
+
 
 
 ## CI/CD/CC 
 
-Rise of CI/CD/CC movement to help automation of the above and other metadata things like SBOM
+It feels like a pretty safe statement to say that not many developers enjoy doing documentation. I'm kinda toeing the line between academia and software development, so I do enjoy documentation in my software development work - but I know not many others are in that same situation. Hell, no one that I've met in my life enjoys making or maintaining documentation other than me.
+
+So, how can we get developers on board with this metadata and citations stuff? Easy - make it happen automatically, in the background! 
+
+According to a survey from the Continuous Delivery Foundation[^8], 83% of developers perform devops-related activities. This means that a large majority of the software development industry has a bit of exposure to CI/CD systems, processes, abilities, and so on.
+
+From that same survey[^8], the developers who avoid CI/CD the most are often found in data science, desktop app development, or game development fields. 80% of game developers do have some involvement in devops - every other type of software development has an even higher percentage than that.
+
+Again from that same survey[^8], freelancers - not companies, but individuals - are still mostly involved in devops tasks in some way. 21% of freelancers do not have any involvement in devops, while every other freelancer does! 
+
+All of this means that it is very, very safe for us to assume that we can show the citation automation solution - especially one where we can say "copy this, that's all!" - and whoever we show it to will be able to understand what it is and what it is doing.
+
+Additionally, there has been a recent movement to add "SBOM" to software projects: a software bill of materials. 
+
+An SBOM is a way for developers to identify the components of their project and more-easily audit them. If none of that sounds exciting to you, that's okay - it's a cybersecurity thing, and is more-applicable to government work or enterprise work. It's essentially a paper trail, and a way for everyone involved in a project to prove that their work is safe. If you're working on projects that are related to sensitive data like military, healthcare, or social work, then this can help your project be picked up or bought by other companies and users - because you've proven additional trustworthiness thanks to the SBOM. 
+
+GitHub has been working to make it easier for developers to create documents like that within their projects. In 2023, GitHub made a self-service SBOM generation system[^9], and specifically notes that a US government executive order from the Biden administration to improve cybersecurity helped to justify the need for that self-service system. If you are doing work with the US government, your work must be as secure as possible - and SBOMs help you do that. And GitHub helps you automate that.
 
 
-## How "meta" are Developers Right Now?
+Things like an SBOM fall under a recent addition to "CI/CD" known as "CC", or "continuous compliance". This changes the abbreviation a bit - we now have "CI/CD/CC"! 
 
-Surveys/research/etc about developer usage of CI/CD, CI/CD/CC, citation files and metadata files
+As noted by Thoughtworks in their technology innovation tracker system, the "Technology Radar"[^10], the whole point of continuous compliance is that your SBOMs and audit logs and security scans and other legal documentation can be managed automatically, continuously. In particular, this helps to minimise and manage the risks and costs of addressing those risks, since any issues are caught early before they become major issues.
+
+We can treat the citation stuff in that same umbrella. It's not source code, it's not a deliverable part of a project, it's not an integration thing - it's a compliance thing. 
+
+But as implied by Thoughtworks[^10]: this is all very new stuff, and may not be widespread in the industry yet. It's only recently gotten on to their radar!
 
 
-## How to Make Metadata For Your Projects
+
+
+## How to Manually Make Metadata For Your Projects
 
 Manually making CodeMeta JSON files 
 
 Manually making Citation CFF files
 
 
-## How to Automate Metadata For Your Projects
+## How to Automatically Make Metadata For Your Projects
 
 GitHub Actions stuff
 
 
 ## Summary
 
+In this article, we've explored the importance of metadata and how it can be used to create accurate citation data for others to use when referencing our work. We've looked at how to do that manually and automatically, and dug into concepts around why this stuff all matters as well. 
+
+It's a lot to unpack, and it's a new area of the software development industry. It's not commonplace - yet!
+
+But to help spread the concepts and make it easy to apply to our work, we just have to remember: 
+
+- We need a `codemeta.json` file.
+- We need an automation workflow to build a `CITATION.cff` file based on the `codemeta.json` file's contents.
+
+
+And for those scrolling right to the end...
+
+### TLDR
+
+<details style={{backgroundColor:"var(--theme-700)", padding:"1%"}}>
+	<summary  style={{backgroundColor:"var(--theme-900)"}}>Click this text for the two code files that all of your GitHub repositories should have!</summary>
+
+This type of contents should go into a `codemeta.json` file in the root of your repository:
+
+```json
+{
+    "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+    "@type": "SoftwareSourceCode",
+    "author": [
+        {
+            "@id": "https://orcid.org/0009-0008-2183-7041",
+            "@type": "Person",
+            "email": "alex@bigfootds.com",
+            "givenName": "Alex",
+            "familyName": "Stormwood",
+            "affiliation": {
+                "@type":"Organization",
+                "name":"BigfootDS"
+            }
+        }
+    ],
+    "maintainer": [
+        {
+            "@id": "https://orcid.org/0009-0008-2183-7041",
+            "@type": "Person",
+            "email": "alex@bigfootds.com",
+            "givenName": "Alex",
+            "familyName": "Stormwood",
+            "affiliation": {
+                "@type":"Organization",
+                "name":"BigfootDS"
+            }
+        }
+    ],
+    "codeRepository": "https://github.com/AlexStormwood/alexstormwood.com",
+    "url":"https://github.com/AlexStormwood/alexstormwood.com",
+    "dateCreated": "2025-01-26",
+    "dateModified": "2025-01-27",
+    "datePublished": "2025-01-27",
+    "description": "Alex Stormwood's personal website, portfolio, and blog.",
+    "abstract": "Alex Stormwood's personal website, portfolio, and blog.",
+    "downloadUrl": "https://github.com/AlexStormwood/alexstormwood.com/releases",
+    "keywords": [
+        "github"
+    ],
+    "license": "https://spdx.org/licenses/MIT",
+    "name": "alexstormwood.com",
+    "programmingLanguage": "Markdown",
+    "runtimePlatform": "GitHub",
+    "version": "1.0.0",
+    "contIntegration": "https://github.com/AlexStormwood/alexstormwood.com/actions",
+    "codemeta:continuousIntegration": {
+        "id": "https://github.com/AlexStormwood/alexstormwood.com/actions"
+    },
+    "developmentStatus": "active",
+    "issueTracker": "https://github.com/AlexStormwood/alexstormwood.com/issues"
+}
+```
+
+This type of file contents should go into a `codemeta2cff.yml` file that lives in your repository's `.github/workflows/` folder, so its full repository-relative path should be `.github/workflows/codemeta2cff.yml`:
+```yml
+name: CodeMeta2CFF
+run-name: Run CodeMeta2CFF after ${{github.event_name}} by ${{github.actor}}
+
+on:
+  push:
+    paths: ['codemeta.json']
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Reason'
+        required: false
+        default: 'Manual trigger'
+
+jobs:
+  CodeMeta2CFF:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Convert CFF
+        uses: caltechlibrary/codemeta2cff@main
+      - name: Commit CFF
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: 'Add CITATION.cff for release'
+          add: 'CITATION.cff'
+```
+
+That will automatically keep this citation button up-to-date on your repositories: 
+
+<div align="center">
+<img width="30%" src="/articles/helpingothersciteyoursoftware/cff001.png" alt="A screenshot of a a GitHub repository with an emphasis on its 'Cite this repository' button." />
+</div>
+<div align="center">
+<caption>
+	<a href="https://github.com/AlexStormwood/alexstormwood.com/">Screenshot from of a citation section of a GitHub repository - one of my own!</a>[^3]
+</caption>
+</div>
+
+</details>
 
 
 ## References 
@@ -172,7 +366,7 @@ GitHub Actions stuff
 [^4]: About CITATION files - GitHub Docs. (2017). GitHub Docs. https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files#citing-something-other-than-software
 [^5]: UNSW Sydney. (2019, October 28). Why Is Referencing Important? UNSW Sydney. https://www.student.unsw.edu.au/why-referencing-important
 [^6]: Zenodo - Research. Shared. (2018). Zenodo.org. https://zenodo.org/
-
-‌
-‌
-
+[^7]: Australian Bureau of Statistics. (2023, February 2). Metadata | Australian Bureau of Statistics. https://www.abs.gov.au/statistics/understanding-statistics/statistical-terms-and-concepts/metadata
+[^8]: SlashData. (2024, August 19). State of CI/CD Report 2024. CD Foundation. https://cd.foundation/state-of-cicd-2024/
+[^9]: Tooley, E. (2023, March 28). Introducing self-service SBOMs. The GitHub Blog. https://github.blog/enterprise-software/governance-and-compliance/introducing-self-service-sboms/
+[^10]: Thoughtworks. (2024). Continuous compliance | Technology Radar | Thoughtworks Australia. Thoughtworks. https://www.thoughtworks.com/en-au/radar/techniques/continuous-compliance
