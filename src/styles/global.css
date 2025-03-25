@@ -192,6 +192,10 @@ hr {
 	nav>.social-links {
 		display: none;
 	}
+
+	img {
+		width: 100%;
+	}
 }
 
 .sr-only {
