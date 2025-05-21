@@ -1,0 +1,14 @@
+name: Trigger Netlify rebuild for scheduled posts
+on: 
+    schedule:
+        - cron: '0 * * * *'
+    workflow_dispatch:
+jobs: 
+    trigger: 
+        name: Trigger a Netlify build
+        runs-on: ubuntu-latest
+        steps: 
+            - shell: bash
+              env: 
+                NETLIFY_BUILD_HOOK: ${{ secrets. NETLIFY_BUILD_HOOK_URL }}
+              run: curl -X POST -d {} "$NETLIFY_BUILD_HOOK"
