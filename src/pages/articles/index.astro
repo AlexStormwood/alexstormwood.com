@@ -6,9 +6,24 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 
-const posts = (await getCollection('blog')).sort(
+let posts = await getCollection('blog');
+
+// Sort posts by their publication date. Newest first.
+posts = posts.sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+
+// Hide hidden or draft posts from the index page.
+// Hidden pages are still built into prod, but draft pages are only visible in dev.
+posts = posts.filter((blogPost) => {
+	console.log(blogPost.data.title + " has a draft value of: " + blogPost.data.draft)
+	return blogPost.data.draft != true || blogPost.data.hidden != true
+});
+
+// Allow scheduled posts to be shown on this index page, but only ones that are NOT hidden or draft.
+posts = posts.filter((blogPost) => {
+	return new Date(blogPost.data.pubDate).getTime() < Date.now();
+});
 ---
 
 <!doctype html>

@@ -1,0 +1,658 @@
+---
+title: 'A Dream of Open-Source Game Development'
+description: "The gamedev industry has fallen behind the rest of the IT industry in some major, dangerous ways. Let's see how it can catch back up."
+pubDate: 'May 20 2025'
+heroImage: '/articles/opensourcegamedevdream/ArticleHeader.png'
+draft: true
+hidden: true
+---
+import TodoNotice from "../../components/TodoNotice.astro";
+
+## A Timeline
+
+**The year is 1977.** 
+
+Consoles like the Atari 2600 exist now[^1], allowing developers to make games focusing on a common, game-focused machine that customers will be able to use in their own home.
+Every game developer is making their own engine to make a game, or not using an engine at all - just making their game as "typical" software.
+The hardware for consoles and computers of the time don't come with much in the way of high-level software - developers have to write code specifically for a hardware target, right down to the ability to render using a kernel. 
+
+Not much is standardised across game coding or features yet. It's all so new!
+
+**The year is 1985.**
+
+Successful developers are likely to reuse their own engine from one game to make their next game, but don't typically share their engines for outsiders to use.
+
+Nintendo created a wonderful side-scrolling game engine as part of their development of Excitebike, released in 1984. They reused that game engine to create Super Mario Bros, released in 1985.[^2]
+
+Some built-for-genre game engines popped up during this time as well, but they were hyper-focused toolkits. Literally: you would use the Shoot-'Em-Up Construction Kit[^3] to create shooter games, the Pinball Construction Set[^4] to create pinball games, and so on.
+
+**The year is 1996.** 
+
+Some of the more-successful game developers, such as Epic Games, have become licensors.[^5] They are licensing their game engines out to other developers. This coincided with the rise of 3D graphics and associated systems, such as 3D collision and physics. 
+
+The idea of using someone else's pre-made code to access such important, cutting-edge features, is hugely important for letting developers develop more quickly and create bigger, more-innovative games.
+
+But Unreal Engine 1 cost at least $250,000USD to license at that time. Up front. Plus royalties of at least 5%, when you start earning money from your game.[^6]
+
+**The year is 2005.**
+
+Some software developers created the Unity engine. Their goal was to "democratize" game development, and make game development accessible to more developers.[^7] The Unity game engine allowed game developers to create games for Mac OS X, Microsoft Windows, and web browsers.
+
+As more years went on, game engines like Unity and Unreal Engine would iterate and improve, making themselves more and more useful to developers. 
+
+More features like improved rendering, lighting, networking, and support for more hardware targets (consoles, phones, virtual reality headsets, etc etc) came out - and game engines like Unity and Unreal Engine quickly adapted to allow developers to create games that would be able to live on cutting-edge technologies and features.
+
+Eventually, these game engines became general-purpose real-time rendering tools. Unity pivoted to focus on "industry" usage of their engine, such as architecture and augmented reality. Unreal Engine pivoted to become part of the film and TV industry, becoming an integral part of techniques such as "The Volume" or "StageCraft".[^8]
+
+**The year is 2019.** 
+
+The Halo franchise has spent many years remastering its older titles. Those titles were built on a custom, internal engine by Bungie known mostly as the Blam engine.[^9] But old code leads to technical debt, and technical debt is hard to work through. Some of the Halo titles that were remastered (Combat Evolved, Halo 2) were remastered by using a separate engine just for graphics - Saber3D.[^10] 
+
+But in 2019, Halo: Reach was remastered and the remaster-bundle product of Halo: The Master Chief Collection received major updates - both were now using Unreal Engine.[^11]
+
+At this point, the majority of new games being released were made using either Unity or Unreal Engine.[^12]
+
+<div align="center">
+<img width="100%" src="/articles/opensourcegamedevdream/gameengineusageovertime.png" alt="Chart of game engine usage over time. Unity is the most-commonly-used engine by typically 20%, if not more." />
+</div>
+<div align="center">
+<caption>
+	<a href="https://gamedevreports.substack.com/p/video-game-insights-game-engines" target='_blank'>Chart of game engine usage over time. Unity is the most-commonly-used engine by typically 20%, if not more.</a>[^12]
+</caption>
+</div>
+
+**The year is 2024.**
+
+Continuing the above anecdote of Halo: in 2021, Halo: Infinite launched. It was a project plagued with technical difficulties, and used an internal engine: Slipspace. It was a modern iteration of the Halo franchise's classic Blam engine, but still had many problems for its developers to work through.[^16]
+
+Some years after Halo: Infinite launched, the developers gave up on their commitment to live-service content such as story or campaign content. Essentially, development was a mess and the best way that the business could see to salvage things meant throwing a lot of work - and developers - out. The developers rebranded, and publicly declared that all future Halo titles would be made using the Unreal Engine.[^17]
+
+By this point, Unity had also made drastic changes to its licensing and developer fees in September 2023. They even attempted to charge developers for the number of installations that their games had.[^18] Many developers (myself included) lost trust in Unity. Unity had made plenty of other troublesome decisions in years leading up to this, but this was an especially-noteworthy deal-breaker for many.
+
+However, games typically takes years to make. We won't realistically see the true consequences of Unity's actions for a few more years when it comes to larger projects. On the flipside, though: small-scale, quick-to-make projects have been quick to change to alternative engines:
+
+<div align="center">
+<img width="100%" src="/articles/opensourcegamedevdream/godotincreaseovertime.png" alt="Chart of game engine usage over time, focusing on alternative game engines that are popular, but are not Unity or Unreal Engine." />
+</div>
+<div align="center">
+<caption>
+	<a href="https://gamedevreports.substack.com/p/video-game-insights-game-engines" target='_blank'>Chart of game engine usage over time, focusing on alternative game engines that are popular, but are not Unity or Unreal Engine.</a>[^12]
+</caption>
+</div>
+
+The chart shows Godot rising in usage more and more over time - notably since Unity had its "initial public offering" (a.k.a "went public") in 2020.[^19] That act alone began to stir troubles in Unity users - going "public" typically means a business starts focusing on pleasing its shareholders, rather than its employees or customers.
+
+But the rising number of Godot users still only represent a tiny slice of the wider games industry.
+
+<div align="center">
+<img width="50%" src="/articles/opensourcegamedevdream/gamesreleased.png" alt="Chart of game engines found in games released during 2024." />
+</div>
+<div align="center">
+<caption>
+	<a href="https://gamedevreports.substack.com/p/video-game-insights-game-engines" target='_blank'>Chart of game engines found in games released during 2024.</a>[^12]
+</caption>
+</div>
+
+Unity is the game engine found throughout the games industry. Unreal Engine is the next-best thing, but there's still a wide margin between it and Unity.
+
+**The year is 2025.**
+
+What do we have to work with if we want to avoid shoddy businesses like Unity? 
+
+Do we all jump into Unreal Engine? 
+
+What is Unreal Engine makes shoddy business decisions like Unity did? 
+
+What if our game project doesn't really benefit from the 3D realism that Unreal Engine seems to focus on?
+
+What if our game needs to run on smartphones or handheld consoles? (In Unity, it's barely a hurdle - but Unreal Engine games need work to run well on those devices!)
+
+The issue with the games industry centralising around one or two tools is... well... 
+
+## The Answers Lay Elsewhere
+
+Now, I've used Unity since late 2013. Back when "UnityScript" was part of the Unity game engine, alongside C#. I've worked at one production house / agency, and I've made games as a solo, indie developer. I've done gamedev in teams and on my own, at the smaller-scoped end of the gamedev industry.
+
+My day job is teaching. I've been a teacher for almost a decade now, primarily focusing on <a href='https://coderacademy.edu.au/' target='_blank'>teaching web development</a>. It's a sector of the wider information technology (IT) industry that, for many years, was where all the money in programming was found. Every business needs a website, after all.[^13]
+
+To me, webdev is roughly 10-30 years ahead of gamedev, depending on which exact part of either sector you drill down into. 
+
+So, when the gamedev industry goes through something stupid, the first thing that comes to mind is: "how did webdev handle this?"
+
+Websites have so many commonly-implemented functionalities, plenty of "frameworks" exist across numerous programming languages. Those frameworks let developers get core, common things done quickly so that they can focus on whatever is special or specific or unique to their project.
+
+But here's the kicker: that sounds just like a game engine. 
+
+Webdev has frameworks for websites and servers.
+Gamedev has engines for games. 
+
+But, wait a second... Game frameworks exist as well?
+
+<div align="center">
+<img width="100%" src="/articles/opensourcegamedevdream/gameengineframeworkanalogy.png" alt="A handy analogy of game engines, frameworks, and building your own engine." />
+</div>
+<div align="center">
+<caption>
+	<a href="https://www.reddit.com/r/gamedev/comments/7yk4rl/comment/duhdrvd/" target='_blank'>A handy analogy of game engines, frameworks, and building your own engine.</a>[^14]
+</caption>
+</div>
+
+The language there is really just a matter of how much "DIY" you want to do in your project. But otherwise... a bunch of options all exist for game developers to use for their projects already. 
+
+It's not as if there's only a handful of game engines that a developer can choose, from a literal perspective.
+
+But if we circle back to webdev, and look at webdev's technology usage trends and see if their tech mirrors the "engine vs framework vs diy" ideas any more effectively...
+
+<div align="center">
+<img width="50%" src="/articles/opensourcegamedevdream/stackoverflowsurvey2024webframeworks.png" alt="A chart of popular technologies used in webdev." />
+</div>
+<div align="center">
+<caption>
+	<a href="https://survey.stackoverflow.co/2024/technology#most-popular-technologies-webframe" target='_blank'>A chart of popular technologies used in webdev.</a>[^15]
+</caption>
+</div>
+
+If you're unfamiliar with webdev, here's a way to help understand that chart: 
+
+- Node.js (JavaScript) and React are like C# and Unity. So integral to the industry that they're a part of, you'd be hard-pressed to find a developer that hasn't used or at least heard of them. 
+- The alternatives to those are two options are a far cry from that level of usage. 
+
+ReactJS has made some confusing, alienating decisions in recent years:
+
+- Turning the officially-endorsed ReactJS project generator tool into abandonware without providing a replacement (bye bye, Create-React-App!)[^20]
+- Making a big paradigm shift (increased focus on server-side rendering of websites) that ignores their initial userbase's usages of ReactJS ("SPAs" and static websites)[^21]
+- Being generally unclear when pressed to explain their latest and greatest additions or changes to the system. (If someone like a core ReactJS maintainer has to write multiple articles explaining a new feature and every article changes or adds different information about the feature, then that feature is unclear. Plus behaviour like flip-flopping on "best practices" and other things, explained in the footnote next to this sentence.)[^22]
+
+It'd be like if Unity deleted its project creation UI from the Unity Hub - so picking out your graphics rendering pipeline and asset templates and so on would become much more painful to do! 
+
+And then when you finally open up Unity, you find that everything in Unity is now geared towards making architecture visualisations instead of games. 
+
+And then you finally see an article from Unity, explaining how actually, treating 3D gamedev like it's architecture makes for more-realistic, prettier 3D games enhanced for running on PC. 
+
+It kinda sounds nice and sensible on paper, in isolation from the other changes and decisions made along the way... But it ignores so many of the developers who were using Unity for other types of projects, such as the mobile games, games without realistic graphics, and 2D games that all made Unity so famous and widespread to begin with.
+
+But with those things happening to the most-commonly-used framework in the webdev sector, webdev isn't imploding, and it's not one bad business decision away from imploding.
+
+How? 
+
+I believe it's because so many of the technologies and tools used in webdev are open-source. 
+
+## A Primer On Open-Source Software 
+
+Open-source software must adhere to these principles, defined by the Open Source Initiative[^35]:
+
+- <b>Free redistribution:</b> 
+	- Paying royalties, lump sums, or other costs to access, modify, or work with an open-source project is not allowed. Free is free.
+- <b>Source code:</b> 
+	- Source code must be available and must not be obsfucated. If a product is distributed without including its source code (e.g. a compiled game engine), then the product must include clear information on how to find and access that source code.
+- <b>Derived works:</b> 
+	- People must be allowed to edit and distribute the open-source project, adhering to the open-source project's license terms. The idea is that just sitting and watching isn't the same as hands-on experimentation and modification, so open-source projects should permit that.
+- <b>Integrity of the Author's Source Code:</b> 
+	- The open-source project must have clear information to identify the authors of the work.
+	- Modifications and forks of open-source projects must still keep the original author information in place, and can also include author information about modifications in their copy of the project.
+- <b>No Discrimination Against Persons or Groups:</b> 
+	- This can be as straightforward as "don't ban people of a certain skin colour from using or contributing to the open-source project".
+	- This sometimes clashes with local laws, such as aiding foreign enemies of state (treason!). Open-source licenses may include warnings that licensees must be aware of their own relevant laws and obey them as best they can - but open-source licensing isn't tied to a particular country or set of laws, so not much more can or should be done beyond that. 
+- <b>No Discrimination Against Fields of Endeavor:</b> 
+	- This has two main forms: a truly open-source licenses cannot exclude commercial usage of the project from the license. Many open-source licenses do not adhere to this, and many projects offer dual-licensing (e.g. one license for personal use, another license for businesses meeting a specific revenue threshold). 
+	- The other form is that an open-source license cannot stop a user from using the licensed project in specific ways. If you have an open-source game engine, you cannot say "only use this for 2D kids games", and cannot say "using this to make non-game apps like 3D visualisers is not allowed". Restrictions like that are not open-source.
+- <b>Distribution of License:</b> 
+	- If you distribute an open-source project to someone, then that someone now has access to that open-source project. No additional non-disclosure agreements or EULAs involved - you received a thing, the thing is self-contained, all license information is already included in the thing that you have received.
+- <b>License Must Not Be Specific to a Product:</b> 
+	- If you're making an open-source game engine, you might make an installer for that engine. You would own the engine and your installer, and your installer might be closed-source to do things like authentication checks with a bit more privacy. Your engine would still be open-source, as the engine and the installer are separate products. Other people can make their own installers for your open-source engine, too, and your open-source game engine's license would not claim ownership of anybody's custom installer.
+- <b>License Must Not Restrict Other Software:</b> 
+	- You can't stop someone from making or distributing closed-source forks of your open-source project.
+- <b>License Must Be Technology-Neutral:</b> 
+	- You can't do one engine license for developers that use Windows to work, and another engine license for developers that use MacOS or Linux to work. One license should be applicable to all types of users of your software.
+
+
+Whenever someone creates something, they have some sort of ownership over that thing. That ownership legally prevents others from claiming that thing as their own, or sometimes even from claiming a derivative thing as their own when it's based on the original something. That concept is known as "copyright". If someone creates something and does not want copyright to apply to that thing, they can put their thing into the "public domain" for all to use.
+
+For example, consider Adobe Photoshop or Microsoft Office. They are copyrighted, closed-source or proprietary software. Someone owns those things, and others can pay for a license to access those things. 
+
+Even when you could pay for those software with one-time purchases, they were still licensed to disallow any modifications to the software. That's the proprietary part of their licensing and ownership.
+
+No one has to worry about things like "oh this person did X amount of work on the software, so they get Y amount of money this month", because modifications were disallowed. It keeps life simple for the owners of things that way. But it means that if someone sees an issue with Adobe Photoshop, they can't just create a fix and add it back to Adobe Photoshop's source code for everyone to benefit from. 
+
+Open-source software is a way for owners of things to still own things, while keeping their things open to contributions from others. It's sometimes called "copyleft", since it is covering similar concepts to "copyright" but swings in the other direction regarding ownership and other topics.
+
+Due to the nature of how code is developed, derivative things of open-source things are typically okay to create too - with restrictions, such as ensuring that derivatives are also open-source. Common licenses for open-source software include "GNU Affero General Public License v3.0":
+
+<div align="center">
+<img width="100%" src="/articles/opensourcegamedevdream/licensegnuagplv3.png" alt="An overview of the GNU AGPLv3 license." />
+</div>
+<div align="center">
+<caption>
+	<a href="https://choosealicense.com/licenses/agpl-3.0/" target='_blank'>An overview of the GNU AGPLv3 license.</a>[^23]
+</caption>
+</div>
+
+For simple "I made this and don't care what others do with it, as long as people know I made the original thing"-style licensing, there's also the "MIT License":
+
+<div align="center">
+<img width="100%" src="/articles/opensourcegamedevdream/licensemit.png" alt="An overview of the MIT license." />
+</div>
+<div align="center">
+<caption>
+	<a href="https://choosealicense.com/licenses/mit/" target='_blank'>An overview of the MIT license.</a>[^23]
+</caption>
+</div>
+
+Creators of open-source things will typically include a `LICENSE` file in their project, so that others know what rules to work with. 
+
+For example, this very blog that you're reading right now <a href='https://github.com/AlexStormwood/alexstormwood.com/blob/main/LICENSE' target='_blank'>uses the MIT license</a>. You can make a copy of this whole website, tweak whatever you like, and sell it to people - as long as my name is shown as the creator of the original work that your copy is based on. 
+
+As the creator of this website, I chose the MIT license because I want others to be able to see and learn from what I'm doing, and I know that I've done some things in this project that might be handy for others to use as a starting point for their own website. Sharing is caring, and all that jazz.
+
+And of course, if someone finds a glitch or issue in my website code and wants to fix it, then that can be done with ease - especially using version control tools like git and GitHub to manage and merge any work. <a href='https://github.com/AlexStormwood/alexstormwood.com/fork' target='_blank'>Click one button</a> and you have your own editable copy of my work on GitHub! Then, you can make a "pull request" to merge any of your changes back into my work. Again, sharing is caring, and all that jazz.
+
+Open-source software also has the benefit of security via transparency. No malware can stick around in a project where every line of code can be analysed by everybody involved in the project. Malware can still sneak its way in as a "supply chain attack", but it's easy to trace the origin of problems and remove them. Game development has already seen this type of attack happen and get resolved in the same day, when Unity Hub was compromised by protestware and fixed within 24 hours because it was easy for everyone, including the general public, to identify the offending software dependency and remove it.[^24]
+
+There is also a matter of "I can see the code, is that 'open-source'?", such as Unreal Engine making its source code semi-publicly viewable. Unfortunately, that is not open-source. Unreal Engine is "source available", meaning that licensed users can see the source code, modify it, and share it and their modifications amongst other licensees - but that's not open-source. Epic Games maintains control over the source code to a very strict degree. The catch is that Epic Games is still keeping Unreal Engine semi-private, 
+
+This isn't a comprehensive, deep dive into open-source software, but it covers the important bits - especially for the sake of this article's topic! This a very _very_ brief primer on open-source software, it may be worthwhile to dig around for more resources such as:
+
+- <a href="https://opensource.com/resources/what-open-source" target="_blank">What is open source? by OpenSource.com</a>
+- <a href='https://choosealicense.com/licenses/' target='_blank'>Licenses (list page) on ChooseALicense.com</a>
+
+
+In a nutshell, open-source software is a handy way for anyone to start making things, with no or minimal strings attached, and interested people or groups can contribute improvements to the open-source things. 
+
+Sounds wonderful for a game engine or any other gamedev tools, right? 
+
+
+## Open-Source As Industry Stability
+
+Consider this lovely comic from XKCD: 
+
+<div align="center">
+<img height="100%" src="/articles/opensourcegamedevdream/xkcddependency.png" alt="Dependency, by XKCD." />
+</div>
+<div align="center">
+<caption>
+	<a href="https://xkcd.com/2347/" target='_blank'>Dependency, by XKCD.</a>[^25]
+</caption>
+</div>
+
+It might seem like a nightmare scenario waiting to happen, the nightmare scenarios have happened and been dealt with, and continue to be dealt with whenever they pop up. Some examples are in the XKCD explainer page for that comic, <a href='https://www.explainxkcd.com/wiki/index.php/2347:_Dependency' target='_blank'>visible here.</a>[^26]
+
+The idea is, open-source provides these handy things to any project:
+
+- a paper trail of exactly who has done what, since the project
+- an easy way to archive, back-up, or otherwise copy the project
+
+This is typically facilitated by systems like version control, using git alongside GitHub or BitBucket. 
+
+- Exact logs of every line of code, who contributed them, and when are easy to do with version control.
+- Copies and _forks_ (editable copies) of projects are a button-click or one command away from any given person via version control.
+
+So, when disaster strikes and the "random person in Nebraska" from the comic above gets hit by a bus - someone or multiple people can make copies of the Nebraskan's work and continue on. This has happened in some key tools in webdev already: 
+
+- Valkey was created as an open-source alternative to Redis, a popular high-speed cache datastore, when Redis' license was changed to something less-permissive than what the Redis project began with.[^27]
+- OpenTofu was created as an open-source alternative to Terraform, a digital infrastructure automation system, when Terraform's license was changed to something less-permissive than what the Terraform project began with.[^28] It literally forked an older version of Terraform, from before the license changed, and has strived to keep feature parity until recently to aid with developers switching from Terraform over to OpenTofu.[^29]
+
+Plenty of other examples can be dug up - a project started as a pure, definitely-open-source project. Then it gained popularity. Then it changed its license. Then forks appeared, and people moved on to those forks. But here's the kicker: what happens if a closed-source project changes its license? 
+
+Well, we just have to suck it up, usually.
+
+When Adobe changed their pricing model from one-per-version to subscription-per-month/year, many professionals had no choice but to suck it up and accept Adobe's new terms. Same for Microsoft Office. Same for many other industry-specific software, like industrial 3D design tools. And those get expensive! They lock you in and know you can't escape - you spent years learning one particular tool for your job, how could you possibly change? 
+
+It takes time for new alternatives to spring up when proprietary software does something like that. Affinity Designer and Affinity Photo popped up as alternatives to Adobe Illustrator and Adobe Photoshop, for example, and was widely regarded as a great, user-friendly set of software. But then Canva bought them out in 2024, causing rumbles amongst online communities - Canva is another subscription-based tech company, after all, and Affinity had publicly stated that no one would be buying them out.[^30] What happens if Affinity stops being so user-friendly and changes up its business practices? 
+
+The answer already exists. Open-source alternatives already exist. Inkscape[^31] and Krita[^32] are fantastic software for artists, for example. But the professionals aren't trained on those - at least from what I've seen across high schools and universities throughout Australia - so adoption of those open-source alternatives is slow. 
+
+This is part of the issue, and difference, with how webdev uses open-source as a strength and source of stability compared to every other industry. 
+
+In webdev, everything revolves around code. And when some tool changes in some negative way, the users have enough programming knowledge to <em>make their own alternative.</em>
+
+But when Adobe Photoshop becomes impossibly-priced, can a photographer make a decent alternative? They need programming skills, and it's not exactly common to see photographers that can also do computer programming. 
+
+## Open-Source As Modularity
+
+Again, think on the XKCD comic:
+
+Consider this lovely comic from XKCD: 
+
+<div align="center">
+<img height="100%" src="/articles/opensourcegamedevdream/xkcddependency.png" alt="Dependency, by XKCD." />
+</div>
+<div align="center">
+<caption>
+	<a href="https://xkcd.com/2347/" target='_blank'>Dependency, by XKCD.</a>[^25]
+</caption>
+</div>
+
+In that comic, there's another concept conveyed that most webdevs barely even consciously think of: everything is so modular. 
+
+In webdev, package managers are crucial. The Node Package Manager (NPM) provides access to numerous packages, libraries, tools, etc, for anyone to use in their JavaScript (NodeJS) projects.[^37]
+
+<div align="center">
+<img height="100%" src="/articles/opensourcegamedevdream/npmstats.png" alt="Some quick stats about NPM. There are over 3 million packages available, being downloaded over 81 billion times in the last week!" />
+</div>
+<div align="center">
+<caption>
+	<a href="https://www.npmjs.com/" target='_blank'>Some quick stats about NPM. There are over 3 million packages available, being downloaded over 81 billion times in the last week!</a>[^37]
+</caption>
+</div>
+
+From that screenshot, you can see a couple of quick facts and figures: 
+
+- Millions of packages are available, so there is a lot of development going on.
+- Those millions of packages are downloaded billions of times per week, so there is a lot of usage going on.
+- The most-popular libraries shown on the left are owned or sponsored by large companies, such as Meta with React. They made React as part of creating Facebook, after all! 
+- Packages can be found in various categories, shown in the central column. That column of categories is not exhaustive, as you can search for any tag you can think of as well. 
+
+That package ecosystem allows anyone to create whatever they can think of. You'll even find some fledgeling game engines on there, too.
+
+And all of that talk about licensing and open-source definitions from above might've sounded daunting, like a lot of effort to carry out, but here's the kicker: this is what a typical NodeJS project looks like, at its core: 
+
+```json
+{
+  "name": "@bigfootds/nodejs-trickplay",
+  "version": "1.0.2",
+  "description": "Generate trickplay images for a given video file, for usage in NodeJS environments.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "npm run build && node .sandbox/index.js",
+    "build": "tsc"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BigfootDS/nodejs-trickplay.git"
+  },
+  "keywords": ["array ommitted for brevity, lol, it's a lot of keywords for SEO"],
+  "author": {
+    "name": "Alex Stormwood",
+    "email": "alex@bigfootds.com",
+    "url": "https://github.com/AlexStormwood"
+  },
+  "license": "MIT",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/BigfootDS/nodejs-trickplay/issues"
+  },
+  "homepage": "https://github.com/BigfootDS/nodejs-trickplay#readme",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "devDependencies": {
+    "@types/fluent-ffmpeg": "^2.1.27",
+    "@types/node": "^22.14.1",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "@ffprobe-installer/ffprobe": "^2.1.2",
+    "fluent-ffmpeg": "^2.1.3",
+    "jimp": "^1.6.0"
+  }
+}
+```
+
+A chunk of data like that defines many things, but for this article the important bits are: 
+
+- `"license":"MIT"` - this could be a path to a file instead of a license name, if you wanted something custom. The license file should exist in the project code as well, even if stated here.
+- `"author":{/*object of author details here*/}` - the original, primary creator of the work.
+- `"contributors":[/*array of objects of author details here*/]` - not shown in the above example since that was just me on my own, but projects with contributors just define them in an array or list.
+- `"devDependencies":{/*object of references to other packages here*/}` - an object used to determine what modules, packages, libraries, etc, should be installed on the developer's computer. This allows developers to use additional tooling in their work, and the installed packages also contain their own set of JSON data like this as well - including license and author declarations.
+- `"dependencies":{/*object of references to other packages here*/}` - similar to `devDependencies`, but `dependencies` can get compiled and redistributed into your project's distributable files (such as being compiled into your game executable). Your players, customers, or users, should have no idea what your `devDependencies` are - but they should specifically be able to benefit from your project's `dependencies`.
+
+That package is not anything major enough to be an app on its own - it generates a tilesheet of thumbnails based on a given video. For an app to use that tilesheet, numerous other things would need to be developed, created, or integrated. It's one little module for a larger project. You would typically see the feature that uses that tilesheet in use in websites that show a preview of a video's contents as you hover or move through a video's playback progress bar, giving you a visual of the video content without needing to pause and buffer more video content. For example, on YouTube:
+
+<div align="center">
+<img height="100%" src="/articles/opensourcegamedevdream/youtubetrickplay.png" alt="A screenshot of a YouTube trickplay feature." />
+</div>
+<div align="center">
+<caption>
+	<a href="https://www.youtube.com/watch?v=IZHsJ-v2MYQ" target='_blank'>A screenshot of a YouTube trickplay feature.</a>[^33]
+</caption>
+</div>
+
+The modules can be very granular. Some modules can be very large and introduce a bunch of pre-made features or functions, like React and its off-shoots like React Native. It all depends on the author of the module - what are they making? Can you use what that other person has been making for your own software?
+
+Websites are websites, servers are servers, databases are databases. They all have a lot of common functionality and features. One of the things I liked to do with my high-school webdev classes, pre-COVID, was explain how every website is a blog. YouTube is a blog for videos. Instagram is a blog for photos. Stuff like that. 
+
+So, it makes sense for webdev to have so many modules out there - it's easy to re-use things across different websites when it's all modular.
+
+
+
+
+## So, What About Gamedev? 
+
+Games are software.
+
+You can talk as much as you want about games being art, games being creative works, that's all fine and dandy - but come on. At the end of the day, you're making an executable to run on a computer of some type.
+
+If an entire studio of game developers does not have any programmer on staff, then it'll be an achievement to see any games get made by that studio.
+
+So, if something changes or becomes missing in a digital tool used by that studio: get the programmers involved!
+
+Open-source game engines already exist. Even if your studio or company feels like those engines aren't quite suitable for your projects, you can still benefit from them.
+
+Think back to the timeline at the start of this article: making engines internally was <em>the way</em> that game development was done for a long time. You don't need to do that - you can use an open-source game engine as a starting point! You have a leg up on the developers who do things internally fully from scratch if you use something, anything, as a starting point! 
+
+In gamedev, we're currently seeing the result of proprietary software being wrecked by bad business decisions in the form of Unity. Unity is a fantastic engine, and rightfully popular, but it's like if a university is run as a business instead of an educational institution: you can tell that something is off, and the original thing that made it good is gone.
+
+In fact, Unity's license changes and pricing fees are now being slapped on to developers without whim or appropriate reason. Dean Hall, a notable developer for this work in DayZ, Bohemia Interactive, and RocketWerkz, is currently facing exorbitant increased license fees because Unity decided - based on scraped, incorrect data - that he needs to pay more.[^33]
+
+Local (to me, in Sydney) game developer Myles Blasonato, from Blowfish Studios, wrote an epic article on what Dean Hall is going through and what it means for the gamedev industry at large. Some quick tidbits:[^34]
+
+<div align="center">
+<img height="100%" src="/articles/opensourcegamedevdream/myles001.png" alt="A table of why Unity's business behaviours matter to Unity-focused game developers." />
+</div>
+<div align="center">
+<caption>
+	<a href="https://thedesignlab.blog/2025/05/16/unity-threatens-to-revoke-licenses-from-dayz-creator-dean-hall/" target='_blank'>A table of why Unity's business behaviours matter to Unity-focused game developers.</a>[^33]
+</caption>
+</div>
+
+<div align="center">
+<img height="100%" src="/articles/opensourcegamedevdream/myles002.png" alt="A table of trending software-as-a-service pressures on developers." />
+</div>
+<div align="center">
+<caption>
+	<a href="https://thedesignlab.blog/2025/05/16/unity-threatens-to-revoke-licenses-from-dayz-creator-dean-hall/" target='_blank'>A table of trending software-as-a-service pressures on developers.</a>[^33]
+</caption>
+</div>
+
+Go read Myles Blasonato's article after you finish reading this one! Link in the footnote:[^34]
+
+In short, the gamedev industry is in a very risky position. Its core technologies are proprietary, and if Unity suddently implodes tonight, almost half of the gamedev industry dies with it because so much of what game developers are doing is entangled with that one popular proprietary technology.
+
+## What Can Be Open-Source in Gamedev?
+
+So far in this article, I've written a lot about game engines. It's easy to say "use Godot" or "use Monogame" or "use FNA" there to address that repeated example, but not everyone needs to do something so drastic straight away. Game engines are a big aspect of any project, no doubt about it. That type of change is huge, and not for the faint of heart.
+
+Instead, it can be helpful to stop and think: 
+
+What do you use? 
+
+What do you need?
+
+What do you want?
+
+Making videogames can be viewed as doing a big combination of things from many different industries, sectors, specialisations, and so on. Just look at the credits of any AAA videogame - you'll see numerous roles, specialised and granular, all spelled out for you. Digging through longer credits lists like the one for Diablo IV shows 8,755 professional developers across a variety of roles - and roles like "technical artist" split and specialise into "technical artist, characters" and "technical artist, graphics".[^36]
+
+So, let's pick out some examples from the numerous roles, fields, or sectors involved in game development and see how open-source can benefit them.
+
+<TodoNotice message="More examples with references" />
+
+<details style={{backgroundColor:"var(--theme-700)", padding:"1%"}}>
+	<summary  style={{backgroundColor:"var(--theme-900)"}}>Open-source programming components, libraries, packages, modules, etc.</summary>
+
+
+
+</details>
+<details style={{backgroundColor:"var(--theme-700)", padding:"1%"}}>
+	<summary  style={{backgroundColor:"var(--theme-900)"}}>Open-source digital art creation and editing.</summary>
+
+### Vector Artwork
+
+Inkscape. Icons, graphic designs, whatever you would normally do in Adobe Illustrator - do it in Inkscape.
+
+### Digital Illustration or Raster Artwork 
+
+Krita. Concept art, matte painting, texturing, whatever you want to do - this is the illustrator's software. I'm not super-versed in the professional-level stuff here, but I think this would be Adobe Photoshop with all of its brushes for painting? Maybe Corel Painter and Procreate, too?
+
+
+### Photo Editing 
+
+Gimp, for photo editing. Adobe Photoshop equivalent, in the open-source world.
+
+Pencil for wireframing and user-interface design. No need to pay for cloud-based tools, or be limited by the cloud-based tools' free tiers. 
+
+</details>
+<details style={{backgroundColor:"var(--theme-700)", padding:"1%"}}>
+	<summary  style={{backgroundColor:"var(--theme-900)"}}>Open-source video and audio production and editing.</summary>
+
+### Video Editing and Production 
+
+Kdenlive. 
+
+### Video Compression and Formatting 
+
+Handbrake. Yes, it's been open-source this whole time! 
+
+### Music Production 
+
+Ardour, for a "digital audio workstation" like Reaper. 
+
+Audacity, for simple music file editing and formatting. 
+
+### Music Engines 
+
+I'll admit, I have no experience with the proprietary kings in this space (WWise, FMOD), so I have no idea if these are valid... but they come up when searched.
+
+OpenAL Soft, used by games like Barony.
+
+
+</details>
+<details style={{backgroundColor:"var(--theme-700)", padding:"1%"}}>
+	<summary  style={{backgroundColor:"var(--theme-900)"}}>Open-source game design tools.</summary>
+
+### Narrative Design 
+
+Yarn Spinner, for laying out the design and implementation of your game's dialogue. 
+
+</details>
+<details style={{backgroundColor:"var(--theme-700)", padding:"1%"}}>
+	<summary  style={{backgroundColor:"var(--theme-900)"}}>Open-source project management tools.</summary>
+
+### Kanban Boards  
+
+Planka. It's extremely similar to Trello.
+
+### Office Software
+
+La Suite Docs, for any document writing. Includes real-time collaboration like in Google Docs, too. This solution in particular is the result of a joint effort by the French and German governments to escape proprietary software as well.
+
+Nextcloud. Specifically, Nextcloud Office for word and presentation document editing, Nextcloud Talk for meetings, and Nextcloud Groupware for email and calendar functionality. It's based on LibreOffice, but with some modern quality-of-life features such as real-time collaboration and cloud hosting (or self-hosting), so it's extremely useful to any business.
+
+Proton, especially for mail. Although, you shouldn't really be aiming to spin up your own email servers due to how email security works these days... At least the Proton user app is open-source! And they have other productivity tools like like cloud file storage, calendars, and word documentation as well.
+
+OnlyOffice covers the bulk of what you'd expect from Microsoft Office or Google Workspace software suites, too.
+
+</details>
+
+The above is not an exhaustive list of open-source solutions to your needs, problems, desires, and so on. It's just what I could find. I'd fall squarely into the "programming" part there, and I can more-easily think of problems and find their open-source solutions because I know that area of gamedev well. 
+
+If you fall into a different area of gamedev, such as art or audio or narrative design, then you would have different experiences finding open-source solutions. You could find things that I couldn't, because you could think of things that I couldn't.
+
+## The Dream 
+
+My hope is that the above examples help inspire you to either apply open-source to your game project, or begin thinking of what open-source solutions for your work might exist out there for you to find and use. 
+
+I _know_ open-source can benefit creative technology projects - we see it across the rest of the software development landscape already, but gamedev as an industry is lagging behind there. The over-reliance on Unity and Unreal Engine is just going to cause more and more problems as time goes on.
+
+So, my dream is:
+
+- To see more people discuss what they need in their gamedev projects and work. 
+- To see more people discuss what open-source solutions for their needs are out there.
+- To see more people discuss the open-source solutions to gamedev needs that they've been creating or working on.
+
+Change from proprietary to open-source won't happen overnight, and the software development sector has been around for many decades before it reached the "open-source is king" standard that I've seen in the past decade. So the gamedev sector needs to at least _start_ moving to that direction, _start_ discussions about open-source, and _start_ thinking more critically about how much their livelihood depends on one other business being okay to work with.
+
+## Leading By Example 
+
+My gamedev work takes a long time, and depends on my day job being normal and quiet. I had plans to make a game using webdev tech during 2025, showcasing how webdev's open-source ecosystem could be used directly to make a videogame, but recent layoffs and promotions have thrown chaos into my day job... so now I can't really do a full-on game project at the moment. 
+
+Instead, I've refocused my time and efforts towards making an open-source tool to help with game projects.
+
+It's not fully ready to show just yet - it'll get its own post in the <a href='https://bigfootds.com' target='_blank'>BigfootDS</a> website when it's ready - but the goal is to make a trading card set designer. A fancy data management tool with user interface and features designed to make it easy to create trading card games.
+
+I spent years making fan-art of the Pokémon Trading Card Game, making both art and cards, and had my own systems to manage all of the data for all of the cards I was creating. The custom card community is a busy one - so many people are making full sets of a hundred or more cards every few months! And I was one of them, from 2013 to 2015.
+
+Primarily, I managed my card data through spreadsheets. At the time, I didn't know much about making any type of software beyond just basic game projects with Unity. 3D platformers and shooters and so on. I thought spreadsheets were fine. Clunky, but fine. It felt like using the wrong tool for the project, like surely there was a better way to handle these designs. But I didn't know how to program much at that time, and I figured that since my custom cards were just fan art, it wouldn't make sense for me to have access to the same tools that the Pokémon Trading Card Game designers were using to officially make cards.
+
+<TodoNotice message="References for this that won't get me in too much trouble, lol." />
+
+But then in late 2024, Gamefreak - the original creators of Pokémon - got hacked. Data was leaked. Techniques, processes, and master documents of how Pokemon trading cards were officially managed were shown... aaaaaaaaaaaaaaaaaaand it was exactly what I was doing. Spreadsheets.
+
+So now I want to lead by example with this specific little niche of a game project problem: managing bulk amounts of data for a game through a spreadsheet kinda sucks. I'm working on a solution for that, for trading card game projects. 
+
+And the greatest thing about that? There is nothing stopping anyone else from working on a solution for that either. Open-source works great when multiple solutions exist! If one open-source solution goes bad, remember: either fork or change. No reason to stick with one specific solution. You can adapt much faster than you think!
+
+## Summary 
+
+It will take time to make any change to your "tech stack", there's no doubt about it. But much like planting a tree: the best time was yesterday, the second-best time is now. 
+
+Using the above information, I'm sure you can make better business and creative decisions for your work. 
+
+You don't have to pay Adobe to be able to make your game memes needed in social media posts.
+
+You don't have to pay Microsoft or Google to be able to write your emails or documents or presentations.
+
+You don't have to pay OpenAI for AI usage, if you're into that can of worms.
+
+You don't have to pay Unity to be able to make your game project.
+
+Open-source is as useful as you want it to be. 
+
+Dream bigger, and make open-source as useful for your game development as it is for the world's web development.
+
+## References 
+
+[^1]: Wikipedia Contributors. (2019, October 6). Atari 2600. Wikipedia; Wikimedia Foundation. https://en.wikipedia.org/wiki/Atari_2600
+[^2]: Williams, Andrew (16 March 2017). History of Digital Games: Developments in Art, Design and Interaction. CRC Press. pp. 152-4. ISBN 978-1-317-50381-1.
+[^3]: Wikipedia Contributors. (2024, May 27). Shoot-'Em-Up Construction Kit. Wikipedia; Wikimedia Foundation. https://en.wikipedia.org/wiki/Shoot-%27Em-Up_Construction_Kit
+[^4]: Wikipedia Contributors. (2025, May 2). Pinball Construction Set. Wikipedia; Wikimedia Foundation. https://en.wikipedia.org/wiki/Pinball_Construction_Set
+[^5]: Wikipedia Contributors. (2024, September 2). Unreal Engine 1. Wikipedia; Wikimedia Foundation. https://en.wikipedia.org/wiki/Unreal_Engine_1
+[^6]: Herz, J. C. (1999, December 2). GAME THEORY; For Game Maker, There's Gold in the Code. NY Times; New York Times. https://web.archive.org/web/20170919141813/http://www.nytimes.com/1999/12/02/technology/game-theory-for-game-maker-there-s-gold-in-the-code.html
+[^7]: Wikipedia Contributors. (2019, October 12). Unity (game engine). Wikipedia; Wikimedia Foundation. https://en.wikipedia.org/wiki/Unity_(game_engine)
+[^8]: Wikipedia Contributors. (2021, July 28). StageCraft. Wikipedia; Wikimedia Foundation. https://en.wikipedia.org/wiki/StageCraft
+[^9]: Halopedia. (2025, April 5). Blam engine - Game engine - Halopedia, the Halo wiki. Halopedia. https://www.halopedia.org/Blam_engine
+[^10]: Halopedia. (2025, April 5). Saber3D hybrid engine - Blam engine - Game engine - Halopedia, the Halo wiki. Halopedia. https://www.halopedia.org/Blam_engine#Saber3D_hybrid_engine
+[^11]: Halopedia. (2025, February 3). Unreal Engine - Game engine - Halopedia, the Halo wiki. Halopedia. https://www.halopedia.org/Unreal_Engine
+[^12]: Dmitriy Byshonkov. (2025, February 10). Video Game Insights: Game Engines on Steam in 2025. Substack.com; GameDev Reports. https://gamedevreports.substack.com/p/video-game-insights-game-engines
+[^13]: Wikipedia Contributors. (2025, April 24). Learn to Code. Wikipedia; Wikimedia Foundation. https://en.wikipedia.org/wiki/Learn_to_Code
+[^14]: iemfi. (2025). Framework vs Game Engine. R/Gamedev; Reddit.com. https://www.reddit.com/r/gamedev/comments/7yk4rl/comment/duhdrvd/
+[^15]: Stack Overflow. (2024). Technology | 2024 Stack Overflow Developer Survey. Stackoverflow.co. https://survey.stackoverflow.co/2024/technology
+[^16]: Wikipedia Contributors. (2025, May 10). Halo Infinite. Wikipedia; Wikimedia Foundation. https://en.wikipedia.org/wiki/Halo_Infinite#Development
+[^17]: Starkey, A. (2025, March 10). Secrets of Halo Infinite's abandoned 10-year plan revealed by new leak. Metro. https://metro.co.uk/2025/03/10/halo-infinites-abandoned-10-year-plan-revealed-insider-22702998/
+[^18]: Orland, K. (2023, September 15). Wait, is Unity allowed to just change its fee structure like that? Ars Technica. https://arstechnica.com/gaming/2023/09/wait-is-unity-allowed-to-just-change-its-fee-structure-like-that/
+[^19]: Unity. (2020, September 17). Unity Announces Pricing of Initial Public Offering. Unity. https://unity.com/news/unity-announces-pricing-initial-public-offering
+[^20]: Insua, S. (2023, January 24). Seb Insua on X. X (Formerly Twitter). https://x.com/sebinsua/status/1617853871363325952
+[^21]: matijash. (2023, March 18). New React docs pretend SPAs don’t exist anymore. Reddit.com. https://www.reddit.com/r/reactjs/comments/11u1r3w/new_react_docs_pretend_spas_dont_exist_anymore/
+[^22]: simple_explorer1, & gaearon. (2023, March 18). Comment on New React docs pretend SPAs don’t exist any more. Reddit.com. https://www.reddit.com/r/reactjs/comments/11u1r3w/comment/jcmdpsc/
+[^23]: Licenses. (n.d.). Choose a License. Retrieved May 18, 2025, from https://choosealicense.com/licenses/
+[^24]: Wikipedia Contributors. (2024c, November 14). peacenotwar. Wikipedia; Wikimedia Foundation. https://en.wikipedia.org/wiki/Peacenotwar
+[^25]: Munroe, R. (2020, August 17). Dependency. Xkcd. https://xkcd.com/2347/
+[^26]: 2347: Dependency - explain xkcd. (n.d.). Www.explainxkcd.com. https://www.explainxkcd.com/wiki/index.php/2347:_Dependency
+[^27]: John, C. S. (2024, October 15). What is Valkey? How is it related to Redis and AWS ElastiCache? Medium. https://medium.com/@csjcode/what-is-valkey-how-is-it-related-to-redis-and-aws-elasticache-61bed5126658
+[^28]: Pico, T. (2023, October 16). The Impact Companies’ Licensing Change is having on Open Source › Cloudification - We build Clouds 🚀☁️. Cloudification - Private, Hybrid, Edge Cloud Solutions for Your Business. https://cloudification.io/cloud-blog/the-impact-companies-licensing-change-has-on-open-source/
+[^29]: Zeifman, I., & Murali, A. (2023). What is OpenTofu | Open Source Terraform Alternative  | env0. Env0.com. https://www.env0.com/blog/opentofu-the-open-source-terraform-alternative
+[^30]: Gratzer, C. (2024, April 3). Canva Acquires Affinity: What It Means for Designers. Medium; Design Domination. https://medium.com/design-domination/canva-acquires-affinity-what-it-means-for-designers-f970c9a638db
+[^31]: Inkscape Website Developers. (2019). Draw Freely | Inkscape. Inkscape.org. https://inkscape.org/
+[^32]: Krita Foundation. (2019). Krita | Digital Painting. Creative Freedom. Krita.org. https://krita.org/en/
+[^33]: Hall, D. (2025, May 10). Unity is threatening to revoke all licenses for developers with flawed data that appears to be scraped from personal data. Reddit.com. https://www.reddit.com/r/gamedev/comments/1kiyh0m/unity_is_threatening_to_revoke_all_licenses_for/
+[^34]: Blasonato, M. (2025, May 16). Unity Threatens to Revoke Licenses from DayZ Creator Dean Hall. The Design Lab Blog. https://thedesignlab.blog/2025/05/16/unity-threatens-to-revoke-licenses-from-dayz-creator-dean-hall/
+[^35]: Open Source Initiative. (2006, July 7). The Open Source Definition | Open Source Initiative. Opensource.org. https://opensource.org/osd
+[^36]: MobyGames. (2023). Diablo IV credits (Windows, 2023) - MobyGames. MobyGames. https://www.mobygames.com/game/204085/diablo-iv/credits/windows/
+[^37]: npm. (2019). npm | build amazing things. Npmjs.com. https://www.npmjs.com/
