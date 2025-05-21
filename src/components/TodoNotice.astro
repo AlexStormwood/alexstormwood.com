@@ -1,0 +1,12 @@
+---
+interface Props {
+	message: String;
+}
+
+const { message } = Astro.props;
+---
+
+<section class="todoNotice" style="background-color: palevioletred; border-radius: 10px; padding: 10px; display: flex; justify-content: center; flex-direction: column;">
+	<h1>TODO:</h1>
+	<p>{message}</p>
+</section>
