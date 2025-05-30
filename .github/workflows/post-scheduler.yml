@@ -8,7 +8,16 @@ jobs:
         name: Trigger a Netlify build
         runs-on: ubuntu-latest
         steps: 
+            - uses: actions/checkout@v4
+              with:
+                fetch-depth: 0
+            - name: Run CommitsWithinTime script
+              uses: AlexStormwood/CommitsWithinTime@v1.1.12
+              id: commitswithintime
+              with:
+                  hours: 24
             - shell: bash
+              if: steps.commitswithintime.outputs.has-new-commits-within-time
               env: 
                 NETLIFY_BUILD_HOOK: ${{ secrets. NETLIFY_BUILD_HOOK_URL }}
               run: curl -X POST -d {} "$NETLIFY_BUILD_HOOK"
