@@ -1,7 +1,7 @@
 name: Trigger Netlify rebuild for scheduled posts
 on: 
     schedule:
-        - cron: '0 * * * *'
+        - cron: '0 0 * * *'
     workflow_dispatch:
 jobs: 
     trigger: 
@@ -16,6 +16,11 @@ jobs:
               id: commitswithintime
               with:
                   hours: 24
+            - name: Check CWT output
+              run: |
+                echo ${{ steps.commitswithintime.outputs.has-new-commits-within-time}}
+                echo ${{ steps.commitswithintime.outputs.number-of-commits-within-time}}
+                echo ${{ steps.commitswithintime.outputs.total-commits}}
             - shell: bash
               if: steps.commitswithintime.outputs.has-new-commits-within-time
               env: 
