@@ -1,7 +1,7 @@
 name: Trigger Netlify rebuild for scheduled posts
 on: 
     schedule:
-        - cron: '0 0 * * *'
+        - cron: '0 * * * *'
     workflow_dispatch:
 jobs: 
     trigger: 
@@ -22,7 +22,7 @@ jobs:
                 echo ${{ steps.commitswithintime.outputs.number-of-commits-within-time}}
                 echo ${{ steps.commitswithintime.outputs.total-commits}}
             - shell: bash
-              if: steps.commitswithintime.outputs.has-new-commits-within-time
+              if: ${{ steps.commitswithintime.outputs.has-new-commits-within-time == 'true' }}
               env: 
                 NETLIFY_BUILD_HOOK: ${{ secrets. NETLIFY_BUILD_HOOK_URL }}
               run: curl -X POST -d {} "$NETLIFY_BUILD_HOOK"
