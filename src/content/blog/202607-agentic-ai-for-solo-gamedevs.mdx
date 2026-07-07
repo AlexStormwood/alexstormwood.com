@@ -1,0 +1,135 @@
+---
+title: Agentic AI for Solo Game Developers
+description: 'Tips and tricks for still being the creative and getting things done with AI support.'
+pubDate: 'Jul 11 2026'
+heroImage: '/articles/202511-japan-006/ArticleHeader.png'
+---
+
+I'm a solo game developer by night. I have a lot of things to do and want to use everything in the best ways possible to get stuff done quick! 
+In this article, I'll share what I've found helps me in my solo work - I hope it helps you, too!
+
+
+## AI: Support VS Against, Evil VS Good, etc etc
+
+This ain't the article for pro-AI or anti-AI arguing. I have found solutions for every problem that people raise, and take efforts to do things in a way where people are still essential to doing things - especially creative works like a videogame.
+
+- I use AI locally, using open-source models like NVIDIA's Nemotron and other models like Qwen and Mistral. Data, copyright, or intellectual property theft is solved with those. 
+- I use AI locally, to reiterate, so no data centers are involved. My home has solar power, too! 
+- I still want to be the one making things, so at no point do I (or anything shown in this article) go "here is prompt, make no mistakes, see you later". This article will dig into more of the processes and good ways to still be the creative and maintain an understanding of the work while using AI.
+
+This article will not go into how to setup local AI, or find ethically-made AI, because those are rapidly-changing spaces. 
+
+If you truly have issues with something, I fully believe that you will put in the effort to find the solutions yourself. 
+
+Yes, the people that go "all AI is always evil!!!" and bury their heads in the sand piss me off. Don't be one of them. 
+The problems about AI haven't changed since their inception. 
+The solutions are changing and improving all the time! Even the stuff I was doing for local AI in 2025 is out of date now in 2026. 
+
+So instead, in this article, I'd rather focus on the process & procedure stuff, based on my experience with projects. Y'know - things that aren't tied to a tool or evil capitalist companies. Just concepts.
+
+## My Development Goals
+
+I'm a solo developer aiming to build more than one game, with live-ops functionalities eventually in the picture as well. Basically: I want to do a whole lot of things.
+
+This means videogames, web servers, and websites. And probably at least one mobile app, if not a mobile game, in there as well.
+
+In fact, it means this:
+
+<div style="display:flex;justify-content:center;flex-wrap:wrap;">
+
+	<img 
+		width="500px"
+		src="\articles\202607-agentic-ai-for-solo-gamedevs/BigfootDSEcosystemList-July2026.png" 
+		alt="A list of a couple dozen repositories, covering websites, tools, packages, games, servers, and more." 
+	/>
+
+</div>
+
+I'm a bit of a junkie when it comes to organising data, and that applies to repositories or projects as well. You can see some patterns in that list above - naming patterns, at least.
+
+- `web` for websites or front-end projects 
+- `assets` for static material (such as image assets or JSON data files)
+- `ms` for microservices - basically, web servers that are just one controller (if you know MVC) of a larger server, split into their own project.
+- `pkg` for installable, reusable packages. These are typically NPM (NodeJS) packages so far, but the label can apply for Rust crates or C# nuget libraries or other similar systems, too.
+- `template` for project templates. e.g. the ReactJS Multiplatform template that just provides wrappers to run ReactJS web apps on mobile and desktop platforms.
+- `game` for actual games, usually based on a template. e.g. Godmaker and Fidget Toys are both based on the ReactJS Multiplatform template.
+
+Those projects are not fully-complete and almost all of them don't even have an MVP at the time of writing. I've implemented enough to figure out good workflows, at least, but there's still a lot for me to do - proper, good AI usage is not some one-button-done solve for projects.
+
+So, my goal is to flesh out, implement, and finish those projects. 
+
+And we're looking at one process to aid with agentic AI assistance of that goal already - multi-project workspaces.
+
+
+## Working in Multiple Projects Simultaneously
+
+We can work in multiple projects/repositories at the same time. How easy this is and how much of an info-dump UI-overload barrage this is will depend on your integrated development environment (IDE).
+
+I like to use Visual Studio Code (VSCode) because it's lightweight and works perfectly for my typical tech stacks (JavaScript-based tech stacks). VSCode has a "workspace" system to let you work on multiple projects from one editor instance - it's much easier on managing UI for multiple projects simultaneously compared to opening multiple instances of an IDE.
+
+I do this through Visual Studio Code because I don't want my agentic AI running wild and freely on my PC. Running agentic AI via VSCode extensions gives an extra layer of sandboxing and permissions to protect my computers. If you do your agentic AI from some native desktop application, you should be able to achieve this same idea without any IDE-specific workspace system.
+
+If you're using Claude Desktop or Codex, you should be able to just tell it to read different directories and you'll be fine. But if you want to do what I do and use agentic AI only in the context of an IDE extension, there's some extra specifics to go through - you can read about it in the official documentation here: https://code.visualstudio.com/docs/editing/workspaces/multi-root-workspaces 
+
+For my work, I keep my VSCode workspace defined in a `.code-workspace` file that lives in an internal-use-only repository. This means I can modify the workspace definition, commit it to version control, and have the updated workspace on any machine that I need to work on... well... I can almost do that. I have to use an extra script to help achieve that little goal. 
+
+So, my internal-use-only repo is named `web-bigfootds-wiki`. I open the `.code-workspace` file that it contains - and it's just a JSON list of folders that points to nearby cloned repositories. It looks like this: 
+
+```JSON
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../assets-branding"
+		},
+		{
+			"path": "../assets-defaultassets"
+		},
+		{
+			"path": "../assets-flags"
+		},
+		{
+			"path": "../ms-accounts"
+		},
+		{
+			"path": "../ms-auth"
+		}
+	]
+}
+```
+
+The problem with that system is that it does not have any idea about version control. It doesn't know if the repositories are present on the computer until it's too late - when it tries to open them. 
+
+So, I got my little AI agent to make a script for me: loop through the list of folders and uses the folder names to make best-guesses about what it needs to clone to the computer, and clone any missing repositories down to the computer. It leans on the GitHub CLI - so I have to have that installed prior to running the script. If you log in to your GitHub account with that GitHub CLI, then it can access your private repositories and clone them without a fuss.
+
+<div style="display:flex;justify-content:center;flex-wrap:wrap;">
+
+	<img 
+		width="500px"
+		src="\articles\202607-agentic-ai-for-solo-gamedevs\BigfootDSWikiScripts.png" 
+		alt="A list of a couple dozen repositories, covering websites, tools, packages, games, servers, and more." 
+	/>
+
+</div>
+
+And yes, there is a bash script as well as a PowerShell script. I work across Windows and Linux, I need both. The bash script should work on Mac, too! 
+
+With all repositories cloned, then it's simple enough to get into the workspace of all repositories: open the `.code-workspace` file in VSCode, using the "Open Workspace From File" option in the File menu.
+
+There's a gotcha to my preferred approach though: the VSCode extension version of Codex _can_ work with those repositories in the workspace, but it will default to the root `.` folder of the workspace unless you tell it to explore.
+
+If you're using your AI agents using native apps - you'd be telling the agent to explore specific directories, too. 
+
+
+<div style="display:flex;justify-content:center;flex-wrap:wrap;">
+
+	<img 
+		width="100%" 
+		src="\articles\202511-japan-006\10-departure\20251204_075328.jpg" 
+		alt="A photo of a crow amongst autumn trees." 
+	/>
+
+</div>
+
