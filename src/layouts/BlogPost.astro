@@ -9,9 +9,10 @@ import ProfileSd from '../components/GoogleStructuredData/ProfileSd.astro';
 
 type Props = CollectionEntry<'blog'>['data'] & {
 	structuredData?: 'article' | 'profile';
+	showPostMeta?: boolean;
 };
 
-const { title, description, pubDate, updatedDate, heroImage, structuredData } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, structuredData, showPostMeta = false } = Astro.props;
 ---
 
 <html lang="en">
@@ -72,16 +73,18 @@ const { title, description, pubDate, updatedDate, heroImage, structuredData } = 
 				</div>
 				<div class="prose">
 					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
+						{showPostMeta && (
+							<div class="date">
+								<FormattedDate date={pubDate} />
+								{
+									updatedDate && (
+										<div class="last-updated-on">
+											Last updated on <FormattedDate date={updatedDate} />
+										</div>
+									)
+								}
+							</div>
+						)}
 						<h1>{title}</h1>
 						<hr />
 					</div>

@@ -1,6 +1,7 @@
 ---
 title: 'Does your videogame need a blockchain?'
 description: 'A questionnaire to help you determine how a blockchain could fit into your project.'
+tags: ['technical', 'gamedev', 'architecture']
 pubDate: 'Jul 24 2023'
 heroImage: '/articles/doesyourvideogameneedablockchain/VideogameBlockchainArticleHeader.png'
 ---

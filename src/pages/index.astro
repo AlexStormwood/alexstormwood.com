@@ -2,30 +2,60 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import ImageGallery from '../components/ImageGallery.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import ProjectCard from '../components/ProjectCard';
+import { SITE_DESCRIPTION } from '../consts';
+import '../styles/Home.css';
+import projectMeta from '../utils/projectMeta';
+import { getVisiblePosts } from '../utils/blog';
 
-
-
+const latestPosts = (await getVisiblePosts()).slice(0, 3);
+const featuredProjects = [projectMeta.sourcepool, projectMeta.supercamo, projectMeta.npmcompliancehelper];
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={""} description={SITE_DESCRIPTION} />
+		<BaseHead title="" description={SITE_DESCRIPTION} />
 	</head>
 	<body>
 		<Header />
-		<main>
-			<h1>Hello!</h1>
-			<p>I&apos;m Alex.</p>
-			<p>I like making cool stuff, and helping people make cool stuff.</p>
-			<p>Most of my time is spent teaching IT, but I make games, websites and servers when I'm not teaching, too!</p>
-			<hr />
+		<main class="home">
+			<section class="home-hero" aria-labelledby="home-title">
+				<div class="home-hero__content">
+					<p class="eyebrow">Alex Stormwood</p>
+					<h1 id="home-title">I build useful software and help people build it too.</h1>
+					<p class="home-hero__lead">I’m an Australian software developer and educator working across web development, games, developer tooling, and technical education.</p>
+					<div class="home-actions">
+						<a class="button button--primary" href="/projects">See selected projects</a>
+						<a class="button button--secondary" href="/articles">Read the writing</a>
+					</div>
+				</div>
+				<img class="home-hero__image" src="/aboutme/MeetAlex.png" width="720" height="360" alt="Alex Stormwood at a speaking engagement." decoding="async" fetchpriority="high" />
+			</section>
 
-			<ImageGallery />
-			
-			<hr />
+			<section class="lanes" aria-label="What Alex does">
+				<article class="lane"><p class="eyebrow">Build</p><h2>Software with a practical purpose.</h2><p>Web applications, developer tools, open-source utilities, and games—from the systems underneath to the experience people see.</p><a href="/projects">Explore projects <span aria-hidden="true">→</span></a></article>
+				<article class="lane"><p class="eyebrow">Teach &amp; speak</p><h2>Technical work explained clearly.</h2><p>Teaching, supporting, and speaking about the craft of software, games, and the tools that make creative work possible.</p><a href="/appearances">See appearances <span aria-hidden="true">→</span></a></article>
+				<article class="lane"><p class="eyebrow">Write</p><h2>Long-form notes worth keeping.</h2><p>Practical technical articles, reflections on professional practice, and detailed travel journals.</p><a href="/articles">Browse articles <span aria-hidden="true">→</span></a></article>
+			</section>
+
+			<section class="home-section" aria-labelledby="projects-heading">
+				<div class="home-section__heading"><div><p class="eyebrow">Selected work</p><h2 id="projects-heading">Projects with a reason to exist.</h2></div><a href="/projects">All projects <span aria-hidden="true">→</span></a></div>
+				<div class="project-card-grid">{featuredProjects.map((project) => <ProjectCard projectObj={project} compact />)}</div>
+			</section>
+
+			{latestPosts.length > 0 && (
+				<section class="home-section" aria-labelledby="writing-heading">
+					<div class="home-section__heading"><div><p class="eyebrow">Recent writing</p><h2 id="writing-heading">Notes from the work and the world.</h2></div><a href="/articles">All articles <span aria-hidden="true">→</span></a></div>
+					<div class="home-article-grid">{latestPosts.map((post) => <ArticleCard post={post} />)}</div>
+				</section>
+			)}
+
+			<section class="home-cta" aria-labelledby="follow-heading">
+				<div><p class="eyebrow">Stay in touch</p><h2 id="follow-heading">Follow the work as it develops.</h2><p>Read through the site, subscribe with RSS, or get in touch directly.</p></div>
+				<div class="home-actions"><a class="button button--primary" href="/rss.xml">Subscribe via RSS</a><a class="button button--secondary" href="mailto:alex+blog@bigfootds.com">Email Alex</a></div>
+			</section>
 		</main>
 		<Footer />
 	</body>

@@ -1,6 +1,7 @@
 ---
 title: 'The Stormwood Name'
 description: 'The explainer for this name that I keep on using!'
+tags: ['personal']
 pubDate: 'Oct 30 2025'
 heroImage: '/articles/thestormwoodname/ArticleHeader.png'
 ---

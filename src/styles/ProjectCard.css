@@ -1,44 +1,80 @@
-div.projectCard {
-	background: linear-gradient(var(--theme-500), var(--theme-800));
-	border: 2px solid var(--theme-800);
-	color: var(--theme-0);
-	border-radius: 20px;
-	/* width: 30%; */
+.project-card {
 	display: flex;
 	flex-direction: column;
-	gap: 20%;
-	padding: 2%;
-
-	h3 {
-		width: 100%;
-		text-align: center;
-	}
-
-	.projectCardDatesContainer, .projectButtonsContainer {
-		width: 100%;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-	}
-
-	.builtFor {
-		width: 100%;
-		margin-top: 5%;
-		margin-bottom: 5%;
-	}
-
-	img {
-		width: 100%;
-		border-radius: 20px;
-	}
-
-	div {
-		display: flex;
-		flex-direction: row;
-	}
+	overflow: hidden;
+	min-width: 0;
+	border: 1px solid var(--theme-700);
+	border-radius: 1rem;
+	background: linear-gradient(160deg, var(--theme-700), var(--theme-950));
+	box-shadow: 0 0.6rem 1.75rem rgb(0 0 0 / 18%);
+	color: var(--theme-0);
 }
 
-div.projectCard:hover {
-	background-color: var(--theme-600);
- 	border: 2px solid var(--theme-0);
+.project-card__image {
+	display: block;
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+	border-radius: 0;
+	background: var(--theme-800);
+}
+
+.project-card__body {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.9rem;
+	padding: 1.4rem;
+}
+
+.project-card__context,
+.project-card__updated {
+	margin: 0;
+	color: var(--theme-200);
+	font-size: 0.85rem;
+}
+
+.project-card__context {
+	font-weight: 700;
+	letter-spacing: 0.04em;
+}
+
+.project-card h3,
+.project-card__description {
+	margin: 0;
+}
+
+.project-card h3 {
+	font-size: 1.45rem;
+}
+
+.project-card__description {
+	color: var(--theme-50);
+}
+
+.project-card__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.6rem;
+	margin-top: auto;
+	padding-top: 0.5rem;
+}
+
+.project-card__actions a {
+	display: inline-block;
+	padding: 0.4rem 0.65rem;
+	border: 1px solid var(--theme-300);
+	border-radius: 0.4rem;
+	color: var(--theme-0);
+	font-size: 0.9rem;
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.project-card__actions a:hover,
+.project-card__actions a:focus-visible {
+	border-color: var(--theme-0);
+	background: var(--theme-0);
+	color: var(--theme-900);
 }

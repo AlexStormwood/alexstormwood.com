@@ -1,0 +1,45 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import FormattedDate from './FormattedDate.astro';
+import '../styles/ArticleCard.css';
+
+interface Props {
+	post: CollectionEntry<'blog'>;
+	featured?: boolean;
+}
+
+const { post, featured = false } = Astro.props;
+const href = `/articles/${post.id}/`;
+const label = post.data.series ?? post.data.tags[0] ?? 'Article';
+---
+
+<article class:list={['article-card', { 'article-card--featured': featured }]}>
+	{post.data.heroImage && (
+		<a class="article-card__image" href={href} aria-hidden="true" tabindex="-1">
+			<img
+				src={post.data.heroImage}
+				alt=""
+				width={featured ? 1020 : 720}
+				height={featured ? 510 : 360}
+				loading={featured ? 'eager' : 'lazy'}
+				decoding="async"
+			/>
+		</a>
+	)}
+	<div class="article-card__body">
+		<p class="article-card__eyebrow">{label}</p>
+		<h3><a href={href}>{post.data.title}</a></h3>
+		<p class="article-card__description">{post.data.description}</p>
+		<div class="article-card__footer">
+			<div class="article-card__meta">
+				<FormattedDate date={post.data.pubDate} />
+				{post.data.tags.length > 0 && (
+					<ul class="article-card__tags" aria-label="Topics">
+						{post.data.tags.slice(0, 3).map((tag) => <li>{tag}</li>)}
+					</ul>
+				)}
+			</div>
+			<a class="article-card__link" href={href}>Read article <span aria-hidden="true">→</span></a>
+		</div>
+	</div>
+</article>

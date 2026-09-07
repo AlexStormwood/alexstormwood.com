@@ -15,15 +15,13 @@ import "../styles/Projects.css";
 	
 <div class="articleContent" id="projectsPage">
 	<section>
-		<p>
-			Lists of projects, whether they're videogames or websites or general tools or something completely different, that I&apos;ve worked on.
-		</p>
-
+		<p class="projects-eyebrow">Selected work</p>
+		<p class="projects-lead">Projects spanning web development, developer tooling, games, and the systems that help people make things.</p>
 	</section>
 
 	<section>
-		<h3>In Progress</h3>
-		<p>Projects that are still on-going, may or may not be released to the public, and are privately-developed - probably through my BigfootDS business.</p>
+		<h2>In progress</h2>
+		<p>Ongoing work that may still be private or in development through BigfootDS.</p>
 		<ul>
 			<li>Patron Simulator (real-time strategy game)</li>
 			<li>The Bestest Beehive (open-world cosy crafting game)</li>
@@ -31,8 +29,8 @@ import "../styles/Projects.css";
 	</section>
 
 	<section>
-		<h3>Open Source</h3>
-		<p>Projects that are still on-going, released to the public, and open to contributions. Yay for open-source software!</p>
+		<h2>Open source</h2>
+		<p>Public projects that are open to use, inspection, and contribution.</p>
 		<div class="projectCardContainer">
 		<ProjectCard projectObj={projectMeta["sourcepool"]} />
 		<ProjectCard projectObj={projectMeta["supercamo"]} />
@@ -46,8 +44,8 @@ import "../styles/Projects.css";
 	</section>
 
 	<section>
-		<h3>Completed and/or Archived</h3>
-		<p>Projects that are are done & dusted.</p>
+		<h2>Completed &amp; archived</h2>
+		<p>Games, prototypes, and client work that remain part of the story.</p>
 		<div class="projectCardContainer">
 		<ProjectCard projectObj={projectMeta["ppvr"]} />
 		<ProjectCard projectObj={projectMeta["ggj2020"]} />
@@ -68,94 +66,17 @@ import "../styles/Projects.css";
 
 </Layout>
 <style>
-#aboutPageContent {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-#aboutPageMainContent {
-	display: flex;
-	flex-direction: column;
-	align-items: left;
-	width: 60%;
-	
-	div,p {
-		padding-bottom: 1%;
-	}
-
-
-
-
-	
-	.contentWithSideImage {
-		width: 100%;
-		justify-content:space-between;
-		align-items: center;
-		display: flex;
-		flex-direction: row;
-		gap: 5%;
-
-		.content {
-			max-width: 55%;
-		}
-		.sideImage {
-			max-width: 30%;
-			object-fit: cover;
-			border-radius: 25%;
-		}
-	}
-
-	#aboutIntro {
-		display: flex;
-		flex-direction: row;
-		gap: 5%;
-
-		#aboutIntroHeaderImg {
-			img {
-				aspect-ratio: 1;
-				object-fit:scale-down;
-				width: 100%;
-				border-radius: 25%;
-			}
-		}
-	}
+.projects-eyebrow {
+	margin-bottom: 0.5rem;
+	color: var(--accent);
+	font-size: 0.85rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
 }
 
-
-@media only screen and (max-width: 600px){
-	#aboutPageMainContent {
-		display: flex;
-		flex-direction: column;
-		align-items: left;
-		width: 90%;
-	
-		p {
-			padding: 1%;
-		}
-
-		#aboutIntro {
-			flex-direction: column;
-		}
-
-
-		.contentWithSideImage {
-			width: 100%;
-			justify-content: space-between;
-			align-items: center;
-			display: flex;
-			flex-direction: column;
-			margin-top: 5%;
-			margin-bottom: 5%;
-
-			.content {
-				max-width: 100%;
-			}
-			.sideImage {
-				max-width: 100%;
-			}
-		}
-	}
+.projects-lead {
+	max-width: 44rem;
+	font-size: 1.2rem;
 }
-
-
 </style>

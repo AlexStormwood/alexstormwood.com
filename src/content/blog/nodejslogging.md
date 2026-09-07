@@ -1,6 +1,8 @@
 ---
 title: 'Zero-Dependency NodeJS Logging'
 description: 'Practical logging for real-world projects, including apps and packages.'
+tags: ['technical', 'node.js', 'developer tools']
+featured: true
 pubDate: 'Jun 9 2024'
 heroImage: '/articles/nodejslogging/ArticleHeader.png'
 ---
