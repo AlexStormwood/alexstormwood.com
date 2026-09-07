@@ -39,6 +39,7 @@ function hasEvidence(project, evidence) {
 
 export default function ProjectDirectory({ projects }) {
 	const [filters, setFilters] = useState(initialFilters);
+	const [hasHydrated, setHasHydrated] = useState(false);
 	const brands = useMemo(() => [...new Set(projects.map((project) => project.brand).filter(Boolean))].sort(collator.compare), [projects]);
 	const technologies = useMemo(() => [...new Set(projects.flatMap((project) => project.technologies ?? []))].sort(collator.compare), [projects]);
 	const projectTypes = useMemo(() => [...new Set(projects.map((project) => project.projectType).filter(Boolean))].sort(collator.compare), [projects]);
@@ -95,6 +96,8 @@ export default function ProjectDirectory({ projects }) {
 		window.history.replaceState(null, '', `${window.location.pathname}${query ? `?${query}` : ''}`);
 	}, [filters, page]);
 
+	useEffect(() => setHasHydrated(true), []);
+
 	function updateFilters(change) {
 		setFilters((current) => ({ ...current, ...change, page: change.page ?? 1 }));
 	}
@@ -105,7 +108,7 @@ export default function ProjectDirectory({ projects }) {
 	}
 
 	return (
-		<div className="project-directory">
+		<div className="project-directory" data-hydrated={hasHydrated ? 'true' : 'false'}>
 			<form className="project-directory__controls" onSubmit={(event) => event.preventDefault()}>
 				<label className="project-directory__search">
 					<span>Search projects</span>

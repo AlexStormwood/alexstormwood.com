@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "astro dev",
     "dev:v": "astro dev --verbose",
-		"build": "astro build && pagefind --site dist",
+    "build": "astro build && pagefind --site dist",
     "preview": "astro preview",
+    "test:e2e": "playwright test",
     "astro": "astro"
   },
   "dependencies": {
@@ -26,6 +27,7 @@
     "react-dom": "^19.2.8"
   },
   "devDependencies": {
+    "@playwright/test": "^1.63.0",
     "pagefind": "^1.5.2",
     "sass-embedded": "^1.104.0"
   }
