@@ -179,7 +179,7 @@ export default {
 		builtFor: "Open-source Astro site.",
 		lastUpdated: new Date(2026, 7, 28).getTime(),
 		createdAt: new Date(2026, 7, 23).getTime(),
-		imageUrl: "/projects/AwesomeRepos.jpg",
+		imageUrl: "/projects/AwesomeRepos.png",
 		githubRepository: "AlexStormwood/awesome-repos",
 		projectUrls: [
 			{
