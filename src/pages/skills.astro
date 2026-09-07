@@ -417,6 +417,26 @@ const skillsList = [
 	}
 	
 ]
+
+const categoryDescriptions: Record<string, string> = {
+	'Front-End': 'a core technology for building the structure, design, and interaction of websites',
+	'Back-End': 'a tool or platform used to build application logic, services, and supporting systems',
+	'Game Engine': 'a framework used to create and ship interactive games',
+	Database: 'a technology used to store, organise, and query application data',
+	Cloud: 'a platform or tool used to host, run, package, or operate software',
+	Testing: 'a tool used to check that software behaves as expected',
+	'Version Control': 'a tool used to record, review, and share changes to a project',
+	Automation: 'a platform used to make repeatable development and operations work less manual',
+	'Programming Integrations': 'an external platform or API used to connect software to another service or device ecosystem',
+	'3D Design': 'a tool used to create, edit, or prepare three-dimensional assets',
+	'2D Design & Illustration': 'a tool used to create, edit, or prepare visual design and illustration assets',
+	'Video Editing': 'a tool used to edit, finish, and publish video work',
+	'Software Publishing': 'a platform used to distribute software or games to an audience',
+	'Media Publishing': 'a platform used to distribute written, audio, or other media work',
+};
+
+// Add dated projects, roles, qualifications, talks, or links here as the page develops.
+const skillEvidence: Record<string, string[]> = {};
 ---
 
 <Layout
@@ -427,58 +447,38 @@ const skillsList = [
 >
 	
 <div id="skillPageMainContent">
-				
+	<header class="skills-intro">
+		<p>These are tools and platforms I use now or have used in the past. The evidence sections are deliberately maintained by hand, so a claim can point to real work rather than a generic proficiency bar.</p>
+	</header>
 
-	<div id="skillChart">
-		<div id="skillCardsContainer">
-			{skillsList.map((category, index) => {
-				return <div>
-					<h3>{category.categoryName}</h3>
-					<div class="skillCardsLocalContainer">
-						{category.items.map((skill, skillIndex) => {
-							return <div class="skillItemCard" >
-								<a href={skill.link} target="_blank">
-									<img src={skill.icon} style={{backgroundColor: skill.colourCode}} />
-									<h4>{skill.name}</h4>
-								</a>
-								
+	{skillsList.map((category) => (
+		<section class="skill-category" aria-labelledby={`skill-category-${category.categoryName.replaceAll(' ', '-').toLowerCase()}`}>
+			<h2 id={`skill-category-${category.categoryName.replaceAll(' ', '-').toLowerCase()}`}>{category.categoryName}</h2>
+			<div class="skill-card-grid">
+				{category.items.map((skill) => (
+					<article class="skill-card">
+						<header class="skill-card__heading">
+							<img src={skill.icon} alt="" aria-hidden="true" style={{ backgroundColor: skill.colourCode }} />
+							<div>
+								<h3>{skill.name}</h3>
+								<a href={skill.link} target="_blank" rel="noreferrer">Official reference <span aria-hidden="true">↗</span></a>
 							</div>
-						})}
-					</div>
-					
-				</div>
-			})}
+						</header>
+						<details>
+							<summary>What this skill is</summary>
+							<p>{skill.name} is {categoryDescriptions[category.categoryName]}. The official reference above is a useful starting point for the current documentation.</p>
+						</details>
+						<details>
+							<summary>My experience and evidence</summary>
+							{skillEvidence[skill.name]?.length ? (
+								<ul>{skillEvidence[skill.name].map((evidence) => <li>{evidence}</li>)}</ul>
+							) : <p class="skill-card__placeholder">Add a dated project, role, qualification, talk, or repository link to the <code>skillEvidence</code> record in this page.</p>}
+						</details>
+					</article>
+				))}
 			</div>
-	</div>
-
-
-
-	{/* <div id="skillStories">
-		<h2>Examples of some of the skills listed above, put into action.</h2>
-		<Tabs>
-			<TabList id="skillStoryHeaderTabs">
-				<Tab>GameDev Skills</Tab>
-				<Tab>Automation Skills</Tab>
-				<Tab>WebDev Skills</Tab>
-
-			</TabList>
-
-
-			<TabPanel>
-				<h3>GameDev Skills in Action</h3>
-			</TabPanel>
-			<TabPanel>
-				<h3>Automation Skills in Action</h3>
-			</TabPanel>
-			<TabPanel>
-				<h3>WebDev Skills in Action</h3>
-			</TabPanel>
-		</Tabs>
-	
-
-	</div> */}
-
-
+		</section>
+	))}
 </div>
 
 </Layout>
