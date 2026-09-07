@@ -501,8 +501,18 @@ import '../styles/Appearances.css';
 			Exhibitions: 'Public showcases, expos, open days, and demonstrations of work, games, or technology.',
 			'Meetups, Conferences & Workshops Attendance': 'Industry events attended for learning, community, and professional development.',
 		};
+		const typeColours: Record<string, string> = {
+			'Accredited Multi-Session Courses': 'accredited',
+			'Non-Accredited Multi-Session Courses': 'non-accredited',
+			'One-Session Courses': 'one-session',
+			'Presentations & Public Speaking': 'speaking',
+			'Hackathons & Game Jams': 'hackathons',
+			Exhibitions: 'exhibitions',
+			'Meetups, Conferences & Workshops Attendance': 'attendance',
+		};
 		const months: Record<string, number> = { january: 0, february: 1, march: 2, april: 3, may: 4, june: 5, july: 6, august: 7, september: 8, october: 9, november: 10, december: 11 };
 		const monthNames = Object.keys(months).join('|');
+		const getTypeColour = (type: string) => typeColours[type] ?? 'other';
 
 		function parseDateRange(value: string) {
 			const normalised = value.toLocaleLowerCase('en-AU').replace(/(\d+)(st|nd|rd|th)/g, '$1');
@@ -547,6 +557,7 @@ import '../styles/Appearances.css';
 			typeSelect?.append(option);
 			const help = document.createElement('details');
 			help.className = 'appearance-directory__type-help';
+			help.dataset.appearanceColour = getTypeColour(type);
 			help.innerHTML = `<summary>${type} <span aria-label="What this type means">?</span></summary><p>${typeDescriptions[type] ?? 'A recorded appearance from this part of Alex’s work and community involvement.'}</p>`;
 			typeGuide?.append(help);
 		}
@@ -564,6 +575,7 @@ import '../styles/Appearances.css';
 			resultList.replaceChildren();
 			for (const appearance of filtered) {
 				const item = document.createElement('li');
+				item.dataset.appearanceColour = getTypeColour(appearance.type);
 				const typeLabel = document.createElement('p');
 				typeLabel.className = 'appearance-directory__result-type';
 				typeLabel.textContent = appearance.type;
