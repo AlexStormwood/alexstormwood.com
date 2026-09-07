@@ -15,16 +15,16 @@ const label = post.data.series ?? post.data.tags[0] ?? 'Article';
 
 <article class:list={['article-card', { 'article-card--featured': featured }]}>
 	{post.data.heroImage && (
-		<a class="article-card__image" href={href} aria-hidden="true" tabindex="-1">
+		<button class="article-card__image" type="button" data-lightbox-trigger data-lightbox-src={post.data.heroImage} data-lightbox-caption={`${post.data.title} hero image`} aria-label={`Open full-size image: ${post.data.title} hero image`}>
 			<img
 				src={post.data.heroImage}
-				alt=""
+				alt={`${post.data.title} hero image`}
 				width={featured ? 1020 : 720}
 				height={featured ? 510 : 360}
 				loading={featured ? 'eager' : 'lazy'}
 				decoding="async"
 			/>
-		</a>
+		</button>
 	)}
 	<div class="article-card__body">
 		<p class="article-card__eyebrow">{label}</p>
