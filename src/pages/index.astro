@@ -8,11 +8,12 @@ import HomeHeroCarousel from '../components/HomeHeroCarousel';
 import { SITE_DESCRIPTION } from '../consts';
 import { homeHeroImages } from '../data/home-hero-images';
 import '../styles/Home.css';
-import projectMeta from '../utils/projectMeta';
 import { getVisiblePosts } from '../utils/blog';
+import { getProjects } from '../utils/projects';
 
 const latestPosts = (await getVisiblePosts()).slice(0, 3);
-const featuredProjects = [projectMeta.sourcepool, projectMeta.supercamo, projectMeta.npmcompliancehelper];
+const projects = await getProjects();
+const featuredProjects = [projects.sourcepool, projects.supercamo, projects.npmcompliancehelper];
 ---
 
 <!doctype html>

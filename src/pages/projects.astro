@@ -1,9 +1,10 @@
 ---
 import ProjectCard from '../components/ProjectCard';
 import Layout from '../layouts/BlogPost.astro';
-import projectMeta from "../utils/projectMeta";
+import { getProjects } from '../utils/projects';
 import "../styles/ArticleContent.css";
 import "../styles/Projects.css";
+const projectMeta = await getProjects();
 ---
 
 <Layout
