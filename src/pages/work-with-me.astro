@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/BlogPost.astro';
+import '../styles/WorkWithMe.css';
+---
+
+<Layout
+	title="Work with me"
+	description="A practical summary of Alex Stormwood's current work, experience, qualifications, and public evidence."
+	pubDate={new Date('September 7 2026')}
+>
+	<div class="work-with-me">
+		<section class="work-with-me__intro" aria-labelledby="work-with-me-title">
+			<p class="work-with-me__eyebrow">Professional summary</p>
+			<h2 id="work-with-me-title">I build software and help people learn how to build it well.</h2>
+			<p>I’m a Sydney-based software developer, subject co-ordinator, and educator. My work sits across web development, games, developer tooling, cloud and live operations, plus the teaching and documentation needed to make technical work useful to other people.</p>
+			<div class="work-with-me__actions">
+				<a class="work-with-me__primary" href="mailto:alex+blog@bigfootds.com">Email Alex</a>
+				<a href="https://www.linkedin.com/in/alexstormwood/" target="_blank" rel="noreferrer">View LinkedIn <span aria-hidden="true">↗</span></a>
+				<a href="/projects">Browse projects</a>
+			</div>
+		</section>
+
+		<aside class="work-with-me__identity-note">
+			<strong>Quick name note</strong>
+			<p>Alex Stormwood is the name I use across this portfolio, BigfootDS, and public technical work. It is also connected to Alex Holder. <a href="/articles/thestormwoodname/">Read why I use Stormwood.</a></p>
+		</aside>
+
+		<section aria-labelledby="current-work-heading">
+			<p class="work-with-me__eyebrow">Current work</p>
+			<h2 id="current-work-heading">Subject co-ordination and independent development</h2>
+			<div class="work-with-me__grid">
+				<article>
+					<h3>Subject Coordinator, NextEd Group</h3>
+					<p class="work-with-me__meta">May 2025 to present · Sydney · Full-time</p>
+					<p>I oversee and maintain subjects for Coder Academy’s accredited diploma-level bootcamps. The job includes teaching and student support, subject administration, course-content improvement, and working with the departments that keep those courses operating.</p>
+				</article>
+				<article>
+					<h3>Games &amp; XR Developer, BigfootDS</h3>
+					<p class="work-with-me__meta">December 2015 to present · Sydney</p>
+					<p>I run BigfootDS for my own games, open-source tools, software experiments, and selected development work. It is where I bring together the game-development, web-development, and systems work shown in this portfolio.</p>
+				</article>
+			</div>
+		</section>
+
+		<section aria-labelledby="strengths-heading">
+			<p class="work-with-me__eyebrow">What I bring</p>
+			<h2 id="strengths-heading">Technical work with a teaching brain</h2>
+			<ul class="work-with-me__strengths">
+				<li>Full-stack web development, developer tooling, cloud services, and documentation.</li>
+				<li>Game and XR development, including Unity, platform work, and release processes.</li>
+				<li>Course development and delivery across web development, game development, VR, AR, and wider STEM topics.</li>
+				<li>Turning complicated systems into practical explanations, workshop material, and maintainable processes.</li>
+			</ul>
+		</section>
+
+		<section aria-labelledby="experience-heading">
+			<p class="work-with-me__eyebrow">Selected experience</p>
+			<h2 id="experience-heading">A decade of teaching, development, and technical operations</h2>
+			<ol class="work-with-me__roles">
+				<li><strong>Academic Teacher, Coder Academy</strong><span>August 2022 to May 2025</span><p>Developed and delivered learning across game development, web development, VR, AR, and other STEM topics for tertiary, school, and corporate audiences.</p></li>
+				<li><strong>Trainer &amp; Program Coordinator, Coder Academy and AIT</strong><span>September 2017 to February 2022</span><p>Co-ordinated and delivered short courses, workshops, bespoke training, and programs across schools, libraries, and corporate environments.</p></li>
+				<li><strong>Junior Developer, Red Cartel</strong><span>October to December 2016</span><p>Worked with a production team on Simosity and other virtual-reality projects, learning the practical side of VR development and hardware.</p></li>
+			</ol>
+			<p><a href="/workhistory">See the full employment timeline.</a></p>
+		</section>
+
+		<section aria-labelledby="qualifications-heading">
+			<p class="work-with-me__eyebrow">Qualifications</p>
+			<h2 id="qualifications-heading">Formal study alongside practical work</h2>
+			<ul class="work-with-me__qualifications">
+				<li>Graduate Diploma of Management (Learning), AQF Level 8, Academy of Interactive Entertainment.</li>
+				<li>Bachelor of Interactive Media (Games), AQF Level 7, Academy of Interactive Technology.</li>
+				<li>Working With Children Check maintained as required for education work.</li>
+			</ul>
+		</section>
+	</div>
+</Layout>

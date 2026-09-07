@@ -35,6 +35,11 @@ import Layout from '../layouts/BlogPost.astro';
 			</div>
 		</div>
 
+		<aside class="identity-note" aria-label="Name note">
+			<strong>Quick name note</strong>
+			<p>Alex Stormwood is the name I use across this portfolio, BigfootDS, and my public technical work. It is also connected to the name Alex Holder. <a href="/articles/thestormwoodname/">Read why I use Stormwood.</a></p>
+		</aside>
+
 
 		<div id="aboutWorkRelated">
 			<h2>Brief History</h2>
@@ -249,6 +254,19 @@ import Layout from '../layouts/BlogPost.astro';
 				width: 100%;
 				border-radius: 25%;
 			}
+		}
+	}
+
+	.identity-note {
+		margin: 2rem 0;
+		padding: 1rem 1.25rem;
+		border-left: 4px solid var(--accent);
+		border-radius: 0.5rem;
+		background: light-dark(var(--theme-50), var(--theme-950));
+
+		p {
+			margin: 0.4rem 0 0;
+			padding: 0;
 		}
 	}
 }

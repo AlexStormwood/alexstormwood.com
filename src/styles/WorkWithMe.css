@@ -1,0 +1,127 @@
+.work-with-me {
+	display: grid;
+	gap: clamp(3rem, 7vw, 5rem);
+	max-width: 62rem;
+	margin: 0 auto;
+}
+
+.work-with-me h2 {
+	font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+.work-with-me__intro h2 {
+	max-width: 16ch;
+	font-size: clamp(2.4rem, 6vw, 4.4rem);
+}
+
+.work-with-me__intro > p:not(.work-with-me__eyebrow) {
+	max-width: 46rem;
+	font-size: 1.15rem;
+}
+
+.work-with-me__eyebrow {
+	margin: 0 0 0.65rem;
+	color: var(--accent);
+	font-size: 0.85rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.work-with-me__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.7rem;
+	margin-top: 1.5rem;
+}
+
+.work-with-me__actions a {
+	padding: 0.55rem 0.8rem;
+	border: 1px solid light-dark(var(--theme-300), var(--theme-600));
+	border-radius: 0.5rem;
+	color: inherit;
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.work-with-me__actions .work-with-me__primary {
+	border-color: var(--accent);
+	background: var(--accent);
+	color: var(--theme-0);
+}
+
+.work-with-me__actions a:hover,
+.work-with-me__actions a:focus-visible {
+	border-color: var(--accent);
+	background: light-dark(var(--theme-100), var(--theme-800));
+}
+
+.work-with-me__actions .work-with-me__primary:hover,
+.work-with-me__actions .work-with-me__primary:focus-visible {
+	background: var(--accent-dark);
+}
+
+.work-with-me__identity-note {
+	padding: 1rem 1.25rem;
+	border-left: 4px solid var(--accent);
+	border-radius: 0.5rem;
+	background: light-dark(var(--theme-50), var(--theme-950));
+}
+
+.work-with-me__identity-note p {
+	margin: 0.4rem 0 0;
+}
+
+.work-with-me__grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 1.25rem;
+	margin-top: 1.5rem;
+}
+
+.work-with-me__grid article,
+.work-with-me__roles li {
+	padding: 1.4rem;
+	border: 1px solid light-dark(var(--theme-200), var(--theme-700));
+	border-radius: 0.75rem;
+	background: light-dark(var(--theme-50), var(--theme-950));
+}
+
+.work-with-me__grid h3,
+.work-with-me__grid p,
+.work-with-me__roles p {
+	margin: 0;
+}
+
+.work-with-me__meta,
+.work-with-me__roles span {
+	display: block;
+	margin: 0.35rem 0 0.85rem;
+	color: light-dark(var(--gray-darker), var(--theme-200));
+	font-size: 0.9rem;
+}
+
+.work-with-me__strengths,
+.work-with-me__qualifications {
+	display: grid;
+	gap: 0.8rem;
+	padding-left: 1.25rem;
+}
+
+.work-with-me__roles {
+	display: grid;
+	gap: 1rem;
+	margin: 1.5rem 0;
+	padding: 0;
+	list-style: none;
+}
+
+.work-with-me__roles strong {
+	font-size: 1.15rem;
+}
+
+@media (max-width: 700px) {
+	.work-with-me__grid {
+		grid-template-columns: 1fr;
+	}
+}
