@@ -163,7 +163,7 @@ export default {
 		builtFor: "Open-source Astro and Starlight site.",
 		lastUpdated: new Date(2026, 7, 9).getTime(),
 		createdAt: new Date(2026, 6, 23).getTime(),
-		imageUrl: "/projects/HackathonArchive.jpg",
+		imageUrl: "/projects/HackathonArchive.png",
 		githubRepository: "AlexStormwood/hackathon-archive",
 		projectUrls: [
 			{
