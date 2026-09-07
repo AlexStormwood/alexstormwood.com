@@ -20,13 +20,8 @@ const { title, description, image = '/website-ogimage-default.png' } = Astro.pro
 <link rel="icon" href="/favicon.ico" />
 <meta name="generator" content={Astro.generator} />
 
-<!-- Font preloads -->
-<link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin />
-
-
-
-<link rel="preload" href="/fonts/NotoSans-VariableFont_wdth,wght.woff2" as="font" type="font/woff" crossorigin />
-<link rel="preload" href="/fonts/NotoSansJP-VariableFont_wght.woff2" as="font" type="font/woff" crossorigin />
+<!-- The Latin face is needed by every page. The Japanese face loads only when a page contains Japanese glyphs. -->
+<link rel="preload" href="/fonts/NotoSans-VariableFont_wdth,wght.woff2" as="font" type="font/woff2" crossorigin />
 
 <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

@@ -40,6 +40,7 @@
 @font-face {
 	font-family: "Atkinson";
 	src: url("/fonts/atkinson-regular.woff");
+	font-display: swap;
 	
 	/* Latin glyphs */
 }
@@ -47,6 +48,7 @@
 @font-face {
 	font-family: "combinedNoto";
 	src: url("/fonts/NotoSans-VariableFont_wdth,wght.woff2");
+	font-display: swap;
 	unicode-range: U+000-5FF;
 	/* Latin glyphs */
 }
@@ -55,6 +57,7 @@
 @font-face {
 	font-family: "combinedNoto";
 	src: url("/fonts/NotoSansJP-VariableFont_wght.woff2");
+	font-display: swap;
 	unicode-range: U+3000-9FFF, U+ff??;
 	/* Japanese glyphs */
 }

@@ -16,7 +16,7 @@ function deferMdxMedia(node) {
 		return withAttribute(withAttribute(withAttribute(node, 'loading', 'lazy'), 'decoding', 'async'), 'data-lightbox', '');
 	}
 
-	return withAttribute(node, 'preload', 'metadata');
+	return withAttribute(node, 'preload', 'none');
 }
 
 /** Adds non-blocking loading behaviour to Markdown and MDX media. */
@@ -30,7 +30,7 @@ export const deferMediaPlugin = defineHastPlugin({
 				context.setProperty(node, 'decoding', 'async');
 				context.setProperty(node, 'data-lightbox', '');
 			} else {
-				context.setProperty(node, 'preload', 'metadata');
+				context.setProperty(node, 'preload', 'none');
 			}
 		},
 	},
