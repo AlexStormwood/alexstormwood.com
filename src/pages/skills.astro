@@ -447,7 +447,7 @@ const skillEvidence: Record<string, string[]> = {};
 	
 <div id="skillPageMainContent">
 	<header class="skills-intro">
-		<p>These are tools and platforms I use now or have used in the past. The evidence sections are deliberately maintained by hand, so a claim can point to real work rather than a generic proficiency bar.</p>
+		<p>These are tools and platforms I use now or have used in the past. Each card links to an official reference and explains the role the tool plays in my work.</p>
 	</header>
 
 	{skillsList.map((category) => (
@@ -467,12 +467,12 @@ const skillEvidence: Record<string, string[]> = {};
 							<summary>What this skill is</summary>
 							<p>{skill.name} is {categoryDescriptions[category.categoryName]}. The official reference above is a useful starting point for the current documentation.</p>
 						</details>
-						<details>
-							<summary>My experience and evidence</summary>
-							{skillEvidence[skill.name]?.length ? (
+						{Boolean(skillEvidence[skill.name]?.length) && (
+							<details>
+								<summary>My experience and evidence</summary>
 								<ul>{skillEvidence[skill.name].map((evidence) => <li>{evidence}</li>)}</ul>
-							) : <p class="skill-card__placeholder">Add a dated project, role, qualification, talk, or repository link to the <code>skillEvidence</code> record in this page.</p>}
-						</details>
+							</details>
+						)}
 					</article>
 				))}
 			</div>
