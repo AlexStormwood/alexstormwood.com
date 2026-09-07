@@ -1,110 +1,77 @@
-	/* Position the image container (needed to position the left and right arrows) */
-	.galleryContainer {
-		position: relative;
-		z-index: 0;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
+.image-gallery {
+	margin: 2rem 0;
+	padding: 1rem;
+	border: 1px solid light-dark(var(--theme-200), var(--theme-700));
+	border-radius: 1rem;
+	background: light-dark(var(--theme-50), var(--theme-950));
+}
 
-		.row {
+.image-gallery__main {
+	position: relative;
+}
 
-			width: 100%;
-		}
+.image-gallery__main-image {
+	display: block;
+	width: 100%;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	cursor: zoom-in;
+}
 
-		* {
-			box-sizing: border-box;
-		}
+.image-gallery__main-image img {
+	display: block;
+	width: 100%;
+	max-height: 42rem;
+	object-fit: contain;
+	border-radius: 0.5rem;
+}
 
-		img.mainImage {
-			/* height: 30vh; */
-			width: 65%;
-		}
-	}
+.image-gallery__arrow {
+	position: absolute;
+	top: 50%;
+	width: 2.75rem;
+	height: 2.75rem;
+	border: 1px solid var(--theme-100);
+	border-radius: 50%;
+	background: rgb(25 31 65 / 86%);
+	color: var(--theme-0);
+	font-size: 1.25rem;
+	transform: translateY(-50%);
+}
 
-	/* Hide the images by default */
-	.mySlides {
-		display: none;
-		width: 100%;
-		justify-content: center;
-		align-items: center;
+.image-gallery__arrow--previous { left: 0.75rem; }
+.image-gallery__arrow--next { right: 0.75rem; }
 
-		.imgStretchContainer {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
-	}
+.image-gallery__caption {
+	margin: 0.75rem 0;
+	font-size: 0.9rem;
+	text-align: center;
+}
 
-	/* Add a pointer when hovering over the thumbnail images */
-	.cursor {
-		cursor: pointer;
-	}
+.image-gallery__thumbnails {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(4rem, 1fr));
+	gap: 0.5rem;
+}
 
-	/* Next & previous buttons */
-	.prev,
-	.next {
-		cursor: pointer;
-		position: absolute;
-		top: 40%;
-		width: auto;
-		padding: 16px;
-		margin-top: -50px;
-		color: white;
-		font-weight: bold;
-		font-size: 20px;
-		border-radius: 0 3px 3px 0;
-		user-select: none;
-		-webkit-user-select: none;
-	}
+.image-gallery__thumbnails button {
+	padding: 0;
+	overflow: hidden;
+	border: 2px solid transparent;
+	border-radius: 0.35rem;
+	background: transparent;
+}
 
-	/* Position the "next button" to the right */
-	.next {
-		right: 0;
-		border-radius: 3px 0 0 3px;
-	}
+.image-gallery__thumbnails button.is-selected,
+.image-gallery__thumbnails button:focus-visible {
+	border-color: var(--accent);
+}
 
-	/* On hover, add a black background color with a little bit see-through */
-	.prev:hover,
-	.next:hover {
-		background-color: rgba(0, 0, 0, 0.8);
-	}
-
-	/* Number text (1/3 etc) */
-	.numbertext {
-		color: #f2f2f2;
-		font-size: 12px;
-		padding: 8px 12px;
-		position: absolute;
-		top: 0;
-	}
-
-	/* Container for image text */
-	.caption-container {
-		text-align: center;
-		background-color: #222;
-		padding: 2px 16px;
-		color: white;
-	}
-
-	.row:after {
-		content: "";
-		display: table;
-		clear: both;
-	}
-
-	/* Six columns side by side */
-	.column {
-		float: left;
-		width: 16.66%;
-	}
-
-	/* Add a transparency effect for thumnbail images */
-	.demo {
-		opacity: 0.6;
-	}
-
-	.active,
-	.demo:hover {
-		opacity: 1;
-	}
+.image-gallery__thumbnails img {
+	display: block;
+	width: 100%;
+	aspect-ratio: 1;
+	object-fit: cover;
+	border-radius: 0;
+}

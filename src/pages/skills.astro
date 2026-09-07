@@ -458,7 +458,7 @@ const skillEvidence: Record<string, string[]> = {};
 				{category.items.map((skill) => (
 					<article class="skill-card">
 						<header class="skill-card__heading">
-							<img src={skill.icon} alt="" aria-hidden="true" style={{ backgroundColor: skill.colourCode }} />
+							<img src={skill.icon} alt={`${skill.name} logo`} style={{ backgroundColor: skill.colourCode }} />
 							<div>
 								<h3>{skill.name}</h3>
 								<a href={skill.link} target="_blank" rel="noreferrer">Official reference <span aria-hidden="true">↗</span></a>
