@@ -1,8 +1,8 @@
 export const homeHeroImages = [
 	{
-		src: '/aboutme/MeetAlex.png',
-		alt: 'Alex Stormwood at a speaking engagement.',
-		caption: 'Teaching and speaking about technology.',
+		src: '/homepagegallery/Nintendo02.jpg',
+		alt: 'Alex Stormwood at the Nintendo Kyoto Store in Japan.',
+		caption: 'Big gaming fan!',
 	},
 	{
 		src: '/homepagegallery/PPVRRTX2018.png',
@@ -20,8 +20,8 @@ export const homeHeroImages = [
 		caption: 'Making things away from the keyboard.',
 	},
 	{
-		src: '/homepagegallery/LocationJapan01.jpg',
-		alt: 'Tokyo city views during a Japan trip.',
-		caption: 'Exploring Japan and writing it down.',
+		src: '/homepagegallery/LocationSydney01.jpg',
+		alt: 'Sydney opera house view.',
+		caption: 'Based in Sydney, Australia.',
 	},
 ];
