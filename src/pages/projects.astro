@@ -33,6 +33,8 @@ const projectMeta = await getProjects();
 		<p>Public projects that are open to use, inspection, and contribution.</p>
 		<div class="projects-page__grid">
 		<ProjectCard projectObj={projectMeta["sourcepool"]} kind="Open source" featured />
+		<ProjectCard projectObj={projectMeta["hackathonarchive"]} kind="Open source" />
+		<ProjectCard projectObj={projectMeta["awesomerepos"]} kind="Open source" />
 		<ProjectCard projectObj={projectMeta["supercamo"]} kind="Open source" />
 		<ProjectCard projectObj={projectMeta["npmcompliancehelper"]} kind="Open source" />
 		<ProjectCard projectObj={projectMeta["commitswithintime"]} kind="Open source" />

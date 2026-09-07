@@ -156,6 +156,38 @@ export default {
 			}
 		]
 	},
+	hackathonarchive: {
+		id: "hackathonarchive",
+		title: "Hackathon Archive",
+		description: "A public archive of hackathons and game jams, with event rules, results, and useful references for people planning their own creative events.",
+		builtFor: "Open-source Astro and Starlight site.",
+		lastUpdated: new Date(2026, 7, 9).getTime(),
+		createdAt: new Date(2026, 6, 23).getTime(),
+		imageUrl: "/projects/HackathonArchive.jpg",
+		githubRepository: "AlexStormwood/hackathon-archive",
+		projectUrls: [
+			{
+				websiteName: "GitHub",
+				url: "https://github.com/AlexStormwood/hackathon-archive"
+			}
+		]
+	},
+	awesomerepos: {
+		id: "awesomerepos",
+		title: "Awesome Repos",
+		description: "A searchable home for the useful GitHub repositories I have starred, grouped into practical lists and topics instead of one giant pile.",
+		builtFor: "Open-source Astro site.",
+		lastUpdated: new Date(2026, 7, 28).getTime(),
+		createdAt: new Date(2026, 7, 23).getTime(),
+		imageUrl: "/projects/AwesomeRepos.jpg",
+		githubRepository: "AlexStormwood/awesome-repos",
+		projectUrls: [
+			{
+				websiteName: "GitHub",
+				url: "https://github.com/AlexStormwood/awesome-repos"
+			}
+		]
+	},
 	unityautomatedsemver: {
 		id: "unityautomatedsemver",
 		title: "Unity Automated Semver",
