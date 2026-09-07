@@ -1,5 +1,5 @@
 <dialog class="site-search-dialog" id="site-search-dialog" aria-labelledby="site-search-title">
-	<div class="site-search-dialog__panel">
+	<div class="site-search-dialog__panel" data-site-search-container>
 		<div class="site-search-dialog__heading">
 			<h2 id="site-search-title">Search the site</h2>
 			<button type="button" data-site-search-close><span aria-hidden="true">×</span><span class="sr-only">Close search</span></button>
@@ -12,19 +12,16 @@
 	</div>
 </dialog>
 
-<script>
-	type SearchResult = {
-		url: string;
-		meta?: { title?: string };
-		excerpt?: string;
-	};
-
-	let pagefindPromise: Promise<typeof import('/pagefind/pagefind.js')> | undefined;
-	let debounceTimer: number | undefined;
-	const searchDialog = document.querySelector<HTMLDialogElement>('#site-search-dialog');
+<script is:inline>
+	let pagefindPromise;
+	let debounceTimer;
+	const searchDialog = document.querySelector('#site-search-dialog');
 
 	function getPagefind() {
-		pagefindPromise ??= import(/* @vite-ignore */ '/pagefind/pagefind.js');
+		pagefindPromise ??= import('/pagefind/pagefind.js').then(async (pagefind) => {
+			await pagefind.init();
+			return pagefind;
+		});
 		return pagefindPromise;
 	}
 
@@ -34,7 +31,7 @@
 		return template.content.textContent?.trim() ?? '';
 	}
 
-	function showMessage(container: HTMLElement, message: string) {
+	function showMessage(container, message) {
 		container.replaceChildren();
 		const paragraph = document.createElement('p');
 		paragraph.className = 'site-search-results__message';
@@ -42,7 +39,7 @@
 		container.append(paragraph);
 	}
 
-	function renderResults(container: HTMLElement, results: SearchResult[]) {
+	function renderResults(container, results) {
 		container.replaceChildren();
 		if (!results.length) {
 			showMessage(container, 'No matching pages found.');
@@ -68,7 +65,7 @@
 		container.append(list);
 	}
 
-	async function search(query: string, container: HTMLElement) {
+	async function search(query, container) {
 		const trimmedQuery = query.trim();
 		if (!trimmedQuery) {
 			container.replaceChildren();
@@ -81,13 +78,14 @@
 			const response = await pagefind.search(trimmedQuery);
 			const data = await Promise.all(response.results.slice(0, 8).map((result) => result.data()));
 			renderResults(container, data);
-		} catch {
-			showMessage(container, 'Search becomes available after the production site has been built.');
+		} catch (error) {
+			console.error('Site search could not load Pagefind.', error);
+			showMessage(container, 'Search is temporarily unavailable. Please try again shortly.');
 		}
 	}
 
-	function connectSearchInput(input: HTMLInputElement) {
-		const container = input.closest<HTMLElement>('[data-site-search-container]')?.querySelector<HTMLElement>('[data-site-search-results]');
+	function connectSearchInput(input) {
+		const container = input.closest('[data-site-search-container]')?.querySelector('[data-site-search-results]');
 		if (!container) return;
 		input.addEventListener('input', () => {
 			window.clearTimeout(debounceTimer);
@@ -98,11 +96,11 @@
 		});
 	}
 
-	document.querySelectorAll<HTMLInputElement>('[data-site-search-input]').forEach(connectSearchInput);
-	document.querySelectorAll<HTMLElement>('[data-site-search-open]').forEach((button) => {
+	document.querySelectorAll('[data-site-search-input]').forEach(connectSearchInput);
+	document.querySelectorAll('[data-site-search-open]').forEach((button) => {
 		button.addEventListener('click', () => {
 			searchDialog?.showModal();
-			window.requestAnimationFrame(() => searchDialog?.querySelector<HTMLInputElement>('[data-site-search-input]')?.focus());
+			window.requestAnimationFrame(() => searchDialog?.querySelector('[data-site-search-input]')?.focus());
 		});
 	});
 	document.querySelector('[data-site-search-close]')?.addEventListener('click', () => searchDialog?.close());
