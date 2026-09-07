@@ -185,12 +185,12 @@
 .project-card__more-links > div {
 	position: absolute;
 	right: 0;
+	bottom: calc(100% + 0.4rem);
 	z-index: 2;
 	display: grid;
 	gap: 0.4rem;
 	width: max-content;
 	max-width: min(18rem, 85vw);
-	margin-top: 0.4rem;
 	padding: 0.5rem;
 	border: 1px solid var(--theme-600);
 	border-radius: 0.5rem;
