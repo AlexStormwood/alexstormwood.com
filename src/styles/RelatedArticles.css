@@ -1,0 +1,24 @@
+.related-articles {
+	margin-top: clamp(3rem, 8vw, 6rem);
+	padding-top: clamp(2rem, 5vw, 4rem);
+	border-top: 1px solid light-dark(var(--theme-200), var(--theme-700));
+}
+
+.related-articles__heading > p {
+	margin: 0 0 0.5rem;
+	color: var(--accent);
+	font-size: 0.85rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.related-articles__heading h2 {
+	font-size: clamp(1.8rem, 4vw, 2.6rem);
+}
+
+.related-articles__grid {
+	display: grid;
+	gap: 1.25rem;
+	margin-top: 1.5rem;
+}

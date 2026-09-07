@@ -1,12 +1,14 @@
 ---
 import ArticleDirectory from '../../components/ArticleDirectory';
+import ArticleCard from '../../components/ArticleCard.astro';
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import { SITE_DESCRIPTION } from '../../consts';
-import { getArticleSummaries } from '../../utils/blog';
+import { getArticleSummaries, getVisiblePosts } from '../../utils/blog';
 
 const posts = await getArticleSummaries();
+const technicalPosts = (await getVisiblePosts()).filter((post) => post.data.tags.includes('technical')).slice(0, 3);
 ---
 
 <!doctype html>
@@ -19,6 +21,10 @@ const posts = await getArticleSummaries();
 			.eyebrow { margin: 0 0 0.75rem; color: var(--accent); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
 			.intro h1 { font-size: clamp(2.5rem, 7vw, 4.6rem); }
 			.lead { max-width: 42rem; font-size: 1.2rem; }
+			.technical-collection { margin: 0 0 4rem; padding: clamp(1.25rem, 4vw, 2rem); border-radius: 1rem; background: light-dark(var(--theme-50), var(--theme-950)); }
+			.technical-collection h2 { font-size: clamp(1.8rem, 4vw, 2.75rem); }
+			.technical-collection > div > p:not(.eyebrow) { max-width: 46rem; }
+			.technical-collection__grid { display: grid; gap: 1rem; margin-top: 1.5rem; }
 		</style>
 	</head>
 	<body>
@@ -29,6 +35,12 @@ const posts = await getArticleSummaries();
 				<h1>Notes from building, teaching, and exploring.</h1>
 				<p class="lead">Technical explainers, practical software notes, and detailed travel journals. Browse every published article here, or use the search in the header when you want to search the whole site.</p>
 			</header>
+			{technicalPosts.length > 0 && (
+				<section class="technical-collection" aria-labelledby="technical-writing-heading">
+					<div><p class="eyebrow">Technical writing</p><h2 id="technical-writing-heading">Notes from the technical side of the work.</h2><p>Practical articles about software, release processes, open source, games, and the decisions around building them.</p></div>
+					<div class="technical-collection__grid">{technicalPosts.map((post) => <ArticleCard post={post} />)}</div>
+				</section>
+			)}
 			<ArticleDirectory posts={posts} client:load />
 			<noscript><p>This directory's filters need JavaScript. Every article is still available in the <a href="/rss.xml">RSS feed</a>.</p></noscript>
 		</main>

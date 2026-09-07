@@ -51,6 +51,24 @@ export async function getVisiblePosts() {
 	return sortNewestFirst(posts.filter((post) => isVisiblePost(post)));
 }
 
+/** Finds published writing that shares a series or topic with the current article. */
+export async function getRelatedPosts(currentPost: BlogPost, limit = 3) {
+	const visiblePosts = await getVisiblePosts();
+	const currentTags = new Set(currentPost.data.tags);
+
+	return visiblePosts
+		.filter((post) => post.id !== currentPost.id)
+		.map((post) => {
+			const sharedTags = post.data.tags.filter((tag) => currentTags.has(tag)).length;
+			const sameSeries = Boolean(currentPost.data.series && post.data.series === currentPost.data.series);
+			return { post, score: sharedTags + (sameSeries ? 4 : 0) };
+		})
+		.filter(({ score }) => score > 0)
+		.toSorted((left, right) => right.score - left.score || right.post.data.pubDate.valueOf() - left.post.data.pubDate.valueOf())
+		.slice(0, limit)
+		.map(({ post }) => post);
+}
+
 export function estimateReadingMinutes(content: string) {
 	const wordCount = content.trim().match(/\S+/g)?.length ?? 0;
 	return Math.max(1, Math.ceil(wordCount / 220));

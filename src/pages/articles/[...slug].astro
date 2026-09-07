@@ -1,8 +1,9 @@
 ---
 import { type CollectionEntry } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
+import RelatedArticles from '../../components/RelatedArticles.astro';
 import { render } from 'astro:content';
-import { getVisiblePosts } from '../../utils/blog';
+import { getRelatedPosts, getVisiblePosts } from '../../utils/blog';
 
 export async function getStaticPaths() {
 	const posts = await getVisiblePosts();
@@ -15,8 +16,10 @@ type Props = CollectionEntry<'blog'>;
 
 const post = Astro.props;
 const { Content } = await render(post);
+const relatedPosts = await getRelatedPosts(post);
 ---
 
 <BlogPost {...post.data} structuredData="article" showPostMeta>
 	<Content />
+	<RelatedArticles posts={relatedPosts} />
 </BlogPost>
