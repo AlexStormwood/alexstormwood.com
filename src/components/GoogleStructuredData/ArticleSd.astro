@@ -1,23 +1,35 @@
 
 ---
 
-const {title, heroImage, pubDate, updatedDate} = Astro.props;
+const { title, description, heroImage, pubDate, updatedDate } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const imageURL = new URL(heroImage ?? '/website-ogimage-default.png', Astro.site);
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify({
 	"@context": "https://schema.org",
-	"@type": "NewsArticle",
+	"@type": "BlogPosting",
+	"mainEntityOfPage": {
+		"@type": "WebPage",
+		"@id": canonicalURL.href
+	},
 	"headline": title,
 	"image": [
-	heroImage
+		imageURL.href
 	 ],
 	"datePublished": pubDate,
-	"dateModified": updatedDate,
+	"dateModified": updatedDate ?? pubDate,
+	"description": description,
 	"author": [
 		  {
 		  "@type": "Person",
 		  "name": "Alex Stormwood",
-		  "url": "https://alexstormwood.com/about/"
+		  "url": "https://alexstormwood.com/about/",
+		  "sameAs": [
+			  "https://www.linkedin.com/in/alexstormwood/",
+			  "https://github.com/AlexStormwood",
+			  "https://bsky.app/profile/alexstormwood.com"
+		  ]
 		  }
 	  ]
   })}>

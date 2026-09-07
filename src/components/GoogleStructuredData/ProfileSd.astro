@@ -1,15 +1,24 @@
+---
+const { dateCreated, image = '/website-ogimage-default.png' } = Astro.props;
+const imageURL = new URL(image, Astro.site);
+---
+
 <script type="application/ld+json" set:html={JSON.stringify({
 	"@context": "https://schema.org",
 	"@type": "ProfilePage",
-	
-	"dateCreated": new Date(Date.now()),
+	"dateCreated": dateCreated,
 	"mainEntity": {
 		"@type": "Person",
 		"name": "Alex Stormwood",
 		"alternateName":"Alex Holder",
-		"sameAs": ["https://alexstormwood.com/about/"],
+		"url": "https://alexstormwood.com/about/",
+		"sameAs": [
+			"https://www.linkedin.com/in/alexstormwood/",
+			"https://github.com/AlexStormwood",
+			"https://bsky.app/profile/alexstormwood.com"
+		],
 		"description":"Australian software developer with a focus on gamedev and webdev.",
-		"image": "/website-ogimage-default.png",
+		"image": imageURL.href,
 	}
   })}>
 	

@@ -2,8 +2,6 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
-import ProfileSd from './GoogleStructuredData/ProfileSd.astro';
-import FaqSd from './GoogleStructuredData/FaqSd.astro';
 
 interface Props {
 	title: string;
@@ -62,9 +60,6 @@ const { title, description, image = '/website-ogimage-default.png' } = Astro.pro
 <meta property="profile:first_name" content="Alex">
 <meta property="profile:last_name" content="Stormwood">
 <meta property="profile:username" content="alexstormwood">
-
-<ProfileSd heroImage={image} />
-<FaqSd />
 
 <link rel="sitemap" href="/sitemap-index.xml" />
 
