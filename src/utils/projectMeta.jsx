@@ -148,7 +148,7 @@ export default {
 	streamdockicons: {
 		id: "streamdockicons", title: "BigfootDS Stream Dock Icons", description: "Icon pack for MiraBox Stream Dock products, focused on BigfootDS games, apps, and computer operations.", builtFor: "Open-source icon pack.",
 		brand: "BigfootDS", role: "Founder and developer", technologies: ["Icon design", "Stream Deck"], projectType: "Icon pack", status: "Released",
-		lastUpdated: date(2024, 11, 19), createdAt: date(2024, 11, 12), imageUrl: "https://opengraph.githubassets.com/1/BigfootDS/bigfootds-stream-dock-icons", imageAlt: "Open Graph preview for BigfootDS Stream Dock Icons.", githubRepository: "BigfootDS/bigfootds-stream-dock-icons",
+		lastUpdated: date(2024, 11, 19), createdAt: date(2024, 11, 12), imageUrl: "https://raw.githubusercontent.com/BigfootDS/bigfootds-stream-dock-icons/main/com.bigfootds.bigfootdsicons.sdIconPack/previews/1-preview.png", imageAlt: "Preview banner of the BigfootDS Stream Dock icon pack on a Stream Dock.", githubRepository: "BigfootDS/bigfootds-stream-dock-icons",
 		projectUrls: [{ websiteName: "GitHub", url: "https://github.com/BigfootDS/bigfootds-stream-dock-icons" }],
 	},
 	nodejstrickplay: {
