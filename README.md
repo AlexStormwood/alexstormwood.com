@@ -29,3 +29,7 @@ Read their [documentation website](https://docs.astro.build/en/getting-started/)
 
 This template theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
 
+## Optional build-time project metadata
+
+Set `GITHUB_TOKEN` in the deployment environment to enrich public project cards with their latest GitHub push date and repository status. The site uses its checked-in project metadata when no token is available, so local and offline builds still work without making many unauthenticated GitHub requests.
+
