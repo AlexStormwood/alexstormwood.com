@@ -16,6 +16,8 @@ function ProjectCard({ projectObj, compact = false, featured = false, kind }) {
 	const repositoryUpdatedAt = projectObj.github?.pushedAt;
 	const updatedAt = repositoryUpdatedAt ?? projectObj.lastUpdated;
 	const updatedLabel = repositoryUpdatedAt ? "Public repository updated" : "Last worked on";
+	const projectType = projectObj.projectType ?? kind;
+	const technologies = projectObj.technologies ?? [];
 
 	return (
 		<article className={`project-card${compact ? " project-card--compact" : ""}${featured ? " project-card--featured" : ""}`} id={projectObj.id}>
@@ -23,9 +25,22 @@ function ProjectCard({ projectObj, compact = false, featured = false, kind }) {
 				<img src={imageUrl} alt={imageAlt} loading="lazy" decoding="async" />
 			</button>
 			<div className="project-card__body">
-				{kind && <p className="project-card__kind">{kind}</p>}
+				<div className="project-card__metadata">
+					{projectType && <p className="project-card__kind">{projectType}</p>}
+					{projectObj.status && <p className="project-card__status">{projectObj.status}</p>}
+				</div>
 				<h3>{projectObj.title}</h3>
+				{projectObj.brand && (
+					<p className="project-card__attribution">
+						<strong>{projectObj.brand}</strong>{projectObj.role ? <> <span aria-hidden="true">·</span> {projectObj.role}</> : null}
+					</p>
+				)}
 				<p className="project-card__description">{projectObj.description}</p>
+				{technologies.length > 0 && (
+					<ul className="project-card__technologies" aria-label="Technologies used">
+						{technologies.slice(0, 5).map((technology) => <li key={technology}>{technology}</li>)}
+					</ul>
+				)}
 				{projectObj.builtFor && <p className="project-card__context">{projectObj.builtFor}</p>}
 				{!compact && updatedAt && (
 					<p className="project-card__updated">

@@ -1,0 +1,115 @@
+.project-directory__controls {
+	display: grid;
+	grid-template-columns: repeat(5, minmax(0, 1fr));
+	gap: 1rem;
+	padding: clamp(1rem, 3vw, 1.5rem);
+	border: 1px solid light-dark(var(--theme-200), var(--theme-700));
+	border-radius: 1rem;
+	background: light-dark(var(--theme-50), var(--theme-950));
+}
+
+.project-directory__controls label,
+.project-directory__chip-filter {
+	display: grid;
+	gap: 0.4rem;
+	font-size: 0.9rem;
+	font-weight: 700;
+}
+
+.project-directory__search {
+	grid-column: span 2;
+}
+
+.project-directory__controls input,
+.project-directory__controls select {
+	box-sizing: border-box;
+	width: 100%;
+	min-height: 2.8rem;
+	padding: 0.5rem 0.65rem;
+	border: 1px solid light-dark(var(--theme-300), var(--theme-600));
+	border-radius: 0.5rem;
+	background: light-dark(var(--theme-0), var(--theme-900));
+	color: inherit;
+	font: inherit;
+}
+
+.project-directory__chip-filter {
+	grid-column: 1 / -1;
+}
+
+.project-directory__chip-filter > div {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+
+.project-directory__chip-filter button,
+.project-directory__clear,
+.project-directory__pagination button {
+	padding: 0.45rem 0.7rem;
+	border: 1px solid light-dark(var(--theme-300), var(--theme-600));
+	border-radius: 999px;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+}
+
+.project-directory__chip-filter button.is-selected,
+.project-directory__chip-filter button:hover,
+.project-directory__chip-filter button:focus-visible,
+.project-directory__clear:hover,
+.project-directory__clear:focus-visible,
+.project-directory__pagination button:not(:disabled):hover,
+.project-directory__pagination button:not(:disabled):focus-visible {
+	border-color: var(--accent);
+	background: var(--accent);
+	color: var(--theme-0);
+}
+
+.project-directory__clear {
+	grid-column: 1 / -1;
+	justify-self: start;
+}
+
+.project-directory__count {
+	margin: 1.5rem 0;
+	color: var(--gray);
+}
+
+.project-directory__empty {
+	padding: 2rem;
+	border: 1px dashed var(--theme-500);
+	border-radius: 1rem;
+}
+
+.project-directory__pagination {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+	margin-top: 2rem;
+}
+
+.project-directory__pagination button:disabled {
+	opacity: 0.45;
+}
+
+@media (max-width: 900px) {
+	.project-directory__controls {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.project-directory__search {
+		grid-column: span 2;
+	}
+}
+
+@media (max-width: 540px) {
+	.project-directory__controls {
+		grid-template-columns: 1fr;
+	}
+
+	.project-directory__search {
+		grid-column: auto;
+	}
+}
