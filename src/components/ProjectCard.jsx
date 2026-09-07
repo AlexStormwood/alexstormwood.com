@@ -8,9 +8,9 @@ const dateFormatOptions = {
 
 function ProjectCard({ projectObj, compact = false, featured = false, kind }) {
 	const imageUrl = projectObj.imageUrl ?? "/NoImageAvailable.png";
-	const imageAlt = projectObj.imageUrl
+	const imageAlt = projectObj.imageAlt ?? (projectObj.imageUrl
 		? `Screenshot of ${projectObj.title}.`
-		: "No image available for this project.";
+		: "No image available for this project.");
 	const projectLinks = projectObj.projectUrls ?? [];
 	const [primaryLink, ...secondaryLinks] = projectLinks;
 	const repositoryUpdatedAt = projectObj.github?.pushedAt;
@@ -47,11 +47,14 @@ function ProjectCard({ projectObj, compact = false, featured = false, kind }) {
 						{updatedLabel} <time dateTime={new Date(updatedAt).toISOString()}>{new Date(updatedAt).toLocaleDateString("en-AU", dateFormatOptions)}</time>{projectObj.github?.archived ? ' · Archived repository' : ''}
 					</p>
 				)}
-				{primaryLink && (
+				{(projectObj.caseStudyPath || primaryLink) && (
 					<div className="project-card__actions">
+						{projectObj.caseStudyPath && <a className="project-card__case-study" href={projectObj.caseStudyPath}>Read case study <span aria-hidden="true">→</span></a>}
+						{primaryLink && (
 						<a className="project-card__primary-action" target="_blank" rel="noreferrer" href={primaryLink.url}>
 							View {primaryLink.websiteName} <span aria-hidden="true">↗</span>
 						</a>
+						)}
 						{secondaryLinks.length > 0 && (
 							<details className="project-card__more-links">
 								<summary>More links ({secondaryLinks.length})</summary>

@@ -14,7 +14,7 @@ export default {
 		description: "Arcade-style virtual reality shooter where you must shoot down invading aliens before they destroy your city.",
 		builtFor: "Originally built using Unity for BigfootDS, published to Google Daydream and Steam.",
 		brand: "BigfootDS", role: "Founder and developer", technologies: ["Unity", "C#", "Virtual reality"], projectType: "Game", status: "Released",
-		lastUpdated: date(2020, 12, 2), createdAt: date(2017, 10, 13), imageUrl: "/projects/PPVR_Gameplay_001.jpg",
+		lastUpdated: date(2020, 12, 2), createdAt: date(2017, 10, 13), imageUrl: "/projects/PPVR_Gameplay_001.jpg", caseStudyPath: "/projects/planet-protector-vr/",
 		projectUrls: [{ websiteName: "Steam", url: "https://store.steampowered.com/app/656320/Planet_Protector_VR/" }],
 	},
 	ggj2020: {
@@ -60,7 +60,7 @@ export default {
 	npmcompliancehelper: {
 		id: "npmcompliancehelper", title: "NPM Compliance Helper", description: "Tool to help generate legal and copyright notices about project dependencies.", builtFor: "Open-source Node.js project.",
 		brand: "BigfootDS", role: "Founder and developer", technologies: ["Node.js", "JavaScript", "NPM"], projectType: "Developer tooling", status: "Released",
-		lastUpdated: date(2024, 5, 3), createdAt: date(2024, 4, 30), imageUrl: "/projects/NPMComplianceHelper.png", githubRepository: "BigfootDS/pkg-npm-compliance-helper",
+		lastUpdated: date(2024, 5, 3), createdAt: date(2024, 4, 30), imageUrl: "/projects/NPMComplianceHelper.png", githubRepository: "BigfootDS/pkg-npm-compliance-helper", caseStudyPath: "/projects/npm-compliance-helper/",
 		projectUrls: [
 			{ websiteName: "Project page", url: "https://bigfootds.com/projects/npmcompliancehelper/" },
 			{ websiteName: "GitHub", url: "https://github.com/BigfootDS/pkg-npm-compliance-helper" },
@@ -80,19 +80,19 @@ export default {
 	hackathonarchive: {
 		id: "hackathonarchive", title: "Hackathon Archive", description: "A public archive of hackathons and game jams, with event rules, results, and useful references for people planning creative events.", builtFor: "Open-source Astro and Starlight site.",
 		brand: "Alex Stormwood", role: "Creator and developer", technologies: ["Astro", "Starlight", "Markdown"], projectType: "Documentation site", status: "Released",
-		lastUpdated: date(2026, 8, 9), createdAt: date(2026, 7, 23), imageUrl: "/projects/HackathonArchive.png", githubRepository: "AlexStormwood/hackathon-archive",
+		lastUpdated: date(2026, 8, 9), createdAt: date(2026, 7, 23), imageUrl: "/projects/HackathonArchive.png", githubRepository: "AlexStormwood/hackathon-archive", caseStudyPath: "/projects/hackathon-archive/",
 		projectUrls: [{ websiteName: "GitHub", url: "https://github.com/AlexStormwood/hackathon-archive" }],
 	},
 	awesomerepos: {
 		id: "awesomerepos", title: "Awesome Repos", description: "A searchable home for the useful GitHub repositories I have starred, grouped into practical lists and topics instead of one giant pile.", builtFor: "Open-source Astro site.",
 		brand: "Alex Stormwood", role: "Creator and developer", technologies: ["Astro", "JavaScript", "GitHub API"], projectType: "Web application", status: "Released",
-		lastUpdated: date(2026, 8, 28), createdAt: date(2026, 8, 23), imageUrl: "/projects/AwesomeRepos.png", githubRepository: "AlexStormwood/awesome-repos",
+		lastUpdated: date(2026, 8, 28), createdAt: date(2026, 8, 23), imageUrl: "/projects/AwesomeRepos.png", githubRepository: "AlexStormwood/awesome-repos", caseStudyPath: "/projects/awesome-repos/",
 		projectUrls: [{ websiteName: "Website", url: "https://awesome-repos.alexstormwood.com/" }, { websiteName: "GitHub", url: "https://github.com/AlexStormwood/awesome-repos" }],
 	},
 	unityautomatedsemver: {
 		id: "unityautomatedsemver", title: "Unity Automated Semver", description: "Action to increment relevant version numbers in a Unity project in GitHub Actions workflows.", builtFor: "Open-source Node.js project.",
 		brand: "Alex Stormwood", role: "Creator and developer", technologies: ["Node.js", "JavaScript", "Unity", "GitHub Actions"], projectType: "GitHub Action", status: "Released",
-		lastUpdated: date(2024, 5, 28), createdAt: date(2020, 10, 2), imageUrl: "/projects/UnityAutomatedSemver.png", githubRepository: "AlexStormwood/UnityAutomatedSemver",
+		lastUpdated: date(2024, 5, 28), createdAt: date(2020, 10, 2), imageUrl: "/projects/UnityAutomatedSemver.png", githubRepository: "AlexStormwood/UnityAutomatedSemver", caseStudyPath: "/projects/unity-automated-semver/",
 		projectUrls: [{ websiteName: "GitHub", url: "https://github.com/AlexStormwood/UnityAutomatedSemver" }],
 	},
 	unityupmsemver: {
@@ -110,7 +110,7 @@ export default {
 	unitysemverupdater: {
 		id: "unitysemverupdater", title: "Unity Semver Updater", description: "Node.js tool to update a Unity project's version to a specified format, typically semantic versioning.", builtFor: "Open-source NPM package.",
 		brand: "BigfootDS", role: "Founder and developer", technologies: ["Node.js", "TypeScript", "Unity", "NPM"], projectType: "NPM package", status: "Released",
-		lastUpdated: date(2026, 8, 27), createdAt: date(2024, 7, 7), githubRepository: "BigfootDS/pkg-unity-semver-updater",
+		lastUpdated: date(2026, 8, 27), createdAt: date(2024, 7, 7), imageUrl: "https://opengraph.githubassets.com/1/BigfootDS/pkg-unity-semver-updater", imageAlt: "Open Graph preview for Unity Semver Updater.", githubRepository: "BigfootDS/pkg-unity-semver-updater",
 		projectUrls: [
 			{ websiteName: "Project page", url: "https://bigfootds.com/projects/unitysemverupdater/" },
 			{ websiteName: "GitHub", url: "https://github.com/BigfootDS/pkg-unity-semver-updater" },
@@ -120,6 +120,7 @@ export default {
 	godmaker: {
 		id: "godmaker", title: "Godmaker: Patrons & Prophets", description: "Build a gathering of followers, manipulate the mortal realm, and grow your godhood to become the highest power in a fantasy world.", builtFor: "BigfootDS strategy game in active development.",
 		brand: "BigfootDS", role: "Founder and developer", technologies: ["TypeScript", "JavaScript", "Node.js", "Electron", "React"], projectType: "Game", status: "In development",
+		imageUrl: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1792550/header.jpg", imageAlt: "Steam preview for Godmaker: Patrons & Prophets.",
 		projectUrls: [
 			{ websiteName: "Project page", url: "https://bigfootds.com/projects/patronsimulator/" },
 			{ websiteName: "Steam", url: "https://store.steampowered.com/app/1792550/Patron_Simulator/" },
@@ -128,6 +129,7 @@ export default {
 	tcgsetdesigner: {
 		id: "tcgsetdesigner", title: "TCG Set Designer", description: "A tool for designing trading-card-game sets, expansions, and other collections of cards. It is a design-management tool, not a gameplay simulator.", builtFor: "BigfootDS card-game design tool in active development.",
 		brand: "BigfootDS", role: "Founder and developer", technologies: ["Docker", "Web application", "TCG"], projectType: "Web application", status: "In development",
+		imageUrl: "https://opengraph.githubassets.com/1/BigfootDS/tcg-set-designer", imageAlt: "Open Graph preview for TCG Set Designer.",
 		projectUrls: [
 			{ websiteName: "Project page", url: "https://bigfootds.com/projects/tcgsetdesigner/" },
 			{ websiteName: "Documentation", url: "https://tcgsetdesigner.com/" },
@@ -137,6 +139,7 @@ export default {
 	thebestestbeehive: {
 		id: "thebestestbeehive", title: "The Bestest Beehive", description: "Explore infinite worlds of flourishing flora, brilliant bees, and long-forgotten wonders while rebuilding the world with friends.", builtFor: "BigfootDS open-world cosy crafting game in prototyping.",
 		brand: "BigfootDS", role: "Founder and developer", technologies: ["Game development", "ECS", "Godot"], projectType: "Game", status: "In development",
+		imageUrl: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/749460/header.jpg", imageAlt: "Steam preview for The Bestest Beehive.",
 		projectUrls: [
 			{ websiteName: "Project page", url: "https://bigfootds.com/projects/thebestestbeehive/" },
 			{ websiteName: "Steam", url: "https://store.steampowered.com/app/749460/The_Bestest_Beehive/" },
@@ -145,37 +148,37 @@ export default {
 	streamdockicons: {
 		id: "streamdockicons", title: "BigfootDS Stream Dock Icons", description: "Icon pack for MiraBox Stream Dock products, focused on BigfootDS games, apps, and computer operations.", builtFor: "Open-source icon pack.",
 		brand: "BigfootDS", role: "Founder and developer", technologies: ["Icon design", "Stream Deck"], projectType: "Icon pack", status: "Released",
-		lastUpdated: date(2024, 11, 19), createdAt: date(2024, 11, 12), githubRepository: "BigfootDS/bigfootds-stream-dock-icons",
+		lastUpdated: date(2024, 11, 19), createdAt: date(2024, 11, 12), imageUrl: "https://opengraph.githubassets.com/1/BigfootDS/bigfootds-stream-dock-icons", imageAlt: "Open Graph preview for BigfootDS Stream Dock Icons.", githubRepository: "BigfootDS/bigfootds-stream-dock-icons",
 		projectUrls: [{ websiteName: "GitHub", url: "https://github.com/BigfootDS/bigfootds-stream-dock-icons" }],
 	},
 	nodejstrickplay: {
 		id: "nodejstrickplay", title: "NodeJS Trickplay", description: "Generate trickplay images for a video file for use in NodeJS environments.", builtFor: "Open-source NPM package.",
 		brand: "BigfootDS", role: "Founder and developer", technologies: ["Node.js", "TypeScript", "NPM", "Video processing"], projectType: "NPM package", status: "Released",
-		lastUpdated: date(2025, 4, 23), createdAt: date(2025, 4, 20), githubRepository: "BigfootDS/pkg-nodejs-trickplay",
+		lastUpdated: date(2025, 4, 23), createdAt: date(2025, 4, 20), imageUrl: "https://opengraph.githubassets.com/1/BigfootDS/pkg-nodejs-trickplay", imageAlt: "Open Graph preview for NodeJS Trickplay.", githubRepository: "BigfootDS/pkg-nodejs-trickplay",
 		projectUrls: [{ websiteName: "NPM", url: "https://www.npmjs.com/package/@bigfootds/nodejs-trickplay" }, { websiteName: "GitHub", url: "https://github.com/BigfootDS/pkg-nodejs-trickplay" }],
 	},
 	godotsemverupdater: {
 		id: "godotsemverupdater", title: "Godot Semver Updater", description: "NodeJS tool to update a Godot project's game version to a specified format, typically semantic versioning.", builtFor: "Open-source NPM package.",
 		brand: "BigfootDS", role: "Founder and developer", technologies: ["Node.js", "JavaScript", "Godot", "NPM"], projectType: "NPM package", status: "Released",
-		lastUpdated: date(2026, 8, 21), createdAt: date(2024, 7, 11), githubRepository: "BigfootDS/pkg-godot-semver-updater",
+		lastUpdated: date(2026, 8, 21), createdAt: date(2024, 7, 11), imageUrl: "https://opengraph.githubassets.com/1/BigfootDS/pkg-godot-semver-updater", imageAlt: "Open Graph preview for Godot Semver Updater.", githubRepository: "BigfootDS/pkg-godot-semver-updater",
 		projectUrls: [{ websiteName: "NPM", url: "https://www.npmjs.com/package/@bigfootds/godot-semver-updater" }, { websiteName: "GitHub", url: "https://github.com/BigfootDS/pkg-godot-semver-updater" }],
 	},
 	unrealsemverupdater: {
 		id: "unrealsemverupdater", title: "Unreal Semver Updater", description: "Update an Unreal Engine project's game-version values from NodeJS.", builtFor: "Open-source NPM package.",
 		brand: "BigfootDS", role: "Founder and developer", technologies: ["Node.js", "JavaScript", "Unreal Engine", "NPM"], projectType: "NPM package", status: "Released",
-		lastUpdated: date(2026, 8, 21), createdAt: date(2026, 8, 21), githubRepository: "BigfootDS/pkg-unreal-semver-updater",
+		lastUpdated: date(2026, 8, 21), createdAt: date(2026, 8, 21), imageUrl: "https://opengraph.githubassets.com/1/BigfootDS/pkg-unreal-semver-updater", imageAlt: "Open Graph preview for Unreal Semver Updater.", githubRepository: "BigfootDS/pkg-unreal-semver-updater",
 		projectUrls: [{ websiteName: "NPM", url: "https://www.npmjs.com/package/@bigfootds/unreal-semver-updater" }, { websiteName: "GitHub", url: "https://github.com/BigfootDS/pkg-unreal-semver-updater" }],
 	},
 	nodejssemverupdater: {
 		id: "nodejssemverupdater", title: "NodeJS Semver Updater", description: "Update a NodeJS project's version values from NodeJS.", builtFor: "Open-source NPM package.",
 		brand: "BigfootDS", role: "Founder and developer", technologies: ["Node.js", "JavaScript", "NPM", "Electron"], projectType: "NPM package", status: "Released",
-		lastUpdated: date(2026, 8, 27), createdAt: date(2026, 8, 27), githubRepository: "BigfootDS/pkg-nodejs-semver-updater",
+		lastUpdated: date(2026, 8, 27), createdAt: date(2026, 8, 27), imageUrl: "https://opengraph.githubassets.com/1/BigfootDS/pkg-nodejs-semver-updater", imageAlt: "Open Graph preview for NodeJS Semver Updater.", githubRepository: "BigfootDS/pkg-nodejs-semver-updater",
 		projectUrls: [{ websiteName: "NPM", url: "https://www.npmjs.com/package/@bigfootds/nodejs-semver-updater" }, { websiteName: "GitHub", url: "https://github.com/BigfootDS/pkg-nodejs-semver-updater" }],
 	},
 	gameautomatedsemver: {
 		id: "gameautomatedsemver", title: "Game Automated Semver", description: "Automate a game project's semantic versioning with a GitHub Action.", builtFor: "Open-source GitHub Action.",
 		brand: "BigfootDS", role: "Founder and developer", technologies: ["TypeScript", "GitHub Actions", "Game development", "Semver"], projectType: "GitHub Action", status: "Released",
-		lastUpdated: date(2026, 8, 27), createdAt: date(2026, 8, 21), githubRepository: "BigfootDS/actions-game-automated-semver",
+		lastUpdated: date(2026, 8, 27), createdAt: date(2026, 8, 21), imageUrl: "https://opengraph.githubassets.com/1/BigfootDS/actions-game-automated-semver", imageAlt: "Open Graph preview for Game Automated Semver.", githubRepository: "BigfootDS/actions-game-automated-semver",
 		projectUrls: [{ websiteName: "GitHub", url: "https://github.com/BigfootDS/actions-game-automated-semver" }],
 	},
 };

@@ -1,0 +1,43 @@
+---
+import Layout from '../../layouts/BlogPost.astro';
+import { caseStudies, getCaseStudy } from '../../data/case-studies';
+import { getProjects } from '../../utils/projects';
+import '../../styles/CaseStudy.css';
+
+export async function getStaticPaths() {
+	return caseStudies.map((caseStudy) => ({ params: { slug: caseStudy.slug } }));
+}
+
+const caseStudy = getCaseStudy(Astro.params.slug ?? '');
+if (!caseStudy) return Astro.redirect('/projects');
+
+const projects = await getProjects();
+const project = projects[caseStudy.projectId];
+---
+
+<Layout title={caseStudy.title} description={caseStudy.description} pubDate={new Date('September 7 2026')} heroImage={project?.imageUrl}>
+	<article class="case-study">
+		<header class="case-study__header">
+			<p class="case-study__eyebrow">Project case study</p>
+			<p class="case-study__summary">{caseStudy.description}</p>
+			<dl class="case-study__facts">
+				<div><dt>Role</dt><dd>{caseStudy.role}</dd></div>
+				<div><dt>Period</dt><dd>{caseStudy.period}</dd></div>
+			</dl>
+			<ul class="case-study__stack" aria-label="Technology used">{caseStudy.stack.map((item) => <li>{item}</li>)}</ul>
+		</header>
+
+		{project?.imageUrl && <img class="case-study__image" src={project.imageUrl} alt={project.imageAlt ?? `Project image for ${caseStudy.title}.`} loading="eager" decoding="async" data-lightbox />}
+
+		<div class="case-study__body">
+			{caseStudy.sections.map((section) => <section><h2>{section.heading}</h2>{section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}</section>)}
+		</div>
+
+		<footer class="case-study__footer">
+			<h2>Public evidence</h2>
+			<p>The public links below are the useful places to inspect this project for yourself.</p>
+			<div>{project?.projectUrls.map((link) => <a href={link.url} target="_blank" rel="noreferrer">View {link.websiteName} <span aria-hidden="true">↗</span></a>)}</div>
+			<p><a href="/projects">Back to all projects</a></p>
+		</footer>
+	</article>
+</Layout>

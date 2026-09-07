@@ -141,6 +141,7 @@
 }
 
 .project-card__primary-action,
+.project-card__case-study,
 .project-card__more-links summary,
 .project-card__more-links a {
 	display: inline-block;
@@ -160,6 +161,8 @@
 
 .project-card__primary-action:hover,
 .project-card__primary-action:focus-visible,
+.project-card__case-study:hover,
+.project-card__case-study:focus-visible,
 .project-card__more-links summary:hover,
 .project-card__more-links summary:focus-visible,
 .project-card__more-links a:hover,
@@ -171,6 +174,10 @@
 
 .project-card__more-links {
 	position: relative;
+}
+
+.project-card__case-study {
+	border-color: var(--accent);
 }
 
 .project-card__more-links summary {
