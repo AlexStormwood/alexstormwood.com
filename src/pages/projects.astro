@@ -2,7 +2,6 @@
 import ProjectCard from '../components/ProjectCard';
 import Layout from '../layouts/BlogPost.astro';
 import { getProjects } from '../utils/projects';
-import "../styles/ArticleContent.css";
 import "../styles/Projects.css";
 const projectMeta = await getProjects();
 ---
@@ -14,54 +13,47 @@ const projectMeta = await getProjects();
 	heroImage="/projects/Header.png"
 >
 	
-<div class="articleContent" id="projectsPage">
-	<section>
+<div class="projects-page" id="projectsPage">
+	<section class="projects-page__intro">
 		<p class="projects-eyebrow">Selected work</p>
 		<p class="projects-lead">Projects spanning web development, developer tooling, games, and the systems that help people make things.</p>
 	</section>
 
-	<section>
+	<section class="projects-page__in-progress">
 		<h2>In progress</h2>
 		<p>Ongoing work that may still be private or in development through BigfootDS.</p>
-		<ul>
+		<ul class="projects-page__project-ideas">
 			<li>Patron Simulator (real-time strategy game)</li>
 			<li>The Bestest Beehive (open-world cosy crafting game)</li>
 		</ul>
 	</section>
 
-	<section>
+	<section class="projects-page__section">
 		<h2>Open source</h2>
 		<p>Public projects that are open to use, inspection, and contribution.</p>
-		<div class="projectCardContainer">
-		<ProjectCard projectObj={projectMeta["sourcepool"]} />
-		<ProjectCard projectObj={projectMeta["supercamo"]} />
-		<ProjectCard projectObj={projectMeta["npmcompliancehelper"]} />
-		<ProjectCard projectObj={projectMeta["commitswithintime"]} />
-		<ProjectCard projectObj={projectMeta["unityautomatedsemver"]} />
-		<ProjectCard projectObj={projectMeta["unityupmsemver"]} />
+		<div class="projects-page__grid">
+		<ProjectCard projectObj={projectMeta["sourcepool"]} kind="Open source" featured />
+		<ProjectCard projectObj={projectMeta["supercamo"]} kind="Open source" />
+		<ProjectCard projectObj={projectMeta["npmcompliancehelper"]} kind="Open source" />
+		<ProjectCard projectObj={projectMeta["commitswithintime"]} kind="Open source" />
+		<ProjectCard projectObj={projectMeta["unityautomatedsemver"]} kind="Open source" />
+		<ProjectCard projectObj={projectMeta["unityupmsemver"]} kind="Open source" />
 		
 		</div>
 
 	</section>
 
-	<section>
+	<section class="projects-page__section">
 		<h2>Completed &amp; archived</h2>
 		<p>Games, prototypes, and client work that remain part of the story.</p>
-		<div class="projectCardContainer">
-		<ProjectCard projectObj={projectMeta["ppvr"]} />
-		<ProjectCard projectObj={projectMeta["ggj2020"]} />
-		<ProjectCard projectObj={projectMeta["ggj2019"]} />
-		<ProjectCard projectObj={projectMeta["aitvrtour"]} />
-		<ProjectCard projectObj={projectMeta["scotsyukivr"]} />
+		<div class="projects-page__grid">
+		<ProjectCard projectObj={projectMeta["ppvr"]} kind="Released game" featured />
+		<ProjectCard projectObj={projectMeta["ggj2020"]} kind="Game jam" />
+		<ProjectCard projectObj={projectMeta["ggj2019"]} kind="Game jam" />
+		<ProjectCard projectObj={projectMeta["aitvrtour"]} kind="Client prototype" />
+		<ProjectCard projectObj={projectMeta["scotsyukivr"]} kind="Client work" />
 		</div>
 	</section>
-
-
-
-
-
-
-
 
 </div>
 

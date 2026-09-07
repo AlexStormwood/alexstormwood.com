@@ -6,36 +6,49 @@ const dateFormatOptions = {
 	year: "numeric",
 };
 
-function ProjectCard({ projectObj, compact = false }) {
+function ProjectCard({ projectObj, compact = false, featured = false, kind }) {
 	const imageUrl = projectObj.imageUrl ?? "/NoImageAvailable.png";
 	const imageAlt = projectObj.imageUrl
 		? `Screenshot of ${projectObj.title}.`
 		: "No image available for this project.";
+	const projectLinks = projectObj.projectUrls ?? [];
+	const [primaryLink, ...secondaryLinks] = projectLinks;
+	const repositoryUpdatedAt = projectObj.github?.pushedAt;
+	const updatedAt = repositoryUpdatedAt ?? projectObj.lastUpdated;
+	const updatedLabel = repositoryUpdatedAt ? "Public repository updated" : "Last worked on";
 
 	return (
-		<article className={`project-card${compact ? " project-card--compact" : ""}`} id={projectObj.id}>
+		<article className={`project-card${compact ? " project-card--compact" : ""}${featured ? " project-card--featured" : ""}`} id={projectObj.id}>
 			<button type="button" className="project-card__image" data-lightbox-trigger data-lightbox-src={imageUrl} data-lightbox-caption={imageAlt} aria-label={`Open full-size image: ${imageAlt}`}>
 				<img src={imageUrl} alt={imageAlt} loading="lazy" decoding="async" />
 			</button>
 			<div className="project-card__body">
-				<p className="project-card__context">{projectObj.builtFor}</p>
+				{kind && <p className="project-card__kind">{kind}</p>}
 				<h3>{projectObj.title}</h3>
 				<p className="project-card__description">{projectObj.description}</p>
-				{!compact && (
+				{projectObj.builtFor && <p className="project-card__context">{projectObj.builtFor}</p>}
+				{!compact && updatedAt && (
 					<p className="project-card__updated">
-						Project last worked on <time dateTime={new Date(projectObj.lastUpdated).toISOString()}>{new Date(projectObj.lastUpdated).toLocaleDateString("en-AU", dateFormatOptions)}</time>
+						{updatedLabel} <time dateTime={new Date(updatedAt).toISOString()}>{new Date(updatedAt).toLocaleDateString("en-AU", dateFormatOptions)}</time>{projectObj.github?.archived ? ' · Archived repository' : ''}
 					</p>
 				)}
-				{projectObj.github?.pushedAt && (
-					<p className="project-card__github">Last public GitHub push <time dateTime={new Date(projectObj.github.pushedAt).toISOString()}>{new Date(projectObj.github.pushedAt).toLocaleDateString("en-AU", dateFormatOptions)}</time>{projectObj.github.archived ? ' · Archived repository' : ''}</p>
-				)}
-				{projectObj.projectUrls?.length > 0 && (
+				{primaryLink && (
 					<div className="project-card__actions">
-						{projectObj.projectUrls.map((urlEntry) => (
-							<a key={urlEntry.url} target="_blank" rel="noreferrer" href={urlEntry.url}>
-								View {urlEntry.websiteName} <span aria-hidden="true">↗</span>
-							</a>
-						))}
+						<a className="project-card__primary-action" target="_blank" rel="noreferrer" href={primaryLink.url}>
+							View {primaryLink.websiteName} <span aria-hidden="true">↗</span>
+						</a>
+						{secondaryLinks.length > 0 && (
+							<details className="project-card__more-links">
+								<summary>More links ({secondaryLinks.length})</summary>
+								<div>
+									{secondaryLinks.map((urlEntry) => (
+										<a key={urlEntry.url} target="_blank" rel="noreferrer" href={urlEntry.url}>
+											View {urlEntry.websiteName} <span aria-hidden="true">↗</span>
+										</a>
+									))}
+								</div>
+							</details>
+						)}
 					</div>
 				)}
 			</div>
