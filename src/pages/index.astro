@@ -4,7 +4,9 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import ProjectCard from '../components/ProjectCard';
+import HomeHeroCarousel from '../components/HomeHeroCarousel';
 import { SITE_DESCRIPTION } from '../consts';
+import { homeHeroImages } from '../data/home-hero-images';
 import '../styles/Home.css';
 import projectMeta from '../utils/projectMeta';
 import { getVisiblePosts } from '../utils/blog';
@@ -20,7 +22,7 @@ const featuredProjects = [projectMeta.sourcepool, projectMeta.supercamo, project
 	</head>
 	<body>
 		<Header />
-		<main class="home">
+		<main class="home" data-pagefind-body>
 			<section class="home-hero" aria-labelledby="home-title">
 				<div class="home-hero__content">
 					<p class="eyebrow">Alex Stormwood</p>
@@ -31,7 +33,7 @@ const featuredProjects = [projectMeta.sourcepool, projectMeta.supercamo, project
 						<a class="button button--secondary" href="/articles">Read the writing</a>
 					</div>
 				</div>
-				<img class="home-hero__image" src="/aboutme/MeetAlex.png" width="720" height="360" alt="Alex Stormwood at a speaking engagement." decoding="async" fetchpriority="high" />
+				<HomeHeroCarousel slides={homeHeroImages} client:visible />
 			</section>
 
 			<section class="lanes" aria-label="What Alex does">

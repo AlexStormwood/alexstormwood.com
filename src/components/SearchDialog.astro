@@ -1,0 +1,187 @@
+<dialog class="site-search-dialog" id="site-search-dialog" aria-labelledby="site-search-title">
+	<div class="site-search-dialog__panel">
+		<div class="site-search-dialog__heading">
+			<h2 id="site-search-title">Search the site</h2>
+			<button type="button" data-site-search-close><span aria-hidden="true">×</span><span class="sr-only">Close search</span></button>
+		</div>
+		<label class="site-search-field">
+			<span class="sr-only">Search articles, projects, skills, and appearances</span>
+			<input type="search" autocomplete="off" placeholder="Search articles, projects, skills…" data-site-search-input />
+		</label>
+		<div class="site-search-results" data-site-search-results aria-live="polite"></div>
+	</div>
+</dialog>
+
+<script>
+	type SearchResult = {
+		url: string;
+		meta?: { title?: string };
+		excerpt?: string;
+	};
+
+	let pagefindPromise: Promise<typeof import('/pagefind/pagefind.js')> | undefined;
+	let debounceTimer: number | undefined;
+	const searchDialog = document.querySelector<HTMLDialogElement>('#site-search-dialog');
+
+	function getPagefind() {
+		pagefindPromise ??= import(/* @vite-ignore */ '/pagefind/pagefind.js');
+		return pagefindPromise;
+	}
+
+	function textFromHtml(value = '') {
+		const template = document.createElement('template');
+		template.innerHTML = value;
+		return template.content.textContent?.trim() ?? '';
+	}
+
+	function showMessage(container: HTMLElement, message: string) {
+		container.replaceChildren();
+		const paragraph = document.createElement('p');
+		paragraph.className = 'site-search-results__message';
+		paragraph.textContent = message;
+		container.append(paragraph);
+	}
+
+	function renderResults(container: HTMLElement, results: SearchResult[]) {
+		container.replaceChildren();
+		if (!results.length) {
+			showMessage(container, 'No matching pages found.');
+			return;
+		}
+
+		const list = document.createElement('ol');
+		list.className = 'site-search-results__list';
+		for (const result of results) {
+			const item = document.createElement('li');
+			const link = document.createElement('a');
+			link.href = result.url;
+			link.textContent = result.meta?.title ?? result.url;
+			item.append(link);
+			const excerpt = textFromHtml(result.excerpt);
+			if (excerpt) {
+				const summary = document.createElement('p');
+				summary.textContent = excerpt;
+				item.append(summary);
+			}
+			list.append(item);
+		}
+		container.append(list);
+	}
+
+	async function search(query: string, container: HTMLElement) {
+		const trimmedQuery = query.trim();
+		if (!trimmedQuery) {
+			container.replaceChildren();
+			return;
+		}
+
+		showMessage(container, 'Searching…');
+		try {
+			const pagefind = await getPagefind();
+			const response = await pagefind.search(trimmedQuery);
+			const data = await Promise.all(response.results.slice(0, 8).map((result) => result.data()));
+			renderResults(container, data);
+		} catch {
+			showMessage(container, 'Search becomes available after the production site has been built.');
+		}
+	}
+
+	function connectSearchInput(input: HTMLInputElement) {
+		const container = input.closest<HTMLElement>('[data-site-search-container]')?.querySelector<HTMLElement>('[data-site-search-results]');
+		if (!container) return;
+		input.addEventListener('input', () => {
+			window.clearTimeout(debounceTimer);
+			debounceTimer = window.setTimeout(() => search(input.value, container), 150);
+		});
+		input.addEventListener('focus', () => {
+			void getPagefind().catch(() => undefined);
+		});
+	}
+
+	document.querySelectorAll<HTMLInputElement>('[data-site-search-input]').forEach(connectSearchInput);
+	document.querySelectorAll<HTMLElement>('[data-site-search-open]').forEach((button) => {
+		button.addEventListener('click', () => {
+			searchDialog?.showModal();
+			window.requestAnimationFrame(() => searchDialog?.querySelector<HTMLInputElement>('[data-site-search-input]')?.focus());
+		});
+	});
+	document.querySelector('[data-site-search-close]')?.addEventListener('click', () => searchDialog?.close());
+	searchDialog?.addEventListener('click', (event) => {
+		if (event.target === searchDialog) searchDialog.close();
+	});
+</script>
+
+<style>
+	.site-search-dialog {
+		width: min(94vw, 48rem);
+		padding: 0;
+		border: 1px solid var(--theme-600);
+		border-radius: 1rem;
+		background: var(--theme-950);
+		color: var(--theme-0);
+	}
+
+	.site-search-dialog::backdrop {
+		background: rgb(0 0 0 / 65%);
+	}
+
+	.site-search-dialog__panel {
+		padding: clamp(1.25rem, 4vw, 2rem);
+	}
+
+	.site-search-dialog__heading {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+	}
+
+	.site-search-dialog__heading h2 {
+		margin: 0;
+		font-size: 1.5rem;
+	}
+
+	.site-search-dialog button {
+		width: 2.5rem;
+		height: 2.5rem;
+		border: 1px solid var(--theme-200);
+		border-radius: 50%;
+		background: transparent;
+		color: inherit;
+		font-size: 1.75rem;
+	}
+
+	.site-search-field input {
+		box-sizing: border-box;
+		width: 100%;
+		margin-top: 1.5rem;
+		padding: 0.75rem 0.9rem;
+		border: 1px solid var(--theme-300);
+		border-radius: 0.5rem;
+		background: var(--theme-0);
+		color: var(--theme-1000);
+	}
+
+	.site-search-results__list {
+		display: grid;
+		gap: 1rem;
+		margin: 1.25rem 0 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.site-search-results__list li {
+		padding-bottom: 1rem;
+		border-bottom: 1px solid var(--theme-700);
+	}
+
+	.site-search-results__list a {
+		font-weight: 700;
+	}
+
+	.site-search-results__list p,
+	.site-search-results__message {
+		margin: 0.35rem 0 0;
+		font-size: 0.9rem;
+	}
+</style>

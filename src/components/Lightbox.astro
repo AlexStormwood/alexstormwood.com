@@ -1,0 +1,157 @@
+<dialog class="image-lightbox" id="image-lightbox" aria-labelledby="image-lightbox-caption">
+	<div class="image-lightbox__panel">
+		<button class="image-lightbox__close" type="button" data-lightbox-close>
+			<span aria-hidden="true">×</span><span class="sr-only">Close full-size image</span>
+		</button>
+		<figure>
+			<img id="image-lightbox-image" src="" alt="" />
+			<figcaption id="image-lightbox-caption"></figcaption>
+		</figure>
+	</div>
+</dialog>
+
+<script>
+	const lightbox = document.querySelector<HTMLDialogElement>('#image-lightbox');
+	const lightboxImage = document.querySelector<HTMLImageElement>('#image-lightbox-image');
+	const lightboxCaption = document.querySelector<HTMLElement>('#image-lightbox-caption');
+	let lightboxTrigger: HTMLElement | null = null;
+
+	function openLightbox({ src, alt, trigger }: { src: string; alt?: string; trigger?: HTMLElement }) {
+		if (!lightbox || !lightboxImage || !lightboxCaption || !src) return;
+		lightboxTrigger = trigger ?? null;
+		lightboxImage.src = src;
+		lightboxImage.alt = alt ?? '';
+		lightboxCaption.textContent = alt ?? '';
+		lightbox.showModal();
+	}
+
+	function closeLightbox() {
+		lightbox?.close();
+	}
+
+	function makeImageInteractive(image: HTMLImageElement) {
+		if (image.dataset.lightboxReady || image.closest('button, a')) return;
+		image.dataset.lightboxReady = 'true';
+		image.tabIndex = 0;
+		image.setAttribute('role', 'button');
+		image.setAttribute('aria-label', `Open full-size image${image.alt ? `: ${image.alt}` : ''}`);
+	}
+
+	function openFromImage(image: HTMLImageElement) {
+		openLightbox({
+			src: image.dataset.lightboxSrc || image.currentSrc || image.src,
+			alt: image.dataset.lightboxCaption || image.alt,
+			trigger: image,
+		});
+	}
+
+	document.querySelectorAll<HTMLImageElement>('main img[data-lightbox]').forEach(makeImageInteractive);
+
+	document.addEventListener('click', (event) => {
+		const target = event.target;
+		if (!(target instanceof Element)) return;
+		const trigger = target.closest<HTMLElement>('[data-lightbox-trigger]');
+		if (trigger) {
+			event.preventDefault();
+			openLightbox({
+				src: trigger.dataset.lightboxSrc ?? '',
+				alt: trigger.dataset.lightboxCaption,
+				trigger,
+			});
+			return;
+		}
+
+		const image = target.closest<HTMLImageElement>('main img[data-lightbox]');
+		if (image && !image.closest('button, a')) openFromImage(image);
+	});
+
+	document.addEventListener('keydown', (event) => {
+		const target = event.target;
+		if (!(target instanceof HTMLImageElement) || !target.matches('main img[data-lightbox]')) return;
+		if (event.key === 'Enter' || event.key === ' ') {
+			event.preventDefault();
+			openFromImage(target);
+		}
+	});
+
+	document.addEventListener('lightbox:open', (event) => {
+		const detail = (event as CustomEvent<{ src?: string; alt?: string; trigger?: HTMLElement }>).detail;
+		if (detail?.src) openLightbox({ src: detail.src, alt: detail.alt, trigger: detail.trigger });
+	});
+
+	lightbox?.addEventListener('click', (event) => {
+		if (event.target === lightbox) closeLightbox();
+	});
+
+	lightbox?.querySelector('[data-lightbox-close]')?.addEventListener('click', closeLightbox);
+	lightbox?.addEventListener('close', () => {
+		lightboxImage?.removeAttribute('src');
+		lightboxTrigger?.focus();
+		lightboxTrigger = null;
+	});
+</script>
+
+<style>
+	.image-lightbox {
+		width: min(96vw, 90rem);
+		max-width: none;
+		max-height: 94vh;
+		padding: 0;
+		border: 1px solid var(--theme-600);
+		border-radius: 1rem;
+		background: var(--theme-950);
+		color: var(--theme-0);
+	}
+
+	.image-lightbox::backdrop {
+		background: rgb(0 0 0 / 84%);
+	}
+
+	.image-lightbox__panel {
+		position: relative;
+		padding: 1rem;
+	}
+
+	.image-lightbox figure {
+		margin: 0;
+	}
+
+	.image-lightbox img {
+		display: block;
+		width: auto;
+		max-width: 100%;
+		height: auto;
+		max-height: calc(94vh - 5rem);
+		margin: 0 auto;
+		border-radius: 0.5rem;
+	}
+
+	.image-lightbox figcaption {
+		max-width: 80ch;
+		margin: 0.75rem auto 0;
+		color: var(--theme-100);
+		font-size: 0.9rem;
+		text-align: center;
+	}
+
+	.image-lightbox__close {
+		position: absolute;
+		top: 1.25rem;
+		right: 1.25rem;
+		display: grid;
+		width: 2.75rem;
+		height: 2.75rem;
+		place-items: center;
+		border: 1px solid var(--theme-100);
+		border-radius: 50%;
+		background: var(--theme-950);
+		color: var(--theme-0);
+		font-size: 2rem;
+		line-height: 1;
+	}
+
+	.image-lightbox__close:hover,
+	.image-lightbox__close:focus-visible {
+		background: var(--accent);
+	}
+</style>

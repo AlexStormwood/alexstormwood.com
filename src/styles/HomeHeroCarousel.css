@@ -1,0 +1,87 @@
+.hero-carousel {
+	overflow: hidden;
+	border-radius: 1.5rem;
+	background: var(--theme-950);
+	box-shadow: var(--box-shadow);
+}
+
+.hero-carousel__viewport {
+	overflow: hidden;
+}
+
+.hero-carousel__container {
+	display: flex;
+	touch-action: pan-y pinch-zoom;
+}
+
+.hero-carousel__slide {
+	flex: 0 0 100%;
+	min-width: 0;
+}
+
+.hero-carousel__image-button {
+	display: block;
+	width: 100%;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	cursor: zoom-in;
+}
+
+.hero-carousel__image-button img {
+	display: block;
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+	border-radius: 0;
+}
+
+.hero-carousel__controls {
+	display: grid;
+	grid-template-columns: auto minmax(0, 1fr) auto;
+	gap: 0.75rem;
+	align-items: center;
+	padding: 0.75rem;
+}
+
+.hero-carousel__controls p {
+	margin: 0;
+	font-size: 0.85rem;
+	text-align: center;
+}
+
+.hero-carousel__controls button {
+	width: 2.4rem;
+	height: 2.4rem;
+	border: 1px solid var(--theme-300);
+	border-radius: 50%;
+	background: transparent;
+	color: var(--theme-0);
+	font-size: 1.25rem;
+}
+
+.hero-carousel__controls button:hover,
+.hero-carousel__controls button:focus-visible {
+	border-color: var(--theme-0);
+	background: var(--accent);
+}
+
+.hero-carousel__dots {
+	display: flex;
+	justify-content: center;
+	gap: 0.45rem;
+	padding: 0 0.75rem 1rem;
+}
+
+.hero-carousel__dots button {
+	width: 0.65rem;
+	height: 0.65rem;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: var(--theme-400);
+}
+
+.hero-carousel__dots button.is-selected {
+	background: var(--theme-0);
+}

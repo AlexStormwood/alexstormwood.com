@@ -3,7 +3,6 @@
 .eyebrow { margin: 0 0 0.75rem; color: var(--accent); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
 .home-hero h1 { max-width: 12ch; margin-bottom: 1.25rem; font-size: clamp(2.8rem, 7vw, 5.5rem); letter-spacing: -0.045em; }
 .home-hero__lead { max-width: 41rem; font-size: clamp(1.15rem, 2vw, 1.45rem); }
-.home-hero__image { width: 100%; border-radius: 1.5rem; box-shadow: var(--box-shadow); }
 .home-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.75rem; }
 .button { display: inline-block; padding: 0.65rem 1rem; border: 1px solid var(--accent); border-radius: 0.5rem; font-weight: 700; text-decoration: none; }
 .button--primary { background: var(--accent); color: var(--theme-0); }
@@ -24,5 +23,5 @@
 .home-cta { display: flex; align-items: center; justify-content: space-between; gap: 2rem; margin-top: clamp(4.5rem, 11vw, 9rem); padding: clamp(1.5rem, 5vw, 3rem); border-radius: 1rem; background: linear-gradient(135deg, var(--theme-800), var(--theme-600)); color: var(--theme-0); }
 .home-cta p:not(.eyebrow) { margin-bottom: 0; }
 .home-cta .button--secondary { border-color: var(--theme-100); color: var(--theme-0); }
-@media (max-width: 900px) { .home-hero, .lanes, .project-card-grid, .home-article-grid { grid-template-columns: 1fr; } .home-hero { min-height: 0; } .home-hero__image { max-width: 42rem; } .home-cta { align-items: flex-start; flex-direction: column; } }
+@media (max-width: 900px) { .home-hero, .lanes, .project-card-grid, .home-article-grid { grid-template-columns: 1fr; } .home-hero { min-height: 0; } .home-cta { align-items: flex-start; flex-direction: column; } }
 @media (max-width: 600px) { .home-section__heading { align-items: flex-start; flex-direction: column; } }

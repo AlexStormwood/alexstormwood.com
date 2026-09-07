@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "dev:v": "astro dev --verbose",
-    "build": "astro build",
+		"build": "astro build && pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro"
   },

@@ -1,85 +1,247 @@
 ---
-import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../consts';
+import HeaderLink from './HeaderLink.astro';
+import Lightbox from './Lightbox.astro';
+import SearchDialog from './SearchDialog.astro';
 import SocialLinks from './SocialLinks.astro';
 ---
 
-<header>
-	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
-		<div class="internal-links">
-			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/about">About</HeaderLink>
-			<HeaderLink href="/projects">Projects</HeaderLink>
-			<HeaderLink href="/appearances">Appearances</HeaderLink>
-			<HeaderLink href="/skills">Skills</HeaderLink>
-			<HeaderLink href="/workhistory">Employment History</HeaderLink>
+<header class="site-header">
+	<nav class="site-nav" aria-label="Primary navigation">
+		<a class="site-nav__title" href="/">{SITE_TITLE}</a>
 
-			<HeaderLink href="/articles">Articles</HeaderLink>
+		<div class="site-nav__desktop-search" data-site-search-container>
+			<label>
+				<span class="sr-only">Search the site</span>
+				<input type="search" autocomplete="off" placeholder="Search the site" data-site-search-input />
+			</label>
+			<div class="site-nav__search-results" data-site-search-results aria-live="polite"></div>
 		</div>
-		<SocialLinks />
+
+		<div class="site-nav__actions">
+			<button class="site-nav__search-button" type="button" data-site-search-open>
+				<span aria-hidden="true">⌕</span><span class="sr-only">Search the site</span>
+			</button>
+			<button class="site-nav__menu-button" type="button" aria-expanded="false" aria-controls="primary-navigation" data-nav-toggle>
+				<span aria-hidden="true">☰</span><span class="sr-only">Open menu</span>
+			</button>
+		</div>
+
+		<div class="site-nav__menu" id="primary-navigation" data-nav-menu>
+			<div class="site-nav__links">
+				<HeaderLink href="/">Home</HeaderLink>
+				<HeaderLink href="/about">About</HeaderLink>
+				<HeaderLink href="/projects">Projects</HeaderLink>
+				<HeaderLink href="/appearances">Appearances</HeaderLink>
+				<HeaderLink href="/skills">Skills</HeaderLink>
+				<HeaderLink href="/workhistory">Employment History</HeaderLink>
+				<HeaderLink href="/articles">Articles</HeaderLink>
+			</div>
+			<SocialLinks />
+		</div>
 	</nav>
 </header>
-<style>
-	header {
-		margin: 0;
-		padding: 0 1em;
-		background: light-dark(white, var(--theme-950));
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
-		position: sticky;
-		z-index: 1;
-		top: 0;
-	}
-	h2 {
-		margin: 0;
-		font-size: 1em;
+
+<SearchDialog />
+<Lightbox />
+
+<script>
+	const navToggle = document.querySelector<HTMLButtonElement>('[data-nav-toggle]');
+	const navMenu = document.querySelector<HTMLElement>('[data-nav-menu]');
+
+	function setMenuOpen(open: boolean) {
+		navToggle?.setAttribute('aria-expanded', String(open));
+		navMenu?.classList.toggle('site-nav__menu--open', open);
+		navToggle?.querySelector('.sr-only')?.replaceChildren(open ? 'Close menu' : 'Open menu');
 	}
 
-	h2 a,
-	h2 a.active {
-		text-decoration: none;
+	navToggle?.addEventListener('click', () => setMenuOpen(navToggle.getAttribute('aria-expanded') !== 'true'));
+	navMenu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenuOpen(false)));
+	document.addEventListener('keydown', (event) => {
+		if (event.key === 'Escape') setMenuOpen(false);
+	});
+</script>
+
+<style>
+	.site-header {
+		position: sticky;
+		top: 0;
+		z-index: 20;
+		border-bottom: 1px solid light-dark(var(--theme-200), var(--theme-800));
+		background: light-dark(rgb(255 255 255 / 96%), rgb(25 31 65 / 96%));
+		backdrop-filter: blur(12px);
 	}
-	nav {
+
+	.site-nav {
+		position: relative;
 		display: flex;
 		align-items: center;
-		justify-content: space-between;
+		gap: 1rem;
+		width: min(1400px, calc(100% - 2rem));
+		min-height: 4.5rem;
+		margin: auto;
 	}
-	nav a {
-		padding: 1em 0.5em;
-		color: light-dark(var(--theme-950), var(--theme-100));
-		border-bottom: 4px solid transparent;
+
+	.site-nav__title {
+		flex: 0 0 auto;
+		padding: 0.75rem 0;
+		color: inherit;
+		font-size: 1.05rem;
+		font-weight: 800;
+		line-height: 1.1;
 		text-decoration: none;
 	}
-	nav a.active {
-		text-decoration: none;
-		border-bottom-color: light-dark(var(--theme-950), var(--theme-100));
+
+	.site-nav__desktop-search {
+		position: relative;
+		order: 3;
+		flex: 1 1 13rem;
+		max-width: 18rem;
+		margin-left: auto;
 	}
-	.social-links,
-	.social-links a {
+
+	.site-nav__desktop-search input {
+		box-sizing: border-box;
+		width: 100%;
+		padding: 0.5rem 0.75rem;
+		border: 1px solid light-dark(var(--theme-300), var(--theme-600));
+		border-radius: 999px;
+		background: light-dark(var(--theme-0), var(--theme-900));
+		color: inherit;
+	}
+
+	.site-nav__search-results {
+		position: absolute;
+		top: calc(100% + 0.5rem);
+		right: 0;
+		left: 0;
+		max-height: 60vh;
+		overflow: auto;
+		border-radius: 0.75rem;
+		background: var(--theme-950);
+		box-shadow: var(--box-shadow);
+		color: var(--theme-0);
+	}
+
+	.site-nav__search-results:empty {
+		display: none;
+	}
+
+	.site-nav__search-results .site-search-results__list,
+	.site-nav__search-results .site-search-results__message {
+		margin: 0;
+		padding: 0.85rem;
+	}
+
+	.site-nav__menu {
 		display: flex;
+		align-items: center;
+		gap: 1rem;
+		order: 2;
 	}
-	@media (max-width: 720px) {
-		header {
-			nav {
-				.social-links {
-					display: none;
-				}
 
-				width: 100%;
-				padding: 0;
+	.site-nav__links {
+		display: flex;
+		align-items: center;
+		gap: 0.1rem;
+	}
 
-				h2 {
-					padding-top: 1em;
-					padding-bottom: 1em;
-				}
+	.site-nav__links a {
+		padding: 0.5rem 0.45rem;
+		color: inherit;
+		font-size: 0.88rem;
+		text-decoration: none;
+	}
 
-				.internal-links {
-					a {
-						padding: 0.1em;
-					}
-				}
-			}
-			
+	.site-nav__links a.active {
+		border-bottom: 3px solid var(--accent);
+		font-weight: 800;
+		text-decoration: none;
+	}
+
+	.site-nav__menu :global(.social-links) {
+		gap: 0.55rem;
+		margin: 0;
+	}
+
+	.site-nav__menu :global(.social-links svg) {
+		width: 1.25rem;
+		height: 1.25rem;
+	}
+
+	.site-nav__actions,
+	.site-nav__menu-button,
+	.site-nav__search-button {
+		display: none;
+	}
+
+	@media (max-width: 1140px) {
+		.site-nav__menu :global(.social-links) {
+			display: none;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.site-nav {
+			display: grid;
+			grid-template-columns: minmax(0, 1fr) auto;
+			gap: 0.5rem;
+			width: min(100% - 1.25rem, 48rem);
+			min-height: 4rem;
+		}
+
+		.site-nav__title {
+			max-width: 9rem;
+		}
+
+		.site-nav__desktop-search {
+			display: none;
+		}
+
+		.site-nav__actions {
+			display: flex;
+			align-items: center;
+			gap: 0.25rem;
+		}
+
+		.site-nav__menu-button,
+		.site-nav__search-button {
+			display: grid;
+			width: 2.75rem;
+			height: 2.75rem;
+			place-items: center;
+			border: 1px solid light-dark(var(--theme-300), var(--theme-600));
+			border-radius: 0.5rem;
+			background: transparent;
+			color: inherit;
+			font-size: 1.3rem;
+		}
+
+		.site-nav__menu {
+			display: none;
+			grid-column: 1 / -1;
+			padding: 0.5rem 0 1rem;
+			border-top: 1px solid light-dark(var(--theme-200), var(--theme-700));
+		}
+
+		.site-nav__menu--open {
+			display: block;
+		}
+
+		.site-nav__links {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 0.2rem;
+		}
+
+		.site-nav__links a {
+			padding: 0.65rem 0.5rem;
+			border-radius: 0.35rem;
+		}
+
+		.site-nav__links a:hover,
+		.site-nav__links a:focus-visible {
+			background: light-dark(var(--theme-100), var(--theme-800));
 		}
 	}
 </style>
