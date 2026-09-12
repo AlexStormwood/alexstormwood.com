@@ -120,7 +120,7 @@ export default {
 	godmaker: {
 		id: "godmaker", title: "Godmaker: Patrons & Prophets", description: "Build a gathering of followers, manipulate the mortal realm, and grow your godhood to become the highest power in a fantasy world.", builtFor: "BigfootDS strategy game in active development.",
 		brand: "BigfootDS", role: "Founder and developer", technologies: ["TypeScript", "JavaScript", "Node.js", "Electron", "React"], projectType: "Game", status: "In development",
-		imageUrl: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1792550/header.jpg", imageAlt: "Steam preview for Godmaker: Patrons & Prophets.",
+		imageUrl: "/projects/Godmaker-SteamHeaderCapsule.png", imageAlt: "Steam preview for Godmaker: Patrons & Prophets.",
 		projectUrls: [
 			{ websiteName: "Project page", url: "https://bigfootds.com/projects/patronsimulator/" },
 			{ websiteName: "Steam", url: "https://store.steampowered.com/app/1792550/Patron_Simulator/" },
