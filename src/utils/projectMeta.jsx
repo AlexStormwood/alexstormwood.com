@@ -129,7 +129,7 @@ export default {
 	tcgsetdesigner: {
 		id: "tcgsetdesigner", title: "TCG Set Designer", description: "A tool for designing trading-card-game sets, expansions, and other collections of cards. It is a design-management tool, not a gameplay simulator.", builtFor: "BigfootDS card-game design tool in active development.",
 		brand: "BigfootDS", role: "Founder and developer", technologies: ["Docker", "Web application", "TCG"], projectType: "Web application", status: "In development",
-		imageUrl: "https://opengraph.githubassets.com/1/BigfootDS/tcg-set-designer", imageAlt: "Open Graph preview for TCG Set Designer.",
+		imageUrl: "/projects/TCGSetDesigner-OpenGraph.png", imageAlt: "TCG Set Designer Open Graph banner.",
 		projectUrls: [
 			{ websiteName: "Project page", url: "https://bigfootds.com/projects/tcgsetdesigner/" },
 			{ websiteName: "Documentation", url: "https://tcgsetdesigner.com/" },
@@ -139,7 +139,7 @@ export default {
 	thebestestbeehive: {
 		id: "thebestestbeehive", title: "The Bestest Beehive", description: "Explore infinite worlds of flourishing flora, brilliant bees, and long-forgotten wonders while rebuilding the world with friends.", builtFor: "BigfootDS open-world cosy crafting game in prototyping.",
 		brand: "BigfootDS", role: "Founder and developer", technologies: ["Game development", "ECS", "Godot"], projectType: "Game", status: "In development",
-		imageUrl: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/749460/header.jpg", imageAlt: "Steam preview for The Bestest Beehive.",
+		imageUrl: "/projects/TheBestestBeehive-Card.png", imageAlt: "The Bestest Beehive logo and artwork.",
 		projectUrls: [
 			{ websiteName: "Project page", url: "https://bigfootds.com/projects/thebestestbeehive/" },
 			{ websiteName: "Steam", url: "https://store.steampowered.com/app/749460/The_Bestest_Beehive/" },
