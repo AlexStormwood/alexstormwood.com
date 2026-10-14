@@ -1,71 +1,583 @@
 ---
 title: "Escaping Engine Lock-In: Open-Source Tech Stacks"
-description: ''
-tags: []
+description: 'Breaking game development into smaller parts, choosing open-source tools, and taking control of your workflows without rewriting your whole game.'
+tags: ['game development', 'open source', 'software development', 'automation']
 series: 'Industry Talks'
 pubDate: 'Oct 13 2026'
-heroImage: '/articles/202511-japan-006/ArticleHeader.png'
+heroImage: '/articles/202610-escapingenginelockin/ArticleHeader-Diagram.png'
 ---
-import ImageGalleryReusable from "../../components/ImageGalleryReusable.tsx"
 
+This is the article version of my presentation for Every Game Talk Possible Sydney 2026. You can [download the presentation slides here](/articles/202610-escapingenginelockin/Escaping%20Engine%20Lock-In_%20Open%20Source%20Tech%20Stacks%20-%20Alex%20Stormwood%20-%20v0.1.0.pdf)[^1].
 
-Article version of  the presentation delivered for Every Game Talk Possible Sydney 2026.
+## The Scenario
 
-Presentations slides are here: 
+You've picked a game engine. Your team knows how to use it, your assets import nicely, and you've got a game taking shape. Good stuff.
 
-<a target="_blank" href="/articles/202610-escapingenginelockin/Escaping Engine Lock-In_ Open Source Tech Stacks - Alex Stormwood - v0.1.0.pdf" >Escaping Engine Lock-In: Open Source Tech Stacks - Alex Stormwood - v0.1.0 - PDF</a>
+Then something changes. A tool becomes more expensive. A service you depend on shuts down. You need a platform that your current stack doesn't support. Or there's a bug blocking your work, and you can't fix the software causing it.
 
+How much of your project would you have to change to deal with that?
 
-## Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+That's the question behind engine lock-in. And answering it means looking at more than the engine.
 
-Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+I've been doing freelance and solo development through BigfootDS since 2012, teaching IT and game development at AIT since 2016, and building open-source tools since 2020. My work began in graphic design and 3D animation, but these days I'm almost entirely focused on programming. So, I tend to look at a game project as a collection of jobs that need doing, with a choice of tools for each job.
 
-## Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+The short answer for this article: **break your project into smaller parts, and explore open-source tools for those parts.** You can start with the asset pipeline or build process while keeping your current engine.
 
-Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+## Why We Went to Game Engines in the First Place
 
-<ImageGalleryReusable client:load galleryId="kamiteinejinja" gallery={
-	[
-		"/articles/202511-japan-006/8-kamiteinejinja/20251201_143628.jpg",
-		"/articles/202511-japan-006/8-kamiteinejinja/20251201_143842.jpg",
-		"/articles/202511-japan-006/8-kamiteinejinja/20251201_143846.jpg",
-		"/articles/202511-japan-006/8-kamiteinejinja/20251201_143921.jpg",
-		"/articles/202511-japan-006/8-kamiteinejinja/20251201_144031.jpg"
-		
-	]
-} />
+An engine gives us a heap of work that somebody else has already done. Rendering, input, audio playback, asset importing, and platform support all take time to build. Reusing those systems lets a team spend more of its time making the game.
 
+Shared tools also give people skills they can take between studios. A developer who already knows the engine has less to learn before they can contribute to a project using it.
 
+The [2026 GDC State of the Game Industry survey](https://gdconf.com/article/gdc-2026-state-of-the-game-industry-reveals-impact-of-layoffs-generative-ai-and-more/)[^2] gives some context: 42% of surveyed developers named Unreal Engine as their primary engine, and 30% named Unity. Those are survey responses, rather than a count of every game project, but they show how much work centres on a few shared tools.
 
+<figure className="articleFigure">
+  <img src="/articles/202610-escapingenginelockin/slide-04.png" alt="An engine history timeline beside the GDC survey chart showing Unreal Engine at 42%, Unity at 30%, in-house engines at 19%, and Godot at 5%." width="1600" height="900" loading="lazy" />
+  <figcaption>Slide 4: The engine timeline and 2026 GDC engine survey results used in the presentation.[^1]</figcaption>
+</figure>
 
-## Aaaaaaaaaaaaaaaaa
+Using an existing engine makes sense. The question is how much of the rest of your business needs to depend on that same choice.
 
-Bbbbbbbbbbbbbbbbbbbbbbbb
+## What Is Engine Lock-In?
 
-<div style="display:flex;justify-content:center;flex-wrap:wrap;">
+Choosing an engine creates dependencies. Some are obvious, like the programming language and rendering system. Others turn up later:
 
-	<img 
-		width={"50%"}
-		src="\articles\202511-japan-006\9-local\20251202_185808.jpg" 
-		alt="A photo of a book depicting a white snow fox with red cheeks and red-tipped ears. It looks like a Pikachu if it were drawn using only red and white ink!" 
-	/>
+- The formats used for 3D models, animation, textures, and other assets.
+- Version control and the way the team shares large files.
+- Build machines, deployment scripts, and supported target platforms.
+- Plugins, online services, and the data stored in those services.
+- Staff experience, recruitment, documentation, and collaboration habits.
+
+You're locked in when replacing those dependencies becomes too expensive. That expense might be money, but it can also be months of retraining, rebuilding tools, or converting content.
+
+Unity's 2023 Runtime Fee announcement is a useful example. Developers had already committed work to an engine when its vendor announced a different charging model. For the current context, [Unity cancelled the Runtime Fee on 12 September 2024](https://unity.com/blog/unity-is-canceling-the-runtime-fee)[^3]. The lesson I take from that episode is to consider how a supplier's decisions could affect a project you've already spent years building.
+
+The slides also point to Tencent's investment in Epic Games, which [Tencent originally announced in 2012](https://static.www.tencent.com/storage/uploads/2019/11/09/b0963ae0fe5736d1d2b1e7fd2bebb57f.pdf)[^4]. Ownership and governance belong in the evaluation too: who makes decisions about the tools your project depends on?
+
+<figure className="articleFigure">
+  <img src="/articles/202610-escapingenginelockin/slide-06.png" alt="Slide showing the 2023 Unity Runtime Fee news and a 2013 report about Tencent investing in Epic Games." width="1600" height="900" loading="lazy" />
+  <figcaption>Slide 6: The Unity Runtime Fee and Tencent investment examples from the presentation.[^1]</figcaption>
+</figure>
+
+Creative software gives us an example outside game development. The Adobe pricing examples in the slides raise the same question as an engine subscription: if the terms or availability change, can you keep working with your own files? Ask that of your hosted wiki and project management service too.
+
+<figure className="articleFigure">
+  <img src="/articles/202610-escapingenginelockin/slide-07.png" alt="Slide comparing news about Adobe Creative Suite pricing with an Australian Creative Cloud subscription price screenshot." width="1600" height="900" loading="lazy" />
+  <figcaption>Slide 7: The historical Adobe pricing examples used in the presentation.[^1]</figcaption>
+</figure>
+
+## What Open Source Gives Us
+
+Open-source software gives us options to inspect, modify, and redistribute the tools we use, under their licences. The [Open Source Initiative's definition](https://opensource.org/osd)[^5] explains the freedoms involved. A free download alone doesn't tell you whether a tool provides those freedoms.
+
+For a game project, that can mean choosing when to update a tool, adapting it to a particular workflow, or keeping a working version available when the original maintainers move on. It can also mean paying someone to fix a problem in the tool, because the source code is available to work on.
+
+That is where digital independence becomes practical. You have more control over the software and processes your business needs to keep running.
+
+There are still costs. Somebody has to learn the tool, maintain any changes, and run the infrastructure if you're hosting it yourself. [OpenProject's Community edition documentation](https://www.openproject.org/community-edition/)[^6], for example, explicitly calls out the server administration knowledge needed to operate it properly. Removing a subscription doesn't remove the work behind the service.
+
+### Your Game and Your Tools Have Separate Licences
+
+Your game contains your work. Your tech stack contains other people's work. Open source gives you permission to do more with that stack, subject to the licence for each component.
+
+[Godot's licence page](https://godotengine.org/license/)[^7] is a handy concrete example. The engine uses the MIT licence, and Godot explains that you can choose the licence for your own game. You still need to include the engine's copyright and licence notices when distributing it, along with the relevant notices for its third-party components.
+
+<figure className="articleFigure">
+  <img src="/articles/202610-escapingenginelockin/slide-09.png" alt="Slide explaining that your game and technology stack contain separate work, beside an excerpt from Godot licensing information." width="1600" height="900" loading="lazy" />
+  <figcaption>Slide 9: The distinction between your game content and the tools used to create it.[^1]</figcaption>
+</figure>
+
+An art tool's licence and the rights to artwork made with it are separate questions too. [Blender's licensing information](https://www.blender.org/about/license/)[^8] explains that your artwork and saved data files are yours to use.
+
+So, check the actual tool, dependency, and asset licences. A sound pack, a plugin, and the application loading them can all have different conditions.
+
+## Breaking a Game Project Into Smaller Parts
+
+The typical game development pipeline looks something like this:
+
+1. Artists make images and 3D assets in specialist applications.
+2. Programmers write code in an editor or integrated development environment.
+3. Audio specialists create and edit sound.
+4. The engine combines those outputs into a playable game.
+5. Build and publishing tools get that game to players.
+
+Each step gives us something we can evaluate separately. An illustration tool needs to produce assets the game can use. A build system needs to run the project's build process. A support system needs to help the team answer player requests.
+
+Those are different jobs, and plenty of them exist outside game development.
+
+This is why I recommend searching for the feature you need. If you need a translation workflow, search for localisation management. If you need to turn a folder of images into a packed asset, search for asset packing. Looking only for a complete game development solution can hide useful tools from other fields.
+
+Let your specialists use tools suited to their work, then agree on how their outputs enter the project. Test that handover with real assets. A model importing successfully is a start, but you also need to check its materials, animation, scale, and anything else your game relies on.
+
+### My Bubble: Web Technology for Games
+
+My own example in the talk uses Krita for images, Blender for 3D assets, Visual Studio Code or Notepad++ for code, and Audacity for audio. The game itself uses HTML, CSS, and TypeScript.
+
+From there, the delivery path depends on where the game will run:
+
+- [Vite](https://vite.dev/)[^9] handles the web development and build workflow.
+- [Electron](https://www.electronjs.org/docs/latest/)[^10] provides a desktop application using web technology, with support for Windows, macOS, and Linux.
+- [Capacitor](https://capacitorjs.com/docs)[^11] provides a native runtime for web applications on platforms including Android and iOS.
+
+<figure className="articleFigure">
+  <img src="/articles/202610-escapingenginelockin/web-game-stack.png" alt="Slide showing Krita, Blender, code editors, and Audacity feeding an HTML, CSS, and TypeScript game, with Electron for desktop, Vite for web, and Capacitor for mobile." width="1600" height="900" loading="lazy" />
+  <figcaption>Slide 11: The stack from my talk. Asset creation, game code, and delivery each have their own tools.[^1]</figcaption>
+</figure>
+
+Godmaker is one example from my own work. This approach suits the kind of software I'm building, but you'll need to test it against your own game's requirements. Wrapping a web application for desktop or mobile still leaves platform integration, performance testing, and distribution work to do.
+
+<figure className="articleFigure">
+  <img src="/articles/202610-escapingenginelockin/slide-12.png" alt="Slide showing a Godmaker world map screenshot and the Godmaker title artwork." width="1600" height="900" loading="lazy" />
+  <figcaption>Slide 12: Godmaker, one of the game projects shown in the presentation.[^1]</figcaption>
+</figure>
+
+There's also a distinction worth making in that list: [Microsoft's Visual Studio Code distribution uses a Microsoft product licence](https://code.visualstudio.com/docs/supporting/faq#licensing)[^12], while the underlying Code - OSS source uses MIT. [VSCodium](https://vscodium.com/)[^13] provides a separate distribution built from that source. Check the extensions you need as part of the choice too.
+
+## Evaluating Tools for Your Team
+
+Finding a tool is the easy bit. Figuring out whether you can depend on it takes more work.
+
+These are the questions from the talk that I'd start with:
+
+1. **Does it support our development environment?** Check the operating systems, hardware, and existing tools your team actually uses.
+2. **Does it support the game's target platforms?** Test the required export or integration path early.
+3. **Does it have useful documentation and support?** Try following the documentation for a real task, and look at how the community handles problems.
+4. **Does it work well for developers doing similar work?** A successful project with similar requirements tells you more than a feature checklist on its own.
+5. **What happens if we have to replace it later?** Try exporting the data and using it elsewhere. Find out which features or files would be difficult to move.
+
+<figure className="articleFigure">
+  <img src="/articles/202610-escapingenginelockin/slide-16.png" alt="Slide listing development environment, target platform, documentation, community experience, and replacement cost questions." width="1600" height="900" loading="lazy" />
+  <figcaption>Slide 16: The five questions for evaluating a tool before depending on it.[^1]</figcaption>
+</figure>
+
+I'd also check who maintains the project, how it handles updates, and what your team would need to maintain locally. A public repository gives you a place to investigate those questions.
+
+Keeping a private fork can solve a particular problem, but then you have changes to maintain alongside upstream releases. That work needs a place in the project plan.
+
+### Mega Crit's Godot Evaluation
+
+[Slay the Spire 2 appears in Godot's official showcase](https://godotengine.org/showcase/)[^14], and Mega Crit's evaluation of the engine gives us a useful example of how to approach a change like that.
+
+[Casey Yano's account of evaluating Godot](https://caseyyano.com/on-evaluating-godot-b35ea86e8cf4)[^15] is useful because it describes a trial with actual game development work. Mega Crit evaluated the engine, then built a small game, Dancing Duelists, to find problems before committing further.
+
+The write-up covers content pipelines, C# integration, user interface work, and texture packing. It includes things Yano liked and things that were annoying. That's the sort of detail I want when evaluating a dependency.
+
+<figure className="articleFigure">
+  <img src="/articles/202610-escapingenginelockin/slide-18.png" alt="Slide showing Slay the Spire 2 in the Godot showcase and Mega Crit's statement about moving away from Unity." width="1600" height="900" loading="lazy" />
+  <figcaption>Slide 18: Mega Crit and Slay the Spire 2 in the open-source migration example.[^1]</figcaption>
+</figure>
+
+For your own project, a small trial could include importing representative assets, implementing one awkward screen, saving and loading data, and producing a build for a required platform. Pick the tasks most likely to reveal a reason the tool won't suit you.
+
+### Ludeon's In-House Engine
+
+The talk also includes a different route: moving to custom internal tools. On 12 October 2026, [Ludeon announced RimWorld's move from Unity to its Waylith engine for update 1.7](https://store.steampowered.com/news/app/294100/view/672882362547178633)[^16]. At the time of this article, that update is available on the unstable beta branch, with the main branch still on 1.6.
+
+<figure className="articleFigure">
+  <img src="/articles/202610-escapingenginelockin/slide-17.png" alt="Slide showing the Waylith engine announcement and a community explanation of separating game simulation from engine rendering." width="1600" height="900" loading="lazy" />
+  <figcaption>Slide 17: RimWorld and the move to custom internal tooling.[^1]</figcaption>
+</figure>
+
+Waylith is an example of a studio taking responsibility for its own engine. The announcement doesn't present it as a public open-source replacement you can download for your own project.
+
+I include both examples because the work involved is different. Adopting a shared open-source engine and maintaining an internal engine give a team different responsibilities. Either choice deserves an evaluation against the people and time available to maintain it.
+
+## The Boring Jobs Are Good Places to Start
+
+Waiting for builds sucks. Repeating the same tests is annoying. Uploading releases by hand gets tedious.
+
+Those are useful problems to tackle because you can usually describe the repeated steps. A build process might need to check out the project, install its dependencies, run tests, produce a build, and store the result somewhere the team can access.
+
+[Forgejo Actions](https://forgejo.org/docs/latest/user/actions/)[^17] and [Jenkins](https://www.jenkins.io/)[^18] are options to explore for that automation. You'll still need the appropriate build tools, platform access, and credentials for whatever you're building and publishing.
+
+<figure className="articleFigure">
+  <img src="/articles/202610-escapingenginelockin/slide-21.png" alt="Godmaker GitHub Actions workflows showing project tests, draft release creation, a React app build, parallel Android, Windows, Ubuntu, and macOS builds, release publishing, and deployment to Google and Steam." width="1600" height="900" loading="lazy" />
+  <figcaption>Slide 21: Godmaker's GitHub Actions workflows automate testing, platform builds, releases, and deployment.[^1]</figcaption>
+</figure>
+
+### Builds, Tests, and Publishing
+
+Continuous integration and continuous delivery or deployment, usually shortened to CI/CD, cover a lot of this work. For a game, useful tasks might include:
+
+- Testing game logic when code changes.
+- Building the game for supported platforms.
+- Keeping build outputs and logs together so testers can identify the version they're using.
+- Uploading an approved build through the distribution platform's tools.
+
+The talk points to [All About Mighty Build and Test](https://www.youtube.com/watch?v=gVcT2nz4V0U)[^19], from 18 August 2023, as an example of build and testing infrastructure. [Mighty Games describes its service](https://www.mightygamesgroup.com/)[^20] as an automated pipeline that tests games and reports problems. It's a useful example of the work you can automate, rather than a claim that every service in the example is open source.
+
+### Credits, Version Numbers, and Dependency Records
+
+<figure className="articleFigure">
+  <img src="/articles/202610-escapingenginelockin/slide-19.png" alt="Slide showing build, test, and proof bots, with a pipeline from version control through game builds to supported platforms." width="1600" height="900" loading="lazy" />
+  <figcaption>Slide 19: The Mighty Build and Test example of automated game builds and tests.[^1]</figcaption>
+</figure>
+
+The slides also group automated credits, version numbering, and software bills of materials alongside CI/CD.
+
+<figure className="articleFigure">
+  <img src="/articles/202610-escapingenginelockin/slide-22.png" alt="Slide grouping automated testing, builds and publishing with credits, version numbers, SBOMs, design tools, LiveOps, and ChatOps." width="1600" height="900" loading="lazy" />
+  <figcaption>Slide 22: Automation, credits, dependency records, design tools, and game infrastructure.[^1]</figcaption>
+</figure>
+
+A software bill of materials, or **SBOM**, records components used in a piece of software. [SPDX](https://spdx.dev/learn/overview/)[^21] provides a standard for sharing that information. It gives you a way to record dependencies that might otherwise remain scattered across package files and build tools.
+
+You can use automation to produce credits and dependency records, or to put the same version number into the game and its build output. If you're interested in the attribution side, I've written more in [Helping Others Cite Your Software](/articles/helpingothersciteyoursoftware/)[^22].
+
+### Design Tools and Game Infrastructure
+
+Internal tooling can be just as useful. Some of the examples I cover are a custom trading card game set designer, simulations for games with lots of data, asset packers, and living design documents that connect to the game. A tool made for your own workflow can also become a product other teams use.
+
+For example, a card set designer could store the card data once and export it for both a printable layout and the game. That gives you a specific problem to solve: keeping two outputs consistent when a designer changes a card.
+
+Online infrastructure gives us more places to look. Accounts, news feeds, player support, and configuration services all involve work that web developers already do. Live operations, often called LiveOps, covers ongoing operation and updates. ChatOps brings operational commands or reports into a team's chat workflow.
+
+<figure className="articleFigure">
+  <img src="/articles/202610-escapingenginelockin/game-services.png" alt="Architecture diagram for The Bestest Beehive, showing connections to separate authentication, account, news, multiplayer session, configuration, commerce, player data, website, support, issue tracking, forum, and email services." width="1600" height="900" loading="lazy" />
+  <figcaption>Slide 23: The Bestest Beehive diagram shows how much supporting software can sit around a game.[^1]</figcaption>
+</figure>
+
+Each box in that diagram is a separate responsibility to think about. You might use an existing service, adopt an open-source tool, or build the part you need. The diagram is an example to examine, rather than a requirement to give every small game its own collection of services.
+
+## An Open-Source Solution Shopping List
+
+These are the tool categories from the talk, with links so you can start exploring. The familiar tools column gives context for the job each row covers. Some familiar tools also have free editions or open-source components.
+
+Treat this as a starting list for evaluation. The tools differ in features, file compatibility, and maintenance requirements. Open-source projects can also charge for packaged downloads, hosting, support, or additional editions, so check the version and delivery option you're considering.
+
+On narrow screens, scroll each table sideways to see all three columns.
+
+<style>{`
+  .engine-lockin-tools table { min-width: 700px; border-collapse: collapse; text-align: left; }
+  .engine-lockin-tools th, .engine-lockin-tools td { padding: 0.5rem 0.75rem; vertical-align: top; border-bottom: 1px solid rgba(127, 127, 127, 0.3); }
+`}</style>
+
+### Engines, Code, and Visual Assets
+
+<div className="engine-lockin-tools" style={{ width: '100%', overflowX: 'auto', display: 'block' }}>
+
+| Work | Tools to explore | Familiar tools for this work |
+| --- | --- | --- |
+| Game engine | [Godot](https://godotengine.org/)[^23], [UPBGE](https://upbge.org/)[^24], or a framework assembled for your game | [Unity](https://unity.com/)[^25], [Unreal Engine](https://www.unrealengine.com/)[^26] |
+| Code editing | [VSCodium](https://vscodium.com/)[^13], [Visual Studio Code](https://code.visualstudio.com/docs/supporting/faq#licensing)[^12] with the distribution distinction discussed above | [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/)[^27] |
+| Illustration, image editing, and photography | [Krita](https://krita.org/en/)[^28], [GIMP](https://www.gimp.org/)[^29], [darktable](https://www.darktable.org/)[^30] | [Photoshop](https://www.adobe.com/products/photoshop.html)[^31], [Procreate](https://procreate.com/procreate)[^32], [Lightroom](https://www.adobe.com/products/photoshop-lightroom.html)[^33] |
+| Vector art | [Inkscape](https://inkscape.org/)[^34] | [Illustrator](https://www.adobe.com/products/illustrator.html)[^35] |
+| Pixel art and sprite animation | [Pixelorama](https://pixelorama.org/)[^36] | [Aseprite](https://www.aseprite.org/)[^37] |
+| User interface design and prototyping | [Penpot](https://penpot.app/)[^38], [Pencil](https://pencil.evolus.vn/)[^39] | [Figma](https://www.figma.com/)[^40], [Sketch](https://www.sketch.com/)[^41], [Balsamiq](https://balsamiq.com/)[^42] |
+| 3D modelling | [Blender](https://www.blender.org/)[^43] | [3ds Max](https://www.autodesk.com/products/3ds-max/overview)[^44], [Maya](https://www.autodesk.com/products/maya/overview/)[^45] |
+| Digital sculpting | [Blender](https://www.blender.org/)[^43] | [ZBrush](https://www.maxon.net/en/zbrush)[^46] |
 
 </div>
 
+### Materials, Animation, Narrative, and Audio
 
+<div className="engine-lockin-tools" style={{ width: '100%', overflowX: 'auto', display: 'block' }}>
 
-
-
-## What Next?
-
-Aaaaa
-
-<div style="display:flex;justify-content:center;flex-wrap:wrap;">
-
-	<img 
-		width="100%" 
-		src="\articles\202511-japan-006\10-departure\20251204_075328.jpg" 
-		alt="A photo of a crow amongst autumn trees." 
-	/>
+| Work | Tools to explore | Familiar tools for this work |
+| --- | --- | --- |
+| Texture painting | [Blender](https://www.blender.org/)[^43], [ArmorPaint](https://armorpaint.org/)[^47] | [Substance 3D Painter](https://www.adobe.com/products/substance3d/apps/painter.html)[^48], [Mari](https://www.foundry.com/products/mari)[^49] |
+| Procedural materials | [Material Maker](https://www.materialmaker.org/)[^50] | [Substance 3D Designer](https://www.adobe.com/products/substance3d/apps/designer.html)[^51] |
+| Procedural modelling | [Blender Geometry Nodes](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/index.html)[^52] | [Houdini](https://www.sidefx.com/products/houdini/)[^53] |
+| 2D animation | [OpenToonz](https://opentoonz.github.io/e/)[^54], [Krita](https://krita.org/en/)[^28], [Synfig](https://www.synfig.org/)[^55] | [Toon Boom Harmony](https://www.toonboom.com/products/harmony)[^56], [TVPaint](https://tvpaint.com/en)[^57], [Moho](https://moho.lostmarble.com/)[^58] |
+| 3D animation and rigging | [Blender](https://www.blender.org/)[^43] | [Maya](https://www.autodesk.com/products/maya/overview/)[^45], [MotionBuilder](https://www.autodesk.com/products/motionbuilder/overview)[^59] |
+| Narrative design | [Ink](https://www.inklestudios.com/ink/)[^60], [Twine](https://twinery.org/)[^61] | [articy:draft](https://www.articy.com/en/)[^62] |
+| Music composition and production | [LMMS](https://www.lmms.io/)[^63], [Ardour](https://ardour.org/)[^64] | [FL Studio](https://www.image-line.com/fl-studio)[^65], [Cubase](https://www.steinberg.net/cubase/)[^66], [REAPER](https://www.reaper.fm/)[^67] |
+| Sound editing and recording | [Audacity](https://www.audacityteam.org/)[^68], [Ardour](https://ardour.org/)[^64] | [Audition](https://www.adobe.com/products/audition.html)[^69], [REAPER](https://www.reaper.fm/)[^67], [Pro Tools](https://www.avid.com/pro-tools)[^70] |
 
 </div>
+
+### Production and Team Workflows
+
+<div className="engine-lockin-tools" style={{ width: '100%', overflowX: 'auto', display: 'block' }}>
+
+| Work | Tools to explore | Familiar tools for this work |
+| --- | --- | --- |
+| Video editing | [Kdenlive](https://kdenlive.org/)[^71], [Shotcut](https://shotcut.org/)[^72] | [Premiere Pro](https://www.adobe.com/products/premiere.html)[^73], [DaVinci Resolve](https://www.blackmagicdesign.com/products/davinciresolve)[^74] |
+| Gameplay capture and streaming | [OBS Studio](https://obsproject.com/)[^75] | [Bandicam](https://www.bandicam.com/)[^76], [Camtasia](https://www.techsmith.com/camtasia/)[^77] |
+| Version control and large assets | [Git](https://git-scm.com/)[^78] with [Git LFS](https://git-lfs.com/)[^79] | [Perforce P4](https://www.perforce.com/products/p4)[^80] |
+| Version control hosting | [Forgejo](https://forgejo.org/)[^81] | [GitHub](https://github.com/)[^82], [GitLab](https://about.gitlab.com/)[^83], [Bitbucket](https://bitbucket.org/)[^84] |
+| Automation | [Forgejo Actions](https://forgejo.org/docs/latest/user/actions/)[^17], [Jenkins](https://www.jenkins.io/)[^18] | [GitHub Actions](https://github.com/features/actions)[^85], [TeamCity](https://www.jetbrains.com/teamcity/)[^86] |
+| Project management and issue tracking | [Forgejo's issues and project boards](https://forgejo.org/)[^81], [OpenProject Community](https://www.openproject.org/community-edition/)[^6] | [GitHub Projects](https://github.com/features/issues)[^87], [Jira](https://www.atlassian.com/software/jira)[^88], [Linear](https://linear.app/)[^89], [Trello](https://trello.com/)[^90] |
+| Documentation and design wikis | [Forgejo's wiki](https://forgejo.org/)[^81], [BookStack](https://www.bookstackapp.com/)[^91], or your own website or wiki | [Confluence](https://www.atlassian.com/software/confluence)[^92], [Notion](https://www.notion.com/)[^93] |
+| Quality assurance and test case management | [Kiwi TCMS](https://kiwitcms.org/)[^94] | [TestRail](https://www.testrail.com/)[^95] |
+
+</div>
+
+### Online Services and Supporting Software
+
+<div className="engine-lockin-tools" style={{ width: '100%', overflowX: 'auto', display: 'block' }}>
+
+| Work | Tools to explore | Familiar tools for this work |
+| --- | --- | --- |
+| Multiplayer and game backends | [Nakama](https://heroiclabs.com/nakama/)[^96], or a backend built for your requirements | [PlayFab](https://playfab.com/)[^97], [Unity Gaming Services](https://docs.unity.com/en-us/services/getting-started)[^98] |
+| Websites | [WordPress](https://wordpress.org/)[^99], [Astro](https://astro.build/)[^100], or your own frontend | [Squarespace](https://www.squarespace.com/)[^101], [Webflow](https://webflow.com/)[^102] |
+| Custom APIs and data backends | A backend built from suitable libraries and frameworks | [Firebase](https://firebase.google.com/)[^103] |
+| Feature flags and rollout controls | [Unleash Open Source](https://github.com/Unleash/unleash)[^104], or a configuration service you build | [LaunchDarkly](https://launchdarkly.com/)[^105] |
+| Localisation management | [Weblate](https://weblate.org/)[^106] | [Crowdin](https://crowdin.com/)[^107], [Phrase](https://phrase.com/)[^108] |
+| Graphics debugging and profiling | [RenderDoc](https://github.com/baldurk/renderdoc)[^109], [Tracy](https://github.com/wolfpld/tracy)[^110] | [PIX](https://devblogs.microsoft.com/pix/)[^111], [NVIDIA Nsight](https://developer.nvidia.com/nsight-graphics)[^112] |
+| Social media scheduling | [Postiz](https://github.com/gitroomhq/postiz-app)[^113] | [Buffer](https://buffer.com/)[^114], [Hootsuite](https://www.hootsuite.com/)[^115] |
+| Player support and ticketing | [Zammad](https://zammad.org/)[^116] | [Zendesk](https://www.zendesk.com/)[^117], [Freshdesk](https://www.freshworks.com/freshdesk/)[^118] |
+
+</div>
+
+Where a row suggests building something yourself, that is a development option rather than a ready-made product. You'll need to choose the dependencies and take responsibility for the resulting software.
+
+## Summary
+
+A game project combines work from several fields. We can use specialist tools for that work and evaluate their dependencies separately. Open source gives us more options to adapt and maintain those tools, with costs and responsibilities that still need planning.
+
+You can begin with one asset workflow, design tool, or automated job in your existing project.
+
+### What Next?
+
+Pick one part of your current project that's causing friction. Ideally, choose something with a clear input and output, so you can try a replacement without changing everything around it.
+
+For example, try editing one asset in Krita, producing one automated build, or exporting a copy of a design document into another tool. Compare the result with what you need, record the awkward bits, and decide whether the change is worth keeping.
+
+Then share what you learn. A reproducible bug report, better documentation, or a small contribution can help the next team with the same problem. If a tool is useful to your business, funding its maintenance is worth considering too.
+
+You can keep exploring my work through [my projects](/projects/)[^119] and [GitHub](https://github.com/AlexStormwood)[^120].
+
+The next useful step is small enough to try: choose one dependency, test another tool against a real task, and find out how much control it gives you over your work.
+
+## References
+
+[^1]: [Alex Stormwood. Escaping Engine Lock-In: Open Source Tech Stacks, presentation slides, v0.1.0 (2026)](/articles/202610-escapingenginelockin/Escaping%20Engine%20Lock-In_%20Open%20Source%20Tech%20Stacks%20-%20Alex%20Stormwood%20-%20v0.1.0.pdf).
+
+[^2]: [GDC. 2026 State of the Game Industry survey](https://gdconf.com/article/gdc-2026-state-of-the-game-industry-reveals-impact-of-layoffs-generative-ai-and-more/).
+
+[^3]: [Unity. Unity is cancelling the Runtime Fee (12 September 2024)](https://unity.com/blog/unity-is-canceling-the-runtime-fee).
+
+[^4]: [Tencent. Investment in Epic Games announcement (19 June 2012)](https://static.www.tencent.com/storage/uploads/2019/11/09/b0963ae0fe5736d1d2b1e7fd2bebb57f.pdf).
+
+[^5]: [Open Source Initiative. The Open Source Definition](https://opensource.org/osd).
+
+[^6]: [OpenProject Community edition](https://www.openproject.org/community-edition/).
+
+[^7]: [Godot Engine. Licence and game distribution requirements](https://godotengine.org/license/).
+
+[^8]: [Blender. Licence and artwork ownership](https://www.blender.org/about/license/).
+
+[^9]: [Vite](https://vite.dev/).
+
+[^10]: [Electron](https://www.electronjs.org/docs/latest/).
+
+[^11]: [Capacitor](https://capacitorjs.com/docs).
+
+[^12]: [Microsoft. Visual Studio Code FAQ: Licensing](https://code.visualstudio.com/docs/supporting/faq#licensing).
+
+[^13]: [VSCodium](https://vscodium.com/).
+
+[^14]: [Godot Engine. Official game showcase](https://godotengine.org/showcase/).
+
+[^15]: [Casey Yano. On Evaluating Godot (17 October 2023)](https://caseyyano.com/on-evaluating-godot-b35ea86e8cf4).
+
+[^16]: [Ludeon Studios. Announcing the Waylith Engine and Update 1.7 (12 October 2026)](https://store.steampowered.com/news/app/294100/view/672882362547178633).
+
+[^17]: [Forgejo Actions](https://forgejo.org/docs/latest/user/actions/).
+
+[^18]: [Jenkins](https://www.jenkins.io/).
+
+[^19]: [All About Mighty Build and Test (18 August 2023)](https://www.youtube.com/watch?v=gVcT2nz4V0U).
+
+[^20]: [Mighty Games. Studio and Mighty Build and Test service](https://www.mightygamesgroup.com/).
+
+[^21]: [SPDX. Standard overview](https://spdx.dev/learn/overview/).
+
+[^22]: [Alex Stormwood. Helping Others Cite Your Software](/articles/helpingothersciteyoursoftware/).
+
+[^23]: [Godot](https://godotengine.org/).
+
+[^24]: [UPBGE](https://upbge.org/).
+
+[^25]: [Unity](https://unity.com/).
+
+[^26]: [Unreal Engine](https://www.unrealengine.com/).
+
+[^27]: [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/).
+
+[^28]: [Krita](https://krita.org/en/).
+
+[^29]: [GIMP](https://www.gimp.org/).
+
+[^30]: [darktable](https://www.darktable.org/).
+
+[^31]: [Photoshop](https://www.adobe.com/products/photoshop.html).
+
+[^32]: [Procreate](https://procreate.com/procreate).
+
+[^33]: [Lightroom](https://www.adobe.com/products/photoshop-lightroom.html).
+
+[^34]: [Inkscape](https://inkscape.org/).
+
+[^35]: [Illustrator](https://www.adobe.com/products/illustrator.html).
+
+[^36]: [Pixelorama](https://pixelorama.org/).
+
+[^37]: [Aseprite](https://www.aseprite.org/).
+
+[^38]: [Penpot](https://penpot.app/).
+
+[^39]: [Pencil](https://pencil.evolus.vn/).
+
+[^40]: [Figma](https://www.figma.com/).
+
+[^41]: [Sketch](https://www.sketch.com/).
+
+[^42]: [Balsamiq](https://balsamiq.com/).
+
+[^43]: [Blender](https://www.blender.org/).
+
+[^44]: [3ds Max](https://www.autodesk.com/products/3ds-max/overview).
+
+[^45]: [Maya](https://www.autodesk.com/products/maya/overview/).
+
+[^46]: [ZBrush](https://www.maxon.net/en/zbrush).
+
+[^47]: [ArmorPaint](https://armorpaint.org/).
+
+[^48]: [Substance 3D Painter](https://www.adobe.com/products/substance3d/apps/painter.html).
+
+[^49]: [Mari](https://www.foundry.com/products/mari).
+
+[^50]: [Material Maker](https://www.materialmaker.org/).
+
+[^51]: [Substance 3D Designer](https://www.adobe.com/products/substance3d/apps/designer.html).
+
+[^52]: [Blender Geometry Nodes](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/index.html).
+
+[^53]: [Houdini](https://www.sidefx.com/products/houdini/).
+
+[^54]: [OpenToonz](https://opentoonz.github.io/e/).
+
+[^55]: [Synfig](https://www.synfig.org/).
+
+[^56]: [Toon Boom Harmony](https://www.toonboom.com/products/harmony).
+
+[^57]: [TVPaint](https://tvpaint.com/en).
+
+[^58]: [Moho](https://moho.lostmarble.com/).
+
+[^59]: [MotionBuilder](https://www.autodesk.com/products/motionbuilder/overview).
+
+[^60]: [Ink](https://www.inklestudios.com/ink/).
+
+[^61]: [Twine](https://twinery.org/).
+
+[^62]: [articy:draft](https://www.articy.com/en/).
+
+[^63]: [LMMS](https://www.lmms.io/).
+
+[^64]: [Ardour](https://ardour.org/).
+
+[^65]: [FL Studio](https://www.image-line.com/fl-studio).
+
+[^66]: [Cubase](https://www.steinberg.net/cubase/).
+
+[^67]: [REAPER](https://www.reaper.fm/).
+
+[^68]: [Audacity](https://www.audacityteam.org/).
+
+[^69]: [Audition](https://www.adobe.com/products/audition.html).
+
+[^70]: [Pro Tools](https://www.avid.com/pro-tools).
+
+[^71]: [Kdenlive](https://kdenlive.org/).
+
+[^72]: [Shotcut](https://shotcut.org/).
+
+[^73]: [Premiere Pro](https://www.adobe.com/products/premiere.html).
+
+[^74]: [DaVinci Resolve](https://www.blackmagicdesign.com/products/davinciresolve).
+
+[^75]: [OBS Studio](https://obsproject.com/).
+
+[^76]: [Bandicam](https://www.bandicam.com/).
+
+[^77]: [Camtasia](https://www.techsmith.com/camtasia/).
+
+[^78]: [Git](https://git-scm.com/).
+
+[^79]: [Git LFS](https://git-lfs.com/).
+
+[^80]: [Perforce P4](https://www.perforce.com/products/p4).
+
+[^81]: [Forgejo. Repository hosting, issues, projects, and wikis](https://forgejo.org/).
+
+[^82]: [GitHub](https://github.com/).
+
+[^83]: [GitLab](https://about.gitlab.com/).
+
+[^84]: [Bitbucket](https://bitbucket.org/).
+
+[^85]: [GitHub Actions](https://github.com/features/actions).
+
+[^86]: [TeamCity](https://www.jetbrains.com/teamcity/).
+
+[^87]: [GitHub Projects](https://github.com/features/issues).
+
+[^88]: [Jira](https://www.atlassian.com/software/jira).
+
+[^89]: [Linear](https://linear.app/).
+
+[^90]: [Trello](https://trello.com/).
+
+[^91]: [BookStack](https://www.bookstackapp.com/).
+
+[^92]: [Confluence](https://www.atlassian.com/software/confluence).
+
+[^93]: [Notion](https://www.notion.com/).
+
+[^94]: [Kiwi TCMS](https://kiwitcms.org/).
+
+[^95]: [TestRail](https://www.testrail.com/).
+
+[^96]: [Nakama](https://heroiclabs.com/nakama/).
+
+[^97]: [PlayFab](https://playfab.com/).
+
+[^98]: [Unity Gaming Services](https://docs.unity.com/en-us/services/getting-started).
+
+[^99]: [WordPress](https://wordpress.org/).
+
+[^100]: [Astro](https://astro.build/).
+
+[^101]: [Squarespace](https://www.squarespace.com/).
+
+[^102]: [Webflow](https://webflow.com/).
+
+[^103]: [Firebase](https://firebase.google.com/).
+
+[^104]: [Unleash Open Source](https://github.com/Unleash/unleash).
+
+[^105]: [LaunchDarkly](https://launchdarkly.com/).
+
+[^106]: [Weblate](https://weblate.org/).
+
+[^107]: [Crowdin](https://crowdin.com/).
+
+[^108]: [Phrase](https://phrase.com/).
+
+[^109]: [RenderDoc](https://github.com/baldurk/renderdoc).
+
+[^110]: [Tracy](https://github.com/wolfpld/tracy).
+
+[^111]: [PIX](https://devblogs.microsoft.com/pix/).
+
+[^112]: [NVIDIA Nsight](https://developer.nvidia.com/nsight-graphics).
+
+[^113]: [Postiz](https://github.com/gitroomhq/postiz-app).
+
+[^114]: [Buffer](https://buffer.com/).
+
+[^115]: [Hootsuite](https://www.hootsuite.com/).
+
+[^116]: [Zammad](https://zammad.org/).
+
+[^117]: [Zendesk](https://www.zendesk.com/).
+
+[^118]: [Freshdesk](https://www.freshworks.com/freshdesk/).
+
+[^119]: [Alex Stormwood. Projects](/projects/).
+
+[^120]: [Alex Stormwood. GitHub profile](https://github.com/AlexStormwood).
